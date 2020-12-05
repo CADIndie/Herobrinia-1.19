@@ -19,13 +19,13 @@ public class Void extends Attack {
 
     @Override
     public void attack(Entity target, Entity herobrine) {
-        new Thread(() -> {
+   //     new Thread(() -> {
             try {
              /*   for(int i = (int) target.getPos().y; i > 0; i--) {
                     Utils.setBlockAtPos(target.world, target.getPos().x, i, target.getPos().z, Blocks.AIR);
                 }*/
                 Utils.setBlocks(target.world, target.getPos().x, target.getPos().x, target.getPos().y, 0, target.getPos().z, target.getPos().z, Blocks.AIR);
             }catch (Exception e) {}
-        }, "PlayerVoidThread").start();
+     //   }, "PlayerVoidThread").start();
     }
 }

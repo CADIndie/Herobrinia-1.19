@@ -14,11 +14,13 @@ public class AttackManager {
         registerAttack(new SpamHit());
         registerAttack(new Boost());
         registerAttack(new Lava());
-        //registerAttack(new RandomTP());
+        registerAttack(new RandomTP());
         registerAttack(new SpamHit());
         registerAttack(new Teleport());
         registerAttack(new Web());
-     //   registerAttack(new Void());
+	registerAttack(new Cut());
+	registerAttack(new FallingBlocks());
+        registerAttack(new Void());
     }
 
     public static void registerAttack(Attack attack) {

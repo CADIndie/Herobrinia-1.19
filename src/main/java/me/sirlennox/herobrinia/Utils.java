@@ -22,11 +22,21 @@ public class Utils {
         double yTo = !yForward ? y1 : y2;
         double z = zForward ? z1 : z2;
         double zTo = !zForward ? z1 : z2;
-        while(x <= xTo) {
+        for(double xx = x; xx < xTo; xx++) {
+            for(double zz = z; zz < zTo; zz++) {
+                for(double yy = y; yy < yTo; yy++) {
+                    if (yy > 0 && yy < 255) {
+                        setBlockAtPos(world, xx, yy, zz, block);
+                    }
+                }
+            }
+        }
+        /*while(x <= xTo) {
             while(z <= zTo) {
                 while (y <= yTo) {
 
                     setBlockAtPos(world, x, y, z, block);
+                    System.out.println(x + " " + y + " " + z);
                     if (yForward) {
                         y++;
                     } else {
@@ -45,7 +55,7 @@ public class Utils {
             }else {
                 x--;
             }
-        }
+        }*/
 
     }
 

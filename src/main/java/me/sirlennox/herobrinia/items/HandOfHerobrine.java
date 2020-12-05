@@ -23,12 +23,12 @@ public class HandOfHerobrine extends Item {
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if(delay.hasReached(Main.herobrineAttackDelay)) {
-            delay.reset();
+       /* if(delay.hasReached(Main.herobrineAttackDelay)) {
+            delay.reset();*/
             randomAttack(entity, user);
-        }else {
+        /*}else {
             user.sendMessage(Text.of("§cThis item is on cooldown!"), false);
-        }
+        }*/
         return ActionResult.SUCCESS;
     }
 
