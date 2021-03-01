@@ -1,8 +1,9 @@
 package me.sirlennox.herobrinia.items;
 
-import me.sirlennox.herobrinia.AttackManager;
+import me.sirlennox.herobrinia.attack.AttackRegistry;
 import me.sirlennox.herobrinia.Main;
-import me.sirlennox.herobrinia.TimeHelper;
+import me.sirlennox.herobrinia.utils.TimeUtil;
+import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,18 +15,18 @@ import net.minecraft.util.Hand;
 
 public class HandOfHerobrine extends Item {
 
-    public TimeHelper delay;
+    public TimeUtil delay;
 
     public HandOfHerobrine() {
         super(new Settings().group(Main.HEROBRINIA_GROUP));
-        delay = new TimeHelper();
+        delay = new TimeUtil();
     }
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
        /* if(delay.hasReached(Main.herobrineAttackDelay)) {
             delay.reset();*/
-            randomAttack(entity, user);
+            Utils.randomAttack(entity, user);
         /*}else {
             user.sendMessage(Text.of("§cThis item is on cooldown!"), false);
         }*/
@@ -41,10 +42,6 @@ public class HandOfHerobrine extends Item {
     @Override
     public Text getName(ItemStack is) {
         return Text.of("§a§k+++ §r§4§lHand of Herobrine §r§a§k+++");
-    }
-
-    public void randomAttack(Entity e, Entity player) {
-        AttackManager.attacks.get(Main.rndm.nextInt(AttackManager.attacks.size())).attack(e, player);
     }
 
     @Override

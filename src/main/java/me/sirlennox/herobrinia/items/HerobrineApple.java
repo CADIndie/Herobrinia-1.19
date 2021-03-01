@@ -1,15 +1,18 @@
 package me.sirlennox.herobrinia.items;
 
 import me.sirlennox.herobrinia.Main;
+import me.sirlennox.herobrinia.utils.Utils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -61,6 +64,9 @@ public class HerobrineApple extends SpawnEggItem {
         super.onCraft(stack, world, player);
     }
 
-
-
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        Utils.spawnLightning(context.getWorld(), context.getHitPos());
+        return super.useOnBlock(context);
+    }
 }

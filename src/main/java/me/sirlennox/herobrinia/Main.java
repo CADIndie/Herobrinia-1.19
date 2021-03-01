@@ -1,7 +1,8 @@
 package me.sirlennox.herobrinia;
 
 
-import me.sirlennox.herobrinia.entities.EntityHerobrine;
+import me.sirlennox.herobrinia.attack.AttackRegistry;
+import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
 import me.sirlennox.herobrinia.items.HandOfHerobrine;
 import me.sirlennox.herobrinia.items.HerobrineApple;
 import net.fabricmc.api.ModInitializer;
@@ -33,11 +34,12 @@ public class Main implements ModInitializer {
     public static final String MOD_NAME = "Herobrinia";
     public static final Random rndm = new Random();
     public static long herobrineAttackDelay = 30000L;
+    public static AttackRegistry attackRegistry;
     
     public static final EntityType<EntityHerobrine> HEROBRINE_ENTITY_TYPE = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("herobrinia", "herobrine"),
-            FabricEntityTypeBuilder.<EntityHerobrine>create(SpawnGroup.MISC, EntityHerobrine::new).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC, EntityHerobrine::new).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
     );
 
 
@@ -59,7 +61,8 @@ public class Main implements ModInitializer {
     }
 
     public void register() {
-        AttackManager.init();
+        attackRegistry = new AttackRegistry();
+        attackRegistry.init();
         HEROBRINIA_GROUP.setName("§cHerobrinia");
         FabricDefaultAttributeRegistry.register(HEROBRINE_ENTITY_TYPE, EntityHerobrine.createMobAttributes());
         Registry.register(Registry.ITEM, new Identifier("herobrinia", "herobrine_apple"), new HerobrineApple());
