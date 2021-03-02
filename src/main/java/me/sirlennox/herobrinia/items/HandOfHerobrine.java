@@ -41,7 +41,7 @@ public class HandOfHerobrine extends Item {
 
     @Override
     public Text getName(ItemStack is) {
-        return Text.of("§a§k+++ §r§4§lHand of Herobrine §r§a§k+++");
+        return this.getName();
     }
 
     @Override

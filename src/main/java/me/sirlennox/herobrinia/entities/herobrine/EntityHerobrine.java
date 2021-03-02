@@ -47,10 +47,8 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
     protected void onKilledBy(@Nullable LivingEntity killer) {
         if(killer instanceof PlayerEntity) {
             killer.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 10, 1);
-            ((PlayerEntity) killer).addExperience(Integer.MAX_VALUE);
+            ((PlayerEntity) killer).addExperience(10000);
             killer.setHealth(killer.getMaxHealth());
-            ((PlayerEntity) killer).sendMessage(Text.of("§cYou killed herobrine and got the §4§lHand of Herobrine§r§c!"), false);
-            ((PlayerEntity) killer).sendMessage(Text.of("§dRight click an entity to try out an attack on him."), false);
             Utils.spawnLightning(this.world, this.getPos());
             Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z, Blocks.NETHERITE_BLOCK);
             Utils.setBlockAtPos(this.world, this.getPos().x + 1, this.getPos().y - 1, this.getPos().z, Blocks.GOLD_BLOCK);
@@ -58,7 +56,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
             Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z + 1, Blocks.GOLD_BLOCK);
             Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z - 1, Blocks.GOLD_BLOCK);
             ItemStack is = new ItemStack(Main.HAND_OF_HEROBRINE.asItem(), 1);
-            ((PlayerEntity) killer).inventory.insertStack(is);
+            ((PlayerEntity) killer).giveItemStack(is);
         }
         super.onKilledBy(killer);
     }
@@ -103,6 +101,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
     @Override
     public boolean handleAttack(Entity attacker) {
+        if(this.isDead()) return false;
         if(!(attacker instanceof PlayerEntity)) return false;
         try {
            Utils.randomAttack((LivingEntity) attacker, this);

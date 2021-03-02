@@ -20,7 +20,7 @@ public class AttackRegistry extends Registry<Attack> {
 	    register(new Cut());
 	    register(new FallingBlocks());
         register(new Void());
-        register(new TNT());
+        //register(new TNT());
         register(new Lightning());
         register(new EveryEffect());
         register(new ObsidianTrap());

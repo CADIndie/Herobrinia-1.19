@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WRW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:netherite_block"
+    },
+    "R": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "result": {
+    "item": "herobrinia:herobrine_block"
+  }
+}

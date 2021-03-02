@@ -15,6 +15,6 @@ public class Lightning extends Attack {
     @Override
     public void attack(LivingEntity target, Entity herobrine) {
         Utils.spawnLightning(target.world, target.getPos());
-        Utils.setBlockAtPos(target.world, target.getPos().add(new Vec3d(0, -1, 0)), Blocks.INFESTED_CHISELED_STONE_BRICKS);
+        Utils.setBlockAtPos(target.world, target.getPos().add(new Vec3d(0, -1, 0)), Blocks.INFESTED_CRACKED_STONE_BRICKS);
     }
 }

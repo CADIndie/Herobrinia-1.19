@@ -4,11 +4,10 @@ import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.utils.Utils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.*;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -17,9 +16,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class HerobrineApple extends SpawnEggItem {
+public class HerobrineApple extends Item {
     public HerobrineApple() {
-        super(Main.HEROBRINE_ENTITY_TYPE, 0xFFFFFF, 0x000000,  new Item.Settings().group(Main.HEROBRINIA_GROUP));
+        super(new Settings().group(Main.HEROBRINIA_GROUP).food((new FoodComponent.Builder()).hunger(4).saturationModifier(1.2F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 20 * (60 * 45), 3), 1.0F).alwaysEdible().build()));
     }
 
     @Override
@@ -59,14 +58,7 @@ public class HerobrineApple extends SpawnEggItem {
 
     @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player) {
-        player.playSound(SoundEvents.ENTITY_ENDER_DRAGON_DEATH, SoundCategory.MUSIC, 10, 1);
-        player.sendMessage(Text.of("§dRight click on a block to spawn Herobrine there."), false);
+        player.playSound(SoundEvents.BLOCK_BEACON_ACTIVATE, SoundCategory.MUSIC, 10, 1);
         super.onCraft(stack, world, player);
-    }
-
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        Utils.spawnLightning(context.getWorld(), context.getHitPos());
-        return super.useOnBlock(context);
     }
 }
