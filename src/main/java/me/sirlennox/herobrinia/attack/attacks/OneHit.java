@@ -1,7 +1,6 @@
 package me.sirlennox.herobrinia.attack.attacks;
 
 import me.sirlennox.herobrinia.attack.Attack;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
 public class OneHit extends Attack {
@@ -10,7 +9,7 @@ public class OneHit extends Attack {
     }
 
     @Override
-    public void attack(LivingEntity target, Entity herobrine) {
+    public void attack(LivingEntity target, LivingEntity herobrine) {
         target.kill();
     }
 }

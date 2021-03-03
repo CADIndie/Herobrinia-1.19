@@ -1,6 +1,5 @@
 package me.sirlennox.herobrinia.attack;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
 public abstract class Attack {
@@ -13,5 +12,5 @@ public abstract class Attack {
         this.desc = desc;
     }
 
-    public abstract void attack(LivingEntity target, Entity herobrine);
+    public abstract void attack(LivingEntity target, LivingEntity herobrine);
 }

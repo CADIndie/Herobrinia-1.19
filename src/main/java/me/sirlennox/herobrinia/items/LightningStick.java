@@ -24,7 +24,7 @@ public class LightningStick extends Item {
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        Utils.spawnLightning(entity.getEntityWorld(), entity.getPos());
+        if(!user.world.isClient()) Utils.spawnLightning(entity.getEntityWorld(), entity.getPos());
         return super.useOnEntity(stack, user, entity, hand);
     }
 

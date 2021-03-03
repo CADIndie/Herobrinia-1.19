@@ -1,7 +1,6 @@
 package me.sirlennox.herobrinia.attack.attacks;
 
 import me.sirlennox.herobrinia.attack.Attack;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 
@@ -11,7 +10,7 @@ public class Hit extends Attack {
     }
 
     @Override
-    public void attack(LivingEntity target, Entity herobrine) {
+    public void attack(LivingEntity target, LivingEntity herobrine) {
         target.damage(DamageSource.MAGIC, 10);
     }
 }

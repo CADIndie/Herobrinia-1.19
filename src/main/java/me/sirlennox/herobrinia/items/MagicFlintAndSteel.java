@@ -21,6 +21,7 @@ public class MagicFlintAndSteel extends FlintAndSteelItem {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
+        if(context.getWorld().isClient()) return ActionResult.PASS;
         BlockState bs = context.getWorld().getBlockState(context.getBlockPos());
         if(bs != null && bs.getBlock() != null && bs.getBlock() instanceof HerobrineBlock) {
             Utils.spawnLightning(context.getWorld(), context.getHitPos());

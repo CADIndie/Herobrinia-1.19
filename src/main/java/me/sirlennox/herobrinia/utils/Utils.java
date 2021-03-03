@@ -1,15 +1,19 @@
 package me.sirlennox.herobrinia.utils;
 
 import me.sirlennox.herobrinia.Main;
+import me.sirlennox.herobrinia.attack.Attack;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class Utils {
 
@@ -80,7 +84,9 @@ public class Utils {
 
     public static void randomAttack(LivingEntity e, LivingEntity herobrine) {
         if(e == null) return;
-        Main.attackRegistry.REGISTERED.get(Main.rndm.nextInt(Main.attackRegistry.REGISTERED.size())).attack(e, herobrine);
+        Attack a = Main.attackRegistry.REGISTERED.get(Main.rndm.nextInt(Main.attackRegistry.REGISTERED.size()));
+        //e.sendSystemMessage(Text.of(a.name), UUID.randomUUID());
+        a.attack(e, herobrine);
     }
 
 }

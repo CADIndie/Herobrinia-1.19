@@ -13,14 +13,14 @@ public class AttackRegistry extends Registry<Attack> {
         register(new SpamHit());
         register(new Boost());
         register(new Lava());
-        register(new RandomTP());
+        //register(new RandomTP());
         register(new SpamHit());
         register(new Teleport());
         register(new Web());
 	    register(new Cut());
 	    register(new FallingBlocks());
         register(new Void());
-        //register(new TNT());
+        register(new TNT());
         register(new Lightning());
         register(new EveryEffect());
         register(new ObsidianTrap());
