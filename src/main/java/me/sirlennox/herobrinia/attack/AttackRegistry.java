@@ -24,7 +24,7 @@ public class AttackRegistry extends Registry<Attack> {
         register(new Lightning());
         register(new EveryEffect());
         register(new ObsidianTrap());
-        register(new WaterTrap());
+     //   register(new WaterTrap());
     }
 
 }
