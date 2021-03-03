@@ -1,0 +1,6 @@
+{
+    "parent": "herobrinia:item/herobrine_bow",
+    "textures": {
+        "layer0": "herobrinia:item/herobrine_bow_pulling_1"
+    }
+}

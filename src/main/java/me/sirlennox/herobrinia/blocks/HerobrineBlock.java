@@ -1,12 +1,16 @@
 package me.sirlennox.herobrinia.blocks;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
+import me.sirlennox.herobrinia.Main;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.MutableText;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 
 public class HerobrineBlock extends Block {
@@ -16,6 +20,12 @@ public class HerobrineBlock extends Block {
 
     @Override
     public MutableText getName() {
-        return new LiteralText("Herobrine Block");
+        return new LiteralText("§cHerobrine Block");
+    }
+
+    @Override
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
+        player.giveItemStack(new ItemStack(Main.HEROBRINE_BLOCK, 1));
+        super.afterBreak(world, player, pos, state, blockEntity, stack);
     }
 }

@@ -29,6 +29,12 @@ public class LightningStick extends Item {
     }
 
     @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if(attacker instanceof PlayerEntity) this.useOnEntity(stack, (PlayerEntity) attacker, target, Hand.MAIN_HAND);
+        return super.postHit(stack, target, attacker);
+    }
+
+    @Override
     public Text getName() {
         return Text.of("§eLightning Stick");
     }

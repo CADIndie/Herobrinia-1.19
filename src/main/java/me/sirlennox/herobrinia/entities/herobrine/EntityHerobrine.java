@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -33,6 +34,8 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 	    this.setHealth(1000);
 	    world.setThunderGradient(0);
 	    world.setLightningTicksLeft(0);
+	    this.setStackInHand(Hand.MAIN_HAND, new ItemStack(Main.HEROBRINE_SWORD, 1));
+	    this.setStackInHand(Hand.OFF_HAND, new ItemStack(Main.HAND_OF_HEROBRINE, 1));
     }
 
     @Override
@@ -176,7 +179,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         if(this.getServer() != null) {
             for (Object o : PlayerStream.all(this.getServer()).toArray()) {
                 if (o instanceof PlayerEntity) {
-                    if (!((PlayerEntity) o).isSpectator()) {
+                    if (!((PlayerEntity) o).isSpectator() && !((PlayerEntity) o).isDead()) {
                         array.add((ServerPlayerEntity) o);
                     }
                 }

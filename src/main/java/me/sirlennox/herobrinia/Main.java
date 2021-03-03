@@ -4,33 +4,23 @@ package me.sirlennox.herobrinia;
 import me.sirlennox.herobrinia.attack.AttackRegistry;
 import me.sirlennox.herobrinia.blocks.HerobrineBlock;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
-import me.sirlennox.herobrinia.items.HandOfHerobrine;
-import me.sirlennox.herobrinia.items.HerobrineApple;
-import me.sirlennox.herobrinia.items.LightningStick;
-import me.sirlennox.herobrinia.items.MagicFlintAndSteel;
+import me.sirlennox.herobrinia.items.*;
+import me.sirlennox.herobrinia.items.herobrineequip.*;
+import me.sirlennox.herobrinia.items.materials.HerobriniaArmorMaterial;
+import me.sirlennox.herobrinia.items.materials.HerobriniaToolMaterial;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.registry.Registry;
 
-import net.minecraft.world.World;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -54,18 +44,36 @@ public class Main implements ModInitializer {
     );
 
 
-    public static final ItemGroup HEROBRINIA_GROUP = FabricItemGroupBuilder.create(
-            new Identifier("herobrinia", "herobrinia"))
+
+
+    public static final ItemGroup HEROBRINIA_GROUP = BetterFabricItemGroupBuilder.create(
+            new Identifier("herobrinia", "herobrinia"), "§cHerobrinia")
             .icon(() -> new ItemStack(Blocks.NETHERITE_BLOCK))
             .build();
 
-    public static final Block HEROBRINE_BLOCK = new HerobrineBlock();
+
+    //Materials
+    public static final ToolMaterial HEROBRINIA_TOOL_MATERIAL = new HerobriniaToolMaterial();
+    public static final ArmorMaterial HEROBRINIA_ARMOR_MATERIAL = new HerobriniaArmorMaterial();
 
     //Items
     public static final Item HEROBRINE_APPLE = new HerobrineApple();
     public static final Item HAND_OF_HEROBRINE = new HandOfHerobrine();
     public static final Item MAGIC_FLINT_AND_STEEL = new MagicFlintAndSteel();
     public static final Item LIGHTNING_STICK = new LightningStick();
+    public static final Item HEROBRINE_SWORD = new HerobrineSword();
+    public static final Item HEROBRINE_INGOT = new HerobrineIngot();
+    public static final Item HEROBRINE_PICKAXE = new HerobrinePickaxe();
+    public static final Item HEROBRINE_ARROW = new HerobrineArrow();
+    public static final Item HEROBRINE_BOW = new HerobrineBow();
+    //Armor
+    public static final Item HEROBRINE_HELMET = new HerobrineHelmet();
+    public static final Item HEROBRINE_CHESTPLATE = new HerobrineChestplate();
+    public static final Item HEROBRINE_LEGGINGS = new HerobrineLeggings();
+    public static final Item HEROBRINE_BOOTS = new HerobrineBoots();
+
+    //Blocks
+    public static final Block HEROBRINE_BLOCK = new HerobrineBlock();
 
 
     public static Identifier createIdentifier(String name) {
@@ -82,26 +90,28 @@ public class Main implements ModInitializer {
     }
 
     public void register() {
-        net.fabricmc.fabric.api.event.player.UseBlockCallback.EVENT.register((playerEntity, world, hand, blockHitResult) -> {
-
-            return ActionResult.PASS;
-        });
-
         //Init AttackRegistry
         attackRegistry = new AttackRegistry();
         attackRegistry.init();
 
-
-        HEROBRINIA_GROUP.setName("§cHerobrinia");
-
         //Register Entities
         FabricDefaultAttributeRegistry.register(HEROBRINE_ENTITY_TYPE, EntityHerobrine.createMobAttributes());
+
 
         //Register items
         register(createIdentifier("herobrine_apple"), HEROBRINE_APPLE);
         register(createIdentifier("hand_of_herobrine"), HAND_OF_HEROBRINE);
         register(createIdentifier("magic_flint_and_steel"), MAGIC_FLINT_AND_STEEL);
         register(createIdentifier("lightning_stick"), LIGHTNING_STICK);
+        register(createIdentifier("herobrine_sword"), HEROBRINE_SWORD);
+        register(createIdentifier("herobrine_pickaxe"), HEROBRINE_PICKAXE);
+        register(createIdentifier("herobrine_arrow"), HEROBRINE_ARROW);
+        register(createIdentifier("herobrine_helmet"), HEROBRINE_HELMET);
+        register(createIdentifier("herobrine_chestplate"), HEROBRINE_CHESTPLATE);
+        register(createIdentifier("herobrine_leggings"), HEROBRINE_LEGGINGS);
+        register(createIdentifier("herobrine_boots"), HEROBRINE_BOOTS);
+        register(createIdentifier("herobrine_bow"), HEROBRINE_BOW);
+        register(createIdentifier("herobrine_ingot"), HEROBRINE_INGOT);
         //Register blocks
         register(createIdentifier("herobrine_block"), HEROBRINE_BLOCK);
 

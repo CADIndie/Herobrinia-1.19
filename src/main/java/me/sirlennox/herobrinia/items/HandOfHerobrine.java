@@ -18,7 +18,7 @@ public class HandOfHerobrine extends Item {
     public TimeUtil delay;
 
     public HandOfHerobrine() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP));
+        super(new Settings().group(Main.HEROBRINIA_GROUP).maxCount(1));
         delay = new TimeUtil();
     }
 
@@ -31,6 +31,12 @@ public class HandOfHerobrine extends Item {
             user.sendMessage(Text.of("§cThis item is on cooldown!"), false);
         }*/
         return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if(attacker instanceof PlayerEntity) this.useOnEntity(stack, (PlayerEntity) attacker, target, Hand.MAIN_HAND);
+        return super.postHit(stack, target, attacker);
     }
 
     @Override

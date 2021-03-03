@@ -12,6 +12,6 @@ public class EveryEffect extends Attack {
 
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
-        Registry.STATUS_EFFECT.getEntries().forEach(e -> target.addStatusEffect(new StatusEffectInstance(e.getValue(), 20 * 40, 6)));
+        Registry.STATUS_EFFECT.getEntries().forEach(e -> target.addStatusEffect(new StatusEffectInstance(e.getValue(), 20 * 20, 6)));
     }
 }

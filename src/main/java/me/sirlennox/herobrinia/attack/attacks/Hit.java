@@ -11,6 +11,6 @@ public class Hit extends Attack {
 
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
-        target.damage(DamageSource.MAGIC, 10);
+        target.damage(DamageSource.mob(herobrine), 10);
     }
 }

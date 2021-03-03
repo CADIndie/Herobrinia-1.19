@@ -1,0 +1,15 @@
+{
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2021-03-03 17:54:22 +0100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:wooded_mountains": "2021-03-03 17:54:22 +0100"
+    },
+    "done": false
+  },
+  "DataVersion": 2584
+}

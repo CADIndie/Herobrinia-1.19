@@ -14,6 +14,6 @@ public class ObsidianTrap extends Attack {
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
         target.playSound(SoundEvents.BLOCK_GLASS_BREAK, 10, 1);
-        Utils.setBlocks(target.world, target.getPos().add(-1, -1, -1), target.getPos().add(2,  2, 2), Blocks.OBSIDIAN);
+        Utils.setBlocks(target.world, target.getPos().add(-1, -1, -1), target.getPos().add(2,  3, 2), Blocks.OBSIDIAN);
     }
 }

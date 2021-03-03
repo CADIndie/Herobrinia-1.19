@@ -12,7 +12,7 @@ public class SpamHit extends Attack {
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
         for(int i = 0; i < 15; i++) {
-            target.damage(DamageSource.MAGIC, 5);
+            target.damage(DamageSource.mob(herobrine), 5);
         }
     }
 }

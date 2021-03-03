@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "herobrinia:herobrine_block"
+    }
+  ],
+  "result": {
+    "item": "herobrinia:herobrine_ingot",
+    "count": 9
+  }
+}
