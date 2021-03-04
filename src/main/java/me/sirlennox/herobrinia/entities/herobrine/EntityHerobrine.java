@@ -7,7 +7,13 @@ import net.fabricmc.fabric.api.server.PlayerStream;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.AttributeContainer;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.BossBar;
+import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -26,17 +32,26 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
     public TimeUtil attackDelayHelper;
     public float health;
+    public float maxHealth;
+    private final ServerBossBar bossBar;
+ //   private final DefaultAttributeContainer attributes;
 
 
     public EntityHerobrine(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
 	    this.attackDelayHelper = new TimeUtil();
-	    this.setHealth(1000);
+	    this.maxHealth = 1000;
+        this.bossBar = (ServerBossBar)(new ServerBossBar(this.getDisplayName(), BossBar.Color.RED, BossBar.Style.PROGRESS)).setDarkenSky(true);
 	    world.setThunderGradient(0);
 	    world.setLightningTicksLeft(0);
-	    this.setStackInHand(Hand.MAIN_HAND, new ItemStack(Main.HEROBRINE_SWORD, 1));
-	    this.setStackInHand(Hand.OFF_HAND, new ItemStack(Main.HAND_OF_HEROBRINE, 1));
+	   // this.attributes = HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).build();
+	    this.setHealth(this.maxHealth);
     }
+/*
+    @Override
+    public AttributeContainer getAttributes() {
+        return new AttributeContainer(this.attributes);
+    }*/
 
     @Override
     public void setHealth(float health) {
@@ -51,6 +66,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
     @Override
     protected void onKilledBy(@Nullable LivingEntity killer) {
         if(this.world.isClient()) return;
+        this.bossBar.clearPlayers();
         if(killer instanceof PlayerEntity) {
             killer.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 10, 1);
             ((PlayerEntity) killer).addExperience(10000);
@@ -79,27 +95,51 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
     public int ticksExisted = 0;
 
     @Override
+    public void onStartedTrackingBy(ServerPlayerEntity player) {
+        super.onStartedTrackingBy(player);
+        this.bossBar.addPlayer(player);
+    }
+    @Override
+    public void onStoppedTrackingBy(ServerPlayerEntity player) {
+        super.onStoppedTrackingBy(player);
+        this.bossBar.removePlayer(player);
+    }
+
+    @Override
+    public void setCustomName(@Nullable Text name) {
+        super.setCustomName(name);
+        this.bossBar.setName(this.getDisplayName());
+    }
+
+    @Override
+    protected void mobTick() {
+
+        super.mobTick();
+    }
+
+    @Override
     public void tick() {
         if(target != null) this.lookAtEntity(target, 360, 360);
+        this.bossBar.setPercent(this.getHealth() / this.maxHealth);
         if(!this.isDead()) {
             try {
                 ServerPlayerEntity nearest = this.getNearestEntity();
-            if (this.attackDelayHelper.hasReached(Main.herobrineAttackDelay)) {
-                this.attackDelayHelper.reset();
-                if (nearest != null) {
-                    if(!this.world.isClient()) Utils.randomAttack(nearest, this);
-                    target = nearest;
+                if (this.attackDelayHelper.hasReached(Main.herobrineAttackDelay)) {
+                    this.attackDelayHelper.reset();
+                    if (nearest != null) {
+                        if(!this.world.isClient()) Utils.randomAttack(nearest, this);
+                        target = nearest;
+                    }
+
                 }
 
-            }
-
-            if(nearest != null) {
-                if (ticksExisted % 60 == 0) {
-                    if (nearest.distanceTo(this) > 10 && nearest.getPos().y > 0) {
-                        this.teleport(nearest.getPos().x + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3)), nearest.getPos().y, nearest.getPos().z + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3)));
+                if(nearest != null) {
+                    if (ticksExisted % 60 == 0) {
+                        if (nearest.distanceTo(this) > 10 && nearest.getPos().y > 0) {
+                            this.teleport(nearest.getPos().x + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3)), nearest.getPos().y, nearest.getPos().z + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3)));
+                        }
                     }
                 }
-            }
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -111,6 +151,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         ticksExisted++;
         super.tick();
     }
+
 
     @Override
     public boolean isImmuneToExplosion() {

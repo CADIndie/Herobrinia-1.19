@@ -1,0 +1,60 @@
+{
+  "minecraft:recipes/tools/flint_and_steel": {
+    "criteria": {
+      "has_obsidian": "2021-03-04 10:12:24 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2021-03-04 10:12:50 +0100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2021-03-04 10:12:50 +0100"
+    },
+    "done": true
+  },
+  "minecraft:nether/all_effects": {
+    "criteria": {
+      "all_effects": "2021-03-04 10:13:08 +0100"
+    },
+    "done": true
+  },
+  "minecraft:story/form_obsidian": {
+    "criteria": {
+      "obsidian": "2021-03-04 10:12:24 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/brewing/cauldron": {
+    "criteria": {
+      "has_water_bucket": "2021-03-04 10:13:09 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/enchanting_table": {
+    "criteria": {
+      "has_obsidian": "2021-03-04 10:12:24 +0100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:forest": "2021-03-04 10:12:41 +0100",
+      "minecraft:river": "2021-03-04 10:12:40 +0100",
+      "minecraft:wooded_hills": "2021-03-04 10:12:24 +0100",
+      "minecraft:plains": "2021-03-04 10:14:49 +0100"
+    },
+    "done": false
+  },
+  "minecraft:nether/all_potions": {
+    "criteria": {
+      "all_effects": "2021-03-04 10:13:08 +0100"
+    },
+    "done": true
+  },
+  "DataVersion": 2584
+}

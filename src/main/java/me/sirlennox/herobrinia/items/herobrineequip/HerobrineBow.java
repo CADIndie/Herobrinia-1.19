@@ -1,10 +1,14 @@
 package me.sirlennox.herobrinia.items.herobrineequip;
 
 import me.sirlennox.herobrinia.Main;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 public class HerobrineBow extends BowItem {
@@ -13,6 +17,12 @@ public class HerobrineBow extends BowItem {
 
     public HerobrineBow() {
         super(new Settings().group(Main.HEROBRINIA_GROUP).maxCount(1).maxDamage(384 * 8));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(Text.of("§7The strongest bow, the world has ever seen."));
+        super.appendTooltip(stack, world, tooltip, context);
     }
 
     @Override

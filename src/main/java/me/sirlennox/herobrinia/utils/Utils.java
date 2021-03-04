@@ -1,5 +1,7 @@
 package me.sirlennox.herobrinia.utils;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.attack.Attack;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;

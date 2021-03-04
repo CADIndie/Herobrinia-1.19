@@ -3,6 +3,7 @@ package me.sirlennox.herobrinia.items;
 import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.utils.Utils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.*;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -15,6 +16,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class HerobrineApple extends Item {
     public HerobrineApple() {
@@ -53,7 +57,13 @@ public class HerobrineApple extends Item {
 
     @Override
     public Text getName(ItemStack is) {
-        return Text.of("§cHerobrine Apple");
+        return this.getName();
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(Text.of("§7Not a weapon, but strong."));
+        super.appendTooltip(stack, world, tooltip, context);
     }
 
     @Override

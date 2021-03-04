@@ -3,14 +3,19 @@ package me.sirlennox.herobrinia.blocks;
 import me.sirlennox.herobrinia.Main;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 
 public class HerobrineBlock extends Block {
@@ -21,6 +26,12 @@ public class HerobrineBlock extends Block {
     @Override
     public MutableText getName() {
         return new LiteralText("§cHerobrine Block");
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        tooltip.add(Text.of("§7This block is the begin of herobrine"));
+        super.appendTooltip(stack, world, tooltip, options);
     }
 
     @Override

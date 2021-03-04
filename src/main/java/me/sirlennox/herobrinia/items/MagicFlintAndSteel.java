@@ -6,9 +6,14 @@ import me.sirlennox.herobrinia.utils.Utils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class MagicFlintAndSteel extends FlintAndSteelItem {
 
@@ -34,6 +39,12 @@ public class MagicFlintAndSteel extends FlintAndSteelItem {
     @Override
     public Text getName() {
         return Text.of("§dMagic Flint and Steel");
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(Text.of("§7You have the power to begin the fight"));
+        super.appendTooltip(stack, world, tooltip, context);
     }
 
     @Override
