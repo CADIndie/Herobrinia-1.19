@@ -13,6 +13,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.*;
+import net.minecraft.client.item.ModelPredicateProvider;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -25,6 +27,9 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Random;
 
 public class Main implements ModInitializer {
@@ -34,7 +39,7 @@ public class Main implements ModInitializer {
     public static final String MOD_ID = "herobrinia";
     public static final String MOD_NAME = "Herobrinia";
     public static final Random rndm = new Random();
-    public static long herobrineAttackDelay = 20000L;
+    public static long herobrineAttackDelay = 10000L;
     public static AttackRegistry attackRegistry;
     
     public static final EntityType<EntityHerobrine> HEROBRINE_ENTITY_TYPE = Registry.register(
@@ -74,6 +79,16 @@ public class Main implements ModInitializer {
 
     //Blocks
     public static final Block HEROBRINE_BLOCK = new HerobrineBlock();
+
+    public static Method MODEL_PREDICATE_REGISTER_METHOD = null;
+    static {
+        try {
+            MODEL_PREDICATE_REGISTER_METHOD = ModelPredicateProviderRegistry.class.getDeclaredMethod("register", Item.class, Identifier.class, ModelPredicateProvider.class);
+            MODEL_PREDICATE_REGISTER_METHOD.setAccessible(true);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public static Identifier createIdentifier(String name) {
@@ -115,6 +130,18 @@ public class Main implements ModInitializer {
         //Register blocks
         register(createIdentifier("herobrine_block"), HEROBRINE_BLOCK);
 
+        //Register Model Predicates
+        registerModelPredicate(HEROBRINE_BOOTS, new Identifier("pull"), (itemStack, clientWorld, livingEntity) -> livingEntity == null ? 0.0F : livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / 20.0F);
+        registerModelPredicate(HEROBRINE_BOW, new Identifier("pulling"), (itemStack, clientWorld, livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
+    }
+
+    public static void registerModelPredicate(Item item, Identifier id, ModelPredicateProvider provider) {
+        if(MODEL_PREDICATE_REGISTER_METHOD == null) return;
+        try {
+            MODEL_PREDICATE_REGISTER_METHOD.invoke(null, item, id, provider);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void register(Identifier identifier, Block b) {

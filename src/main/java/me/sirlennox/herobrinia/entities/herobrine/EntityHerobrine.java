@@ -4,6 +4,7 @@ import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.utils.TimeUtil;
 import me.sirlennox.herobrinia.utils.Utils;
 import net.fabricmc.fabric.api.server.PlayerStream;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.*;
@@ -16,11 +17,13 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -46,6 +49,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 	    world.setLightningTicksLeft(0);
 	   // this.attributes = HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).build();
 	    this.setHealth(this.maxHealth);
+	    this.setGlowing(true);
     }
 /*
     @Override
@@ -135,8 +139,28 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
                 if(nearest != null) {
                     if (ticksExisted % 60 == 0) {
-                        if (nearest.distanceTo(this) > 10 && nearest.getPos().y > 0) {
-                            this.teleport(nearest.getPos().x + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3)), nearest.getPos().y, nearest.getPos().z + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3)));
+                        if (nearest.distanceTo(this) > 15) {
+                            double x = nearest.getPos().x + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
+                            double y = nearest.getPos().y;
+                            double z = nearest.getPos().z + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
+            //                BlockPos bp = new BlockPos(x, y, z);
+                            if(!nearest.getServerWorld().equals(this.getEntityWorld())) this.setWorld(nearest.getServerWorld());
+          /*                  BlockState bs1 = this.getEntityWorld().getBlockState(bp);
+                            BlockState bs2 = this.getEntityWorld().getBlockState(bp.up(1));
+                            if(bs1 != null && bs2 != null && (!bs1.isOpaque() || !bs2.isOpaque())) {
+                                x = nearest.getX();
+                                y = nearest.getY();
+                                z = nearest.getZ();
+                            }
+
+
+                            bp = new BlockPos(x, y, z);
+                            bs1 = this.getEntityWorld().getBlockState(bp);
+                            bs2 = this.getEntityWorld().getBlockState(bp.up(1));
+*/
+                            //if((bs1 == null || bs1.isOpaque()) || (bs2 == null || bs2.isOpaque())) {
+                                this.teleport(x, y, z);
+                            //}
                         }
                     }
                 }
@@ -173,12 +197,24 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
     public boolean handleAttack(Entity attacker) {
 
         if(this.isDead()) return false;
-        if(!(attacker instanceof PlayerEntity)) return false;
+        LivingEntity entity = null;
+
+
+        if(attacker instanceof PlayerEntity) {
+            entity = (LivingEntity) attacker;
+        }/*else if(attacker instanceof ProjectileEntity) {
+            Entity owner = ((ProjectileEntity) attacker).getOwner();
+            entity = owner instanceof LivingEntity ? (LivingEntity) owner : null;
+        }*/
+
+        if(entity == null) return false;
+
         try {
-            if(!this.world.isClient()) Utils.randomAttack((LivingEntity) attacker, this);
+            if(!this.world.isClient()) Utils.randomAttack(entity, this);
 	    } catch (Throwable t) {}
         return super.handleAttack(attacker);
     }
+
 
 
     @Override

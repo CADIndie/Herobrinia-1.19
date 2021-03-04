@@ -27,6 +27,7 @@ public class AttackRegistry extends Registry<Attack> {
         register(new MLG());
         register(new FallDamage());
         register(new TeleportIntoMe());
+        register(new SpawnMonsters());
      //   register(new WaterTrap());
     }
 
