@@ -27,6 +27,8 @@ public class HerobrineArrow extends ArrowItem {
         arrowEntity.setDamage(20);
         arrowEntity.setPunch(3);
         arrowEntity.setFireTicks(1000);
+        arrowEntity.setPierceLevel((byte) 3);
+        arrowEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
         return arrowEntity;
     }
 

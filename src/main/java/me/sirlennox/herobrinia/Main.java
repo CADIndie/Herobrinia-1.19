@@ -8,6 +8,7 @@ import me.sirlennox.herobrinia.items.*;
 import me.sirlennox.herobrinia.items.herobrineequip.*;
 import me.sirlennox.herobrinia.items.materials.HerobriniaArmorMaterial;
 import me.sirlennox.herobrinia.items.materials.HerobriniaToolMaterial;
+import me.sirlennox.herobrinia.mixins.ModelPredicateProviderRegistryMixin;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -80,16 +81,6 @@ public class Main implements ModInitializer {
     //Blocks
     public static final Block HEROBRINE_BLOCK = new HerobrineBlock();
 
-    public static Method MODEL_PREDICATE_REGISTER_METHOD = null;
-    static {
-        try {
-            MODEL_PREDICATE_REGISTER_METHOD = ModelPredicateProviderRegistry.class.getDeclaredMethod("register", Item.class, Identifier.class, ModelPredicateProvider.class);
-            MODEL_PREDICATE_REGISTER_METHOD.setAccessible(true);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     public static Identifier createIdentifier(String name) {
         return new Identifier(MOD_ID, name);
@@ -136,12 +127,7 @@ public class Main implements ModInitializer {
     }
 
     public static void registerModelPredicate(Item item, Identifier id, ModelPredicateProvider provider) {
-        if(MODEL_PREDICATE_REGISTER_METHOD == null) return;
-        try {
-            MODEL_PREDICATE_REGISTER_METHOD.invoke(null, item, id, provider);
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
+        ModelPredicateProviderRegistryMixin.register(item, id, provider);
     }
 
     public static void register(Identifier identifier, Block b) {

@@ -33,7 +33,7 @@ public class MagicFlintAndSteel extends FlintAndSteelItem {
            // Utils.setBlockAtPos(context.getWorld(), context.getHitPos(), Blocks.AIR);
          //   spawnEggItem.useOnBlock(context);
             Main.HEROBRINE_ENTITY_TYPE.spawnFromItemStack((ServerWorld) context.getWorld(), null, null, context.getBlockPos(), SpawnReason.EVENT, true, false);
-            context.getStack().increment(1);
+            context.getStack().decrement(1);
         }
         return super.useOnBlock(context);
     }

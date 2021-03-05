@@ -1,9 +1,11 @@
 {
   "required": true,
-  "package": "me.sirlennox.herobrinia.mixin",
+  "package": "me.sirlennox.herobrinia.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [],
-  "client": [],
+  "client": [
+    "ModelPredicateProviderRegistryMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
