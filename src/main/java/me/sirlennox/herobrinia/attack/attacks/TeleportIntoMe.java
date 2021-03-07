@@ -10,6 +10,6 @@ public class TeleportIntoMe extends Attack {
 
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
-        target.setPos(herobrine.getPos().x, herobrine.getPos().y, herobrine.getPos().z);
+        target.teleport(herobrine.getPos().x, herobrine.getPos().y, herobrine.getPos().z, true);
     }
 }

@@ -7,13 +7,13 @@ import net.minecraft.entity.LivingEntity;
 
 public class FallingBlocks extends Attack {
     public FallingBlocks() {
-        super("FallingBlocks", "Falling blocks from air");
+        super("FallingBlocks", "Falling blocks from the air");
     }
 
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
       //  new Thread(() -> {
-            Utils.setBlocks(target.world, target.getPos().x - 10, target.getPos().x + 10, target.getPos().y + 10, target.getPos().y + 15, target.getPos().z - 10, target.getPos().z + 10, Blocks.ANVIL);
+            Utils.setBlocks(target.world, target.getPos().x - 10, target.getPos().x + 10, target.getPos().y + 10, target.getPos().y + 13, target.getPos().z - 10, target.getPos().z + 10, Blocks.ANVIL);
         //}, "FallingBlocksPlacer").start();
     }
 }

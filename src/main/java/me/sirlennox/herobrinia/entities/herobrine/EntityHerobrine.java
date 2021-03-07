@@ -3,37 +3,34 @@ package me.sirlennox.herobrinia.entities.herobrine;
 import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.utils.TimeUtil;
 import me.sirlennox.herobrinia.utils.Utils;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.EnvironmentInterface;
+import net.fabricmc.api.EnvironmentInterfaces;
 import net.fabricmc.fabric.api.server.PlayerStream;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.*;
-import net.minecraft.entity.attribute.AttributeContainer;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
+@EnvironmentInterfaces({@EnvironmentInterface(
+        value = EnvType.CLIENT,
+        itf = SkinOverlayOwner.class
+)})
 public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner {
 
-    public TimeUtil attackDelayHelper;
+    public TimeUtil attackDelayUtil;
     public float health;
     public float maxHealth;
     private final ServerBossBar bossBar;
@@ -42,14 +39,18 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
     public EntityHerobrine(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
-	    this.attackDelayHelper = new TimeUtil();
+	    this.attackDelayUtil = new TimeUtil();
 	    this.maxHealth = 1000;
         this.bossBar = (ServerBossBar)(new ServerBossBar(this.getDisplayName(), BossBar.Color.RED, BossBar.Style.PROGRESS)).setDarkenSky(true);
 	    world.setThunderGradient(0);
 	    world.setLightningTicksLeft(0);
-	   // this.attributes = HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).build();
+	    // this.attributes = HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).build();
 	    this.setHealth(this.maxHealth);
-	    this.setGlowing(true);
+	    try {
+            if (world.isClient) {
+                this.setGlowing(true);
+            }
+        } catch (Throwable ignored) { }
     }
 /*
     @Override
@@ -124,12 +125,12 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
     @Override
     public void tick() {
         if(target != null) this.lookAtEntity(target, 360, 360);
-        this.bossBar.setPercent(this.getHealth() / this.maxHealth);
+        this.bossBar.setPercent(this.getHealth() / Math.max(this.getHealth(), this.maxHealth));
         if(!this.isDead()) {
             try {
                 ServerPlayerEntity nearest = this.getNearestEntity();
-                if (this.attackDelayHelper.hasReached(Main.herobrineAttackDelay)) {
-                    this.attackDelayHelper.reset();
+                if (this.attackDelayUtil.hasReached(Main.herobrineAttackDelay)) {
+                    this.attackDelayUtil.reset();
                     if (nearest != null) {
                         if(!this.world.isClient()) Utils.randomAttack(nearest, this);
                         target = nearest;

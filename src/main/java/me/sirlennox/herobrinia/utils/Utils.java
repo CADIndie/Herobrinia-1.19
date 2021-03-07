@@ -87,7 +87,7 @@ public class Utils {
     public static void randomAttack(LivingEntity e, LivingEntity herobrine) {
         if(e == null) return;
         Attack a = Main.attackRegistry.REGISTERED.get(Main.rndm.nextInt(Main.attackRegistry.REGISTERED.size()));
-        //e.sendSystemMessage(Text.of(a.name), UUID.randomUUID());
+        e.sendSystemMessage(Text.of(a.name), UUID.randomUUID());
         a.attack(e, herobrine);
     }
 

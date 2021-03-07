@@ -15,7 +15,6 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.client.item.ModelPredicateProvider;
-import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -28,13 +27,15 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Random;
 
 public class Main implements ModInitializer {
 
+    public static final EntityType<EntityHerobrine> HEROBRINE_ENTITY_TYPE = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("herobrinia", "herobrine"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC, EntityHerobrine::new).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
+    );
     public static Logger LOGGER = LogManager.getLogger();
 
     public static final String MOD_ID = "herobrinia";
@@ -42,14 +43,6 @@ public class Main implements ModInitializer {
     public static final Random rndm = new Random();
     public static long herobrineAttackDelay = 10000L;
     public static AttackRegistry attackRegistry;
-    
-    public static final EntityType<EntityHerobrine> HEROBRINE_ENTITY_TYPE = Registry.register(
-            Registry.ENTITY_TYPE,
-            new Identifier("herobrinia", "herobrine"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, EntityHerobrine::new).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
-    );
-
-
 
 
     public static final ItemGroup HEROBRINIA_GROUP = BetterFabricItemGroupBuilder.create(
@@ -121,14 +114,10 @@ public class Main implements ModInitializer {
         //Register blocks
         register(createIdentifier("herobrine_block"), HEROBRINE_BLOCK);
 
-        //Register Model Predicates
-        registerModelPredicate(HEROBRINE_BOOTS, new Identifier("pull"), (itemStack, clientWorld, livingEntity) -> livingEntity == null ? 0.0F : livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / 20.0F);
-        registerModelPredicate(HEROBRINE_BOW, new Identifier("pulling"), (itemStack, clientWorld, livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
+
     }
 
-    public static void registerModelPredicate(Item item, Identifier id, ModelPredicateProvider provider) {
-        ModelPredicateProviderRegistryMixin.register(item, id, provider);
-    }
+
 
     public static void register(Identifier identifier, Block b) {
         Registry.register(Registry.BLOCK, identifier, b);
