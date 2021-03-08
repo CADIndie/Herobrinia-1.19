@@ -61,10 +61,15 @@ public class Main implements ModInitializer {
     public static final Item MAGIC_FLINT_AND_STEEL = new MagicFlintAndSteel();
     public static final Item LIGHTNING_STICK = new LightningStick();
     public static final Item HEROBRINE_SWORD = new HerobrineSword();
-    public static final Item HEROBRINE_INGOT = new HerobrineIngot();
-    public static final Item HEROBRINE_PICKAXE = new HerobrinePickaxe();
-    public static final Item HEROBRINE_ARROW = new HerobrineArrow();
     public static final Item HEROBRINE_BOW = new HerobrineBow();
+    public static final Item HEROBRINE_ARROW = new HerobrineArrow();
+    public static final Item HEROBRINE_PICKAXE = new HerobrinePickaxe();
+    public static final Item HEROBRINE_AXE = new HerobrineAxe();
+    public static final Item HEROBRINE_SHOVEL = new HerobrineShovel();
+    public static final Item HEROBRINE_SHEARS = new HerobrineShears();
+    public static final Item HEROBRINE_HOE = new HerobrineHoe();
+    public static final Item HEROBRINE_INGOT = new HerobrineIngot();
+
     //Armor
     public static final Item HEROBRINE_HELMET = new HerobrineHelmet();
     public static final Item HEROBRINE_CHESTPLATE = new HerobrineChestplate();
@@ -104,6 +109,10 @@ public class Main implements ModInitializer {
         register(createIdentifier("lightning_stick"), LIGHTNING_STICK);
         register(createIdentifier("herobrine_sword"), HEROBRINE_SWORD);
         register(createIdentifier("herobrine_pickaxe"), HEROBRINE_PICKAXE);
+        register(createIdentifier("herobrine_axe"), HEROBRINE_AXE);
+        register(createIdentifier("herobrine_shovel"), HEROBRINE_SHOVEL);
+        register(createIdentifier("herobrine_hoe"), HEROBRINE_HOE);
+     //   register(createIdentifier("herobrine_shears"), HEROBRINE_SHEARS);
         register(createIdentifier("herobrine_arrow"), HEROBRINE_ARROW);
         register(createIdentifier("herobrine_helmet"), HEROBRINE_HELMET);
         register(createIdentifier("herobrine_chestplate"), HEROBRINE_CHESTPLATE);

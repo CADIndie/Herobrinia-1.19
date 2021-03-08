@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "herobrinia:herobrine_ingot"
+    },
+    {
+      "item": "minecraft:netherite_shovel"
+    }
+  ],
+  "result": {
+    "item": "herobrinia:herobrine_shovel"
+  }
+}

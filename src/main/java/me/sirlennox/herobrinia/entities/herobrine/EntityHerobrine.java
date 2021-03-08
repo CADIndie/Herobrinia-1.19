@@ -16,8 +16,10 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.scoreboard.Team;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -42,8 +44,6 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 	    this.attackDelayUtil = new TimeUtil();
 	    this.maxHealth = 1000;
         this.bossBar = (ServerBossBar)(new ServerBossBar(this.getDisplayName(), BossBar.Color.RED, BossBar.Style.PROGRESS)).setDarkenSky(true);
-	    world.setThunderGradient(0);
-	    world.setLightningTicksLeft(0);
 	    // this.attributes = HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).build();
 	    this.setHealth(this.maxHealth);
 	    try {
@@ -225,7 +225,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
     @Override
     public Text getName() {
-        return Text.of("§cHerobrine");
+        return new LiteralText(this.getEntityName());
     }
 
     @Override
@@ -235,12 +235,12 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
     @Override
     public Text getDisplayName() {
-        return Text.of("§cHerobrine");
+        return Team.modifyText(this.getScoreboardTeam(), this.getName()).styled((style) -> style.withHoverEvent(this.getHoverEvent()).withInsertion(this.getUuidAsString()));
     }
 
     @Override
     public @Nullable Text getCustomName() {
-        return Text.of("§cHerobrine");
+        return getDisplayName();
     }
 
     @Override

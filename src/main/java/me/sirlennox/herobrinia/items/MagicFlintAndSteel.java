@@ -39,13 +39,18 @@ public class MagicFlintAndSteel extends FlintAndSteelItem {
     }
 
     @Override
+    public boolean isFireproof() {
+        return true;
+    }
+
+    @Override
     public Text getName() {
-        return Text.of("§dMagic Flint and Steel");
+        return new net.minecraft.text.LiteralText("§dMagic Flint and Steel");
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.of("§7You have the power to begin the fight"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7You have the power to begin the fight"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

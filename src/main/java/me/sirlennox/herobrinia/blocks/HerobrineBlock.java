@@ -30,7 +30,7 @@ public class HerobrineBlock extends Block {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.of("§7This block is the begin of herobrine"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7This block is the begin of herobrine"));
         super.appendTooltip(stack, world, tooltip, options);
     }
 

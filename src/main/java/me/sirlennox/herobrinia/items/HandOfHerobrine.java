@@ -10,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -33,7 +34,7 @@ public class HandOfHerobrine extends Item {
             delay.reset();*/
          if(!user.world.isClient()) Utils.randomAttack(entity, user);
         /*}else {
-            user.sendMessage(Text.of("§cThis item is on cooldown!"), false);
+            user.sendMessage(new net.minecraft.text.LiteralText("§cThis item is on cooldown!"), false);
         }*/
         return ActionResult.SUCCESS;
     }
@@ -46,12 +47,12 @@ public class HandOfHerobrine extends Item {
 
     @Override
     public Text getName() {
-        return Text.of("§a§k+++ §r§4§lHand of Herobrine §r§a§k+++");
+        return new LiteralText("§a§k+++ §r§4§lHand of Herobrine §r§a§k+++");
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.of("§7The power of herobrine is with you"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7The power of herobrine is with you"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

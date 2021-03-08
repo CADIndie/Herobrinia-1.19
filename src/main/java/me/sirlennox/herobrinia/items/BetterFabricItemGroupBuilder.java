@@ -54,7 +54,7 @@ public class BetterFabricItemGroupBuilder {
 
             @Override
             public Text getTranslationKey() {
-                return Text.of(this.getName());
+                return new net.minecraft.text.LiteralText(this.getName());
             }
 
             public void appendStacks(DefaultedList<ItemStack> stacks) {

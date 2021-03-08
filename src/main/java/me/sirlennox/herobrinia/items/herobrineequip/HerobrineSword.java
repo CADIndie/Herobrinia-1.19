@@ -19,14 +19,19 @@ public class HerobrineSword extends SwordItem {
 
     @Override
     public Text getName() {
-        return Text.of("§cHerobrine Sword");
+        return new net.minecraft.text.LiteralText("§cHerobrine Sword");
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.of("§7A really strong weapon."));
+        tooltip.add(new net.minecraft.text.LiteralText("§7A really strong weapon."));
 
         super.appendTooltip(stack, world, tooltip, context);
+    }
+
+    @Override
+    public boolean isFireproof() {
+        return true;
     }
 
     @Override

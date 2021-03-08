@@ -24,12 +24,17 @@ public class HerobrineBoots extends ArmorItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.of("§7This boots will protect you every time."));
+        tooltip.add(new net.minecraft.text.LiteralText("§7This boots will protect you every time."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 
     @Override
+    public boolean isFireproof() {
+        return true;
+    }
+
+    @Override
     public Text getName() {
-        return Text.of("§cHerobrine Boots");
+        return new net.minecraft.text.LiteralText("§cHerobrine Boots");
     }
 }

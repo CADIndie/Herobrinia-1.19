@@ -33,8 +33,13 @@ public class HerobrineArrow extends ArrowItem {
     }
 
     @Override
+    public boolean isFireproof() {
+        return true;
+    }
+
+    @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.of("§7The arrows for the Herobrine Bow"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7The arrows for the Herobrine Bow"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 
@@ -45,6 +50,6 @@ public class HerobrineArrow extends ArrowItem {
 
     @Override
     public Text getName() {
-        return Text.of("§cHerobrine Arrow");
+        return new net.minecraft.text.LiteralText("§cHerobrine Arrow");
     }
 }

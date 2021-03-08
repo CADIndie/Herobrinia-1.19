@@ -19,13 +19,19 @@ public class HerobrineIngot extends Item {
 
     @Override
     public Text getName() {
-        return Text.of("§cHerobrine Ingot");
+        return new net.minecraft.text.LiteralText("§cHerobrine Ingot");
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.of("§7This is the begin of every herobrine fighter"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7This is the begin of every herobrine fighter"));
         super.appendTooltip(stack, world, tooltip, context);
+    }
+
+
+    @Override
+    public boolean isFireproof() {
+        return true;
     }
 
     @Override
