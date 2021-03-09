@@ -112,7 +112,7 @@ public class Main implements ModInitializer {
         register(createIdentifier("herobrine_axe"), HEROBRINE_AXE);
         register(createIdentifier("herobrine_shovel"), HEROBRINE_SHOVEL);
         register(createIdentifier("herobrine_hoe"), HEROBRINE_HOE);
-     //   register(createIdentifier("herobrine_shears"), HEROBRINE_SHEARS);
+        register(createIdentifier("herobrine_shears"), HEROBRINE_SHEARS);
         register(createIdentifier("herobrine_arrow"), HEROBRINE_ARROW);
         register(createIdentifier("herobrine_helmet"), HEROBRINE_HELMET);
         register(createIdentifier("herobrine_chestplate"), HEROBRINE_CHESTPLATE);
