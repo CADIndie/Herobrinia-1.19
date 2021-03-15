@@ -5,6 +5,7 @@ import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 
+/* Not working */
 public class WaterTrap extends Attack {
 
     public WaterTrap() {

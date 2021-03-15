@@ -5,6 +5,7 @@ import me.sirlennox.herobrinia.Main;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.sound.SoundEvents;
 
+/* Too OP */
 public class RandomTP extends Attack {
     public RandomTP() {
         super("RandomTP", "Teleport you randomly on the map");
