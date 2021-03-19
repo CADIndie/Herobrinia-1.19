@@ -43,7 +43,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
    // public float health;
   //  public float maxHealth;
     private final ServerBossBar bossBar;
-    public static double followRange = 50;
+    public static double followRange = 80000;
     public TargetPredicate targetPredicate = (new TargetPredicate()).setBaseMaxDistance(followRange);
     public PlayerEntity target;
     //   private final DefaultAttributeContainer attributes;
@@ -159,14 +159,14 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
                         target = nearest;
                     }
 
-                    if (nearest.distanceTo(this) > followRange - 5) {
+                  /*  if (nearest.distanceTo(this) > followRange - 5) {
                         double x = nearest.getPos().x + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
                         double y = nearest.getPos().y;
                         double z = nearest.getPos().z + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
                         //                BlockPos bp = new BlockPos(x, y, z);
                         if (!nearest.getEntityWorld().equals(this.getEntityWorld()))
                             this.setWorld(nearest.getEntityWorld());
-          /*                 BlockState bs1 = this.getEntityWorld().getBlockState(bp);
+          *//*                 BlockState bs1 = this.getEntityWorld().getBlockState(bp);
                             BlockState bs2 = this.getEntityWorld().getBlockState(bp.up(1));
                             if(bs1 != null && bs2 != null && (!bs1.isOpaque() || !bs2.isOpaque())) {
                                 x = nearest.getX();
@@ -178,13 +178,13 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
                             bp = new BlockPos(x, y, z);
                             bs1 = this.getEntityWorld().getBlockState(bp);
                             bs2 = this.getEntityWorld().getBlockState(bp.up(1));
-*/
+*//*
                         //if((bs1 == null || bs1.isOpaque()) || (bs2 == null || bs2.isOpaque())) {
                         this.teleport(x, y, z);
                         //}
 
 
-                    }
+                    }*/
                 }
 
             } catch (Exception e) {
