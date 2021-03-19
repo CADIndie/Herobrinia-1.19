@@ -14,6 +14,6 @@ public class Web extends Attack {
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
         target.playSound(SoundEvents.BLOCK_WOOL_BREAK, 10, 1);
-        Utils.setBlocks(target.world, target.getPos().x - 5, target.getPos().x + 5, target.getPos().y, target.getPos().y + 1, target.getPos().z - 5, target.getPos().z + 5, Blocks.COBWEB);
+        Utils.setBlocks(target.world, target.getPos().x - 5, target.getPos().x + 5, target.getPos().y, target.getPos().y + 2, target.getPos().z - 5, target.getPos().z + 5, Blocks.COBWEB);
     }
 }

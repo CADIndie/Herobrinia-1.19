@@ -10,12 +10,19 @@ import net.fabricmc.fabric.api.server.PlayerStream;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.TargetPredicate;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.attribute.AttributeContainer;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.scoreboard.Team;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
@@ -33,32 +40,53 @@ import java.util.ArrayList;
 public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner {
 
     public TimeUtil attackDelayUtil;
-    public float health;
-    public float maxHealth;
+   // public float health;
+  //  public float maxHealth;
     private final ServerBossBar bossBar;
- //   private final DefaultAttributeContainer attributes;
+    public static double followRange = 50;
+    public TargetPredicate targetPredicate = (new TargetPredicate()).setBaseMaxDistance(followRange);
+    public PlayerEntity target;
+    //   private final DefaultAttributeContainer attributes;
 
 
     public EntityHerobrine(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
 	    this.attackDelayUtil = new TimeUtil();
-	    this.maxHealth = 1000;
+	    //this.maxHealth = 1000;
         this.bossBar = (ServerBossBar)(new ServerBossBar(this.getDisplayName(), BossBar.Color.RED, BossBar.Style.PROGRESS)).setDarkenSky(true);
 	    // this.attributes = HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).build();
-	    this.setHealth(this.maxHealth);
+	  //  this.setHealth(this.maxHealth);
 	    try {
             if (world.isClient) {
                 this.setGlowing(true);
             }
         } catch (Throwable ignored) { }
     }
-/*
+
+
+    public static DefaultAttributeContainer.Builder createMobAttributes() {
+        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, followRange).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513D * 1.5).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1);
+    }
+
+
+
+    @Override
+    protected void initGoals() {
+        this.goalSelector.add(1, new SwimGoal(this));
+        this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, false));
+        this.targetSelector.add(2 , new FollowTargetGoal<>(this, PlayerEntity.class, false));
+        super.initGoals();
+    }
+
+    /*
     @Override
     public AttributeContainer getAttributes() {
         return new AttributeContainer(this.attributes);
     }*/
 
-    @Override
+/*    @Override
     public void setHealth(float health) {
         this.health = health;
     }
@@ -66,7 +94,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
     @Override
     public float getHealth() {
         return health;
-    }
+    }*/
 
     @Override
     protected void onKilledBy(@Nullable LivingEntity killer) {
@@ -95,9 +123,8 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         return super.damage(source, amount);
     }
 
-    public ServerPlayerEntity target;
 
-    public int ticksExisted = 0;
+ //   public int ticksExisted = 0;
 
     @Override
     public void onStartedTrackingBy(ServerPlayerEntity player) {
@@ -116,37 +143,30 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         this.bossBar.setName(this.getDisplayName());
     }
 
-    @Override
-    protected void mobTick() {
-
-        super.mobTick();
-    }
 
     @Override
     public void tick() {
-        if(target != null) this.lookAtEntity(target, 360, 360);
-        this.bossBar.setPercent(this.getHealth() / Math.max(this.getHealth(), this.maxHealth));
+        this.bossBar.setPercent(this.getHealth() / Math.max(this.getHealth(), this.getMaxHealth()));
         if(!this.isDead()) {
             try {
-                ServerPlayerEntity nearest = this.getNearestEntity();
-                if (this.attackDelayUtil.hasReached(Main.herobrineAttackDelay)) {
-                    this.attackDelayUtil.reset();
-                    if (nearest != null) {
-                        if(!this.world.isClient()) Utils.randomAttack(nearest, this);
+                PlayerEntity nearest = this.getNearestPlayerEntity();
+                if (nearest != null) {
+
+                    if (this.attackDelayUtil.hasReached(Main.herobrineAttackDelay)) {
+                        this.attackDelayUtil.reset();
+
+                        if (!this.world.isClient()) Utils.randomAttack(nearest, this);
                         target = nearest;
                     }
 
-                }
-
-                if(nearest != null) {
-                    if (ticksExisted % 60 == 0) {
-                        if (nearest.distanceTo(this) > 15) {
-                            double x = nearest.getPos().x + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
-                            double y = nearest.getPos().y;
-                            double z = nearest.getPos().z + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
-            //                BlockPos bp = new BlockPos(x, y, z);
-                            if(!nearest.getServerWorld().equals(this.getEntityWorld())) this.setWorld(nearest.getServerWorld());
-          /*                  BlockState bs1 = this.getEntityWorld().getBlockState(bp);
+                    if (nearest.distanceTo(this) > followRange - 5) {
+                        double x = nearest.getPos().x + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
+                        double y = nearest.getPos().y;
+                        double z = nearest.getPos().z + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
+                        //                BlockPos bp = new BlockPos(x, y, z);
+                        if (!nearest.getEntityWorld().equals(this.getEntityWorld()))
+                            this.setWorld(nearest.getEntityWorld());
+          /*                 BlockState bs1 = this.getEntityWorld().getBlockState(bp);
                             BlockState bs2 = this.getEntityWorld().getBlockState(bp.up(1));
                             if(bs1 != null && bs2 != null && (!bs1.isOpaque() || !bs2.isOpaque())) {
                                 x = nearest.getX();
@@ -159,10 +179,11 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
                             bs1 = this.getEntityWorld().getBlockState(bp);
                             bs2 = this.getEntityWorld().getBlockState(bp.up(1));
 */
-                            //if((bs1 == null || bs1.isOpaque()) || (bs2 == null || bs2.isOpaque())) {
-                                this.teleport(x, y, z);
-                            //}
-                        }
+                        //if((bs1 == null || bs1.isOpaque()) || (bs2 == null || bs2.isOpaque())) {
+                        this.teleport(x, y, z);
+                        //}
+
+
                     }
                 }
 
@@ -173,7 +194,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
         }
 
-        ticksExisted++;
+       // ticksExisted++;
         super.tick();
     }
 
@@ -272,7 +293,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         return true;
     }
 
-    public ServerPlayerEntity getNearestEntity() {
+    public ServerPlayerEntity getNearestServerPlayerEntity() {
         ServerPlayerEntity back = null;
         for(ServerPlayerEntity spe : getPlayers()) {
             if(spe.getUuid() != this.getUuid()) {
@@ -284,6 +305,10 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
             }
         }
         return back;
+    }
+
+    public PlayerEntity getNearestPlayerEntity() {
+        return this.world.getClosestPlayer(this.targetPredicate, this, this.getX(), this.getEyeY(), this.getZ());
     }
 
     @Override

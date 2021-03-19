@@ -29,7 +29,7 @@ guiScale:2
 particles:2
 maxFps:120
 difficulty:2
-graphicsMode:1
+graphicsMode:0
 ao:0
 biomeBlendRadius:0
 renderClouds:false

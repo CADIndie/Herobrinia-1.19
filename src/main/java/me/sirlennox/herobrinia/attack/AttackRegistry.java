@@ -32,6 +32,7 @@ public class AttackRegistry extends Registry<Attack> {
         register(new Stun());
         register(new Scare());
         register(new Meteors());
+        register(new Freeze());
         //register(new Smash());
      //   register(new WaterTrap());
     }
