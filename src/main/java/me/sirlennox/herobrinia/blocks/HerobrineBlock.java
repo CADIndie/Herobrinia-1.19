@@ -1,6 +1,7 @@
 package me.sirlennox.herobrinia.blocks;
 
 import me.sirlennox.herobrinia.Main;
+import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
@@ -36,7 +37,7 @@ public class HerobrineBlock extends Block {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
-        player.giveItemStack(new ItemStack(Main.HEROBRINE_BLOCK, 1));
+        Utils.giveItem(player, new ItemStack(Main.HEROBRINE_BLOCK, 1));
         super.afterBreak(world, player, pos, state, blockEntity, stack);
     }
 }

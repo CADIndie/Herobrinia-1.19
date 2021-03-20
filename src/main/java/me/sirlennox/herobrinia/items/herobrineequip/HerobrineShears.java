@@ -1,6 +1,7 @@
 package me.sirlennox.herobrinia.items.herobrineequip;
 
 import me.sirlennox.herobrinia.Main;
+import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
@@ -46,7 +47,7 @@ public class HerobrineShears extends ShearsItem {
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if(entity instanceof SheepEntity && ((SheepEntity) entity).isShearable()) {
             ((SheepEntity) entity).setSheared(true);
-            user.giveItemStack(new ItemStack(Blocks.WHITE_WOOL, 5 + RANDOM.nextInt(10)));
+            Utils.giveItem(user, new ItemStack(Blocks.WHITE_WOOL, 10 + RANDOM.nextInt(10)));
             return ActionResult.CONSUME;
         }
         return super.useOnEntity(stack, user, entity, hand);

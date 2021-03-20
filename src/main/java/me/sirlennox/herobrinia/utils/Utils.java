@@ -10,6 +10,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -88,6 +90,12 @@ public class Utils {
         if(e == null) return;
         Attack a = Main.attackRegistry.REGISTERED.get(Main.rndm.nextInt(Main.attackRegistry.REGISTERED.size()));
         a.attack(e, herobrine);
+    }
+
+    public static void giveItem(PlayerEntity p, ItemStack is) {
+        if(!p.giveItemStack(is)) {
+            p.dropItem(is, true);
+        }
     }
 
 }

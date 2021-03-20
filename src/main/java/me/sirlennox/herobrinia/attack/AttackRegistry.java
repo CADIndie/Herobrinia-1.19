@@ -4,8 +4,6 @@ import me.sirlennox.herobrinia.Registry;
 import me.sirlennox.herobrinia.attack.attacks.*;
 import me.sirlennox.herobrinia.attack.attacks.Void;
 
-import java.util.ArrayList;
-
 public class AttackRegistry extends Registry<Attack> {
     @Override
     public void init() {
@@ -31,8 +29,11 @@ public class AttackRegistry extends Registry<Attack> {
         register(new EffectClear());
         register(new Stun());
         register(new Scare());
-        register(new Meteors());
+        register(new Fireball());
         register(new Freeze());
+        register(new Burn());
+        register(new DragonFireball());
+        register(new Witherskull());
         //register(new Smash());
      //   register(new WaterTrap());
     }

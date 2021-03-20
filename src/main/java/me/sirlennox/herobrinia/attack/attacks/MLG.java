@@ -1,6 +1,7 @@
 package me.sirlennox.herobrinia.attack.attacks;
 
 import me.sirlennox.herobrinia.attack.Attack;
+import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -24,7 +25,7 @@ public class MLG extends Attack {
             Set<Item> items = new java.util.HashSet<>(Collections.emptySet());
             items.add(Items.WATER_BUCKET);
             if(!((PlayerEntity) target).inventory.containsAny(items)) {
-                ((PlayerEntity) target).giveItemStack(new ItemStack(Items.WATER_BUCKET, 1));
+                Utils.giveItem((PlayerEntity) target, new ItemStack(Items.WATER_BUCKET, 1));
             }
         }
     }

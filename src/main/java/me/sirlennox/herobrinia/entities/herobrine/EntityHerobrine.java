@@ -112,7 +112,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
             Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z + 1, Blocks.GOLD_BLOCK);
             Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z - 1, Blocks.GOLD_BLOCK);
             ItemStack is = new ItemStack(Main.HAND_OF_HEROBRINE.asItem(), 1);
-            ((PlayerEntity) killer).giveItemStack(is);
+            Utils.giveItem((PlayerEntity) killer, is);
         }
         super.onKilledBy(killer);
     }
