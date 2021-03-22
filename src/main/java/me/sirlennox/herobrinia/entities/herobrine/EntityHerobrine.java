@@ -21,6 +21,9 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.thrown.PotionEntity;
+import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.scoreboard.Team;
@@ -115,6 +118,40 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
             Utils.giveItem((PlayerEntity) killer, is);
         }
         super.onKilledBy(killer);
+    }
+
+
+    @Override
+    public void onDeath(DamageSource source) {
+        Entity killer = source.getAttacker();
+        if(killer == null) killer = this.getDamageTracker().getBiggestAttacker();
+
+        if(killer instanceof ProjectileEntity) killer = ((ProjectileEntity) killer).getOwner();
+        if(killer instanceof ThrownEntity) killer = ((ThrownEntity) killer).getOwner();
+
+        Utils.spawnLightning(this.world, this.getPos());
+        Utils.setBlocks(this.world, this.getPos(), this.getPos().add(1, 0, 1), Blocks.NETHERITE_BLOCK);
+        Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z, Main.HEROBRINE_BLOCK);
+        Utils.setBlockAtPos(this.world, this.getPos().x + 1, this.getPos().y - 1, this.getPos().z, Blocks.GOLD_BLOCK);
+        Utils.setBlockAtPos(this.world, this.getPos().x - 1, this.getPos().y - 1, this.getPos().z, Blocks.GOLD_BLOCK);
+        Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z + 1, Blocks.GOLD_BLOCK);
+        Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z - 1, Blocks.GOLD_BLOCK);
+
+        ItemStack is = new ItemStack(Main.HAND_OF_HEROBRINE.asItem(), 1);
+        if(killer instanceof PlayerEntity) {
+            killer.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 10, 1);
+            ((PlayerEntity) killer).addExperience(10000);
+            ((PlayerEntity) killer).setHealth(((PlayerEntity) killer).getMaxHealth());
+            Utils.giveItem((PlayerEntity) killer, is);
+        }else {
+            ItemEntity itemEntity = new ItemEntity(this.world, this.getX(), this.getY(), this.getZ(), is);
+            itemEntity.setPickupDelay(40);
+            getEntityWorld().spawnEntity(itemEntity);
+        }
+
+
+
+        super.onDeath(source);
     }
 
     @Override

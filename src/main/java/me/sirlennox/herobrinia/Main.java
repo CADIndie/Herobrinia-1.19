@@ -58,6 +58,8 @@ public class Main implements ModInitializer {
     //Items
     public static final Item HEROBRINE_APPLE = new HerobrineApple();
     public static final Item HAND_OF_HEROBRINE = new HandOfHerobrine();
+    public static final Item HAND_OF_NOTCH = new HandOfNotch();
+    public static final Item MULTI_HAND_OF_HEROBRINE_AND_NOTCH = new MultiHandOfHerobrineAndNotch();
     public static final Item MAGIC_FLINT_AND_STEEL = new MagicFlintAndSteel();
     public static final Item LIGHTNING_STICK = new LightningStick();
     public static final Item HEROBRINE_SWORD = new HerobrineSword();
@@ -105,6 +107,8 @@ public class Main implements ModInitializer {
         //Register items
         register(createIdentifier("herobrine_apple"), HEROBRINE_APPLE);
         register(createIdentifier("hand_of_herobrine"), HAND_OF_HEROBRINE);
+        register(createIdentifier("hand_of_notch"), HAND_OF_NOTCH);
+        register(createIdentifier("multi_hand_of_herobrine_and_notch"), MULTI_HAND_OF_HEROBRINE_AND_NOTCH);
         register(createIdentifier("magic_flint_and_steel"), MAGIC_FLINT_AND_STEEL);
         register(createIdentifier("lightning_stick"), LIGHTNING_STICK);
         register(createIdentifier("herobrine_sword"), HEROBRINE_SWORD);
@@ -120,6 +124,7 @@ public class Main implements ModInitializer {
         register(createIdentifier("herobrine_boots"), HEROBRINE_BOOTS);
         register(createIdentifier("herobrine_bow"), HEROBRINE_BOW);
         register(createIdentifier("herobrine_ingot"), HEROBRINE_INGOT);
+
         //Register blocks
         register(createIdentifier("herobrine_block"), HEROBRINE_BLOCK);
 

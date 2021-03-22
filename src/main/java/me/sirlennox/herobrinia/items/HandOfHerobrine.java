@@ -21,11 +21,8 @@ import java.util.List;
 
 public class HandOfHerobrine extends Item {
 
-    public TimeUtil delay;
-
     public HandOfHerobrine() {
         super(new Settings().group(Main.HEROBRINIA_GROUP).maxCount(1));
-        delay = new TimeUtil();
     }
 
     @Override
@@ -36,7 +33,7 @@ public class HandOfHerobrine extends Item {
         /*}else {
             user.sendMessage(new net.minecraft.text.LiteralText("§cThis item is on cooldown!"), false);
         }*/
-        return ActionResult.SUCCESS;
+        return ActionResult.CONSUME;
     }
 
     @Override

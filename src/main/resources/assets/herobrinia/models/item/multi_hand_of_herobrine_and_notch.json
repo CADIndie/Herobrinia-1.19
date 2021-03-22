@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "herobrinia:item/multi_hand_of_herobrine_and_notch"
+  }
+}

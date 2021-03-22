@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "herobrinia:hand_of_herobrine"
+    },
+    {
+      "item": "herobrinia:hand_of_notch"
+    }
+  ],
+  "result": {
+    "item": "herobrinia:multi_hand_of_herobrine_and_notch",
+    "count": 1
+  }
+}
