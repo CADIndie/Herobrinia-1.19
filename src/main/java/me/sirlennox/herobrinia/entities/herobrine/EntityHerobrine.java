@@ -79,28 +79,14 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
     @Override
     protected void onKilledBy(@Nullable LivingEntity killer) {
-        if(this.world.isClient()) return;
-        this.bossBar.clearPlayers();
-        if(killer instanceof PlayerEntity) {
-            killer.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 10, 1);
-            ((PlayerEntity) killer).addExperience(10000);
-            killer.setHealth(killer.getMaxHealth());
-            Utils.spawnLightning(this.world, this.getPos());
-            Utils.setBlocks(this.world, this.getPos(), this.getPos().add(1, 0, 1), Blocks.NETHERITE_BLOCK);
-            Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z, Main.HEROBRINE_BLOCK);
-            Utils.setBlockAtPos(this.world, this.getPos().x + 1, this.getPos().y - 1, this.getPos().z, Blocks.GOLD_BLOCK);
-            Utils.setBlockAtPos(this.world, this.getPos().x - 1, this.getPos().y - 1, this.getPos().z, Blocks.GOLD_BLOCK);
-            Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z + 1, Blocks.GOLD_BLOCK);
-            Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z - 1, Blocks.GOLD_BLOCK);
-            ItemStack is = new ItemStack(Main.HAND_OF_HEROBRINE.asItem(), 1);
-            Utils.giveItem((PlayerEntity) killer, is);
-        }
         super.onKilledBy(killer);
     }
 
 
     @Override
     public void onDeath(DamageSource source) {
+		if(this.world.isClient()) return;
+        this.bossBar.clearPlayers();
         Entity killer = source.getAttacker();
         if(killer == null) killer = this.getDamageTracker().getBiggestAttacker();
 
@@ -135,6 +121,23 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
     @Override
     public boolean damage(DamageSource source, float amount) {
         if(source == DamageSource.FALL || source == DamageSource.ANVIL || source == DamageSource.CACTUS || source == DamageSource.FALLING_BLOCK || source == DamageSource.SWEET_BERRY_BUSH || source == DamageSource.IN_WALL) return false;
+        if(this.isDead()) return super.damage(source, amount);
+        Entity attacker = source.getAttacker();
+        LivingEntity entity = null;
+
+
+        if(attacker instanceof ProjectileEntity) attacker = ((ProjectileEntity) attacker).getOwner();
+        if(attacker instanceof ThrownEntity) attacker = ((ThrownEntity) attacker).getOwner();
+
+
+
+        if(attacker instanceof LivingEntity && !(attacker instanceof EntityHerobrine)) entity = (LivingEntity) attacker;
+
+        if(attacker == null) return super.damage(source, amount);
+
+        try {
+            if(!this.world.isClient()) Utils.randomAttack(entity, this);
+        } catch (Throwable t) {}
         return super.damage(source, amount);
     }
 
@@ -226,28 +229,6 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         return true;
     }
 
-
-    @Override
-    protected void applyDamage(DamageSource source, float amount) {
-        if(this.isDead()) return;
-        Entity attacker = source.getAttacker();
-        LivingEntity entity = null;
-
-
-        if(attacker instanceof ProjectileEntity) attacker = ((ProjectileEntity) attacker).getOwner();
-        if(attacker instanceof ThrownEntity) attacker = ((ThrownEntity) attacker).getOwner();
-
-
-
-        if(attacker instanceof LivingEntity && !(attacker instanceof EntityHerobrine)) entity = (LivingEntity) attacker;
-
-        if(attacker == null) return;
-
-        try {
-            if(!this.world.isClient()) Utils.randomAttack(entity, this);
-        } catch (Throwable t) {}
-        super.applyDamage(source, amount);
-    }
 
 
 
