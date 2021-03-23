@@ -43,22 +43,15 @@ import java.util.ArrayList;
 public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner {
 
     public TimeUtil attackDelayUtil;
-   // public float health;
-  //  public float maxHealth;
     private final ServerBossBar bossBar;
     public static double followRange = 80000;
     public TargetPredicate targetPredicate = (new TargetPredicate()).setBaseMaxDistance(followRange);
     public PlayerEntity target;
-    //   private final DefaultAttributeContainer attributes;
-
 
     public EntityHerobrine(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
 	    this.attackDelayUtil = new TimeUtil();
-	    //this.maxHealth = 1000;
         this.bossBar = (ServerBossBar)(new ServerBossBar(this.getDisplayName(), BossBar.Color.RED, BossBar.Style.PROGRESS)).setDarkenSky(true);
-	    // this.attributes = HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).build();
-	  //  this.setHealth(this.maxHealth);
 	    try {
             if (world.isClient) {
                 this.setGlowing(true);
@@ -83,21 +76,6 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         super.initGoals();
     }
 
-    /*
-    @Override
-    public AttributeContainer getAttributes() {
-        return new AttributeContainer(this.attributes);
-    }*/
-
-/*    @Override
-    public void setHealth(float health) {
-        this.health = health;
-    }
-
-    @Override
-    public float getHealth() {
-        return health;
-    }*/
 
     @Override
     protected void onKilledBy(@Nullable LivingEntity killer) {
@@ -156,12 +134,9 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
     @Override
     public boolean damage(DamageSource source, float amount) {
-        if(source == DamageSource.FALL || source == DamageSource.ANVIL || source == DamageSource.CACTUS || source == DamageSource.FALLING_BLOCK || source == DamageSource.SWEET_BERRY_BUSH || source == DamageSource.IN_WALL || source == DamageSource.OUT_OF_WORLD) return false;
+        if(source == DamageSource.FALL || source == DamageSource.ANVIL || source == DamageSource.CACTUS || source == DamageSource.FALLING_BLOCK || source == DamageSource.SWEET_BERRY_BUSH || source == DamageSource.IN_WALL) return false;
         return super.damage(source, amount);
     }
-
-
- //   public int ticksExisted = 0;
 
     @Override
     public void onStartedTrackingBy(ServerPlayerEntity player) {
@@ -179,6 +154,7 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         super.setCustomName(name);
         this.bossBar.setName(this.getDisplayName());
     }
+
 
 
     @Override
@@ -230,8 +206,6 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
 
         }
-
-       // ticksExisted++;
         super.tick();
     }
 
@@ -252,26 +226,27 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         return true;
     }
 
-    @Override
-    public boolean handleAttack(Entity attacker) {
 
-        if(this.isDead()) return false;
+    @Override
+    protected void applyDamage(DamageSource source, float amount) {
+        if(this.isDead()) return;
+        Entity attacker = source.getAttacker();
         LivingEntity entity = null;
 
 
-        if(attacker instanceof PlayerEntity) {
-            entity = (LivingEntity) attacker;
-        }/*else if(attacker instanceof ProjectileEntity) {
-            Entity owner = ((ProjectileEntity) attacker).getOwner();
-            entity = owner instanceof LivingEntity ? (LivingEntity) owner : null;
-        }*/
+        if(attacker instanceof ProjectileEntity) attacker = ((ProjectileEntity) attacker).getOwner();
+        if(attacker instanceof ThrownEntity) attacker = ((ThrownEntity) attacker).getOwner();
 
-        if(entity == null) return false;
+
+
+        if(attacker instanceof LivingEntity && !(attacker instanceof EntityHerobrine)) entity = (LivingEntity) attacker;
+
+        if(attacker == null) return;
 
         try {
             if(!this.world.isClient()) Utils.randomAttack(entity, this);
-	    } catch (Throwable t) {}
-        return super.handleAttack(attacker);
+        } catch (Throwable t) {}
+        super.applyDamage(source, amount);
     }
 
 

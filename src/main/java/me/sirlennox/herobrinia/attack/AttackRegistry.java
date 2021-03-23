@@ -2,7 +2,7 @@ package me.sirlennox.herobrinia.attack;
 
 import me.sirlennox.herobrinia.Registry;
 import me.sirlennox.herobrinia.attack.attacks.*;
-import me.sirlennox.herobrinia.attack.attacks.Void;
+import me.sirlennox.herobrinia.attack.attacks.Fall;
 
 public class AttackRegistry extends Registry<Attack> {
     @Override
@@ -17,7 +17,7 @@ public class AttackRegistry extends Registry<Attack> {
         register(new Web());
 	    register(new Cut());
 	    register(new FallingBlocks());
-        register(new Void());
+        register(new Fall());
         register(new TNT());
         register(new Lightning());
         register(new EveryEffect());

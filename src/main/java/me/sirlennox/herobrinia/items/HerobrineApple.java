@@ -22,7 +22,7 @@ import java.util.List;
 
 public class HerobrineApple extends Item {
     public HerobrineApple() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP).food((new FoodComponent.Builder()).hunger(4).saturationModifier(1.2F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 20 * (60 * 45), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 20 * (60 * 45), 3), 1.0F).alwaysEdible().build()));
+        super(new Settings().group(Main.HEROBRINIA_GROUP).food((new FoodComponent.Builder()).hunger(20).saturationModifier(1.2F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 20 * (60 * 60), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 20 * (60 * 45), 3), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 20 * (60 * 45), 3), 1.0F).alwaysEdible().build()));
     }
 
     @Override

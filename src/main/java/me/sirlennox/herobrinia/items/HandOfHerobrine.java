@@ -49,7 +49,8 @@ public class HandOfHerobrine extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7The power of herobrine is with you"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7The power of herobrine is with you."));
+        tooltip.add(new LiteralText("§dRight click an entity to start a §cHerobrine Attack §don him."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

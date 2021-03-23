@@ -8,6 +8,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.*;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.World;
@@ -50,7 +51,8 @@ public class MagicFlintAndSteel extends FlintAndSteelItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7You have the power to begin the fight"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7You have the power to begin the fight."));
+        tooltip.add(new LiteralText("§dRight click a herobrine block to spawn §cHerobrine."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

@@ -32,6 +32,7 @@ public class HerobrineBlock extends Block {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(new net.minecraft.text.LiteralText("§7This block is the begin of herobrine"));
+        tooltip.add(new LiteralText("§dRight click with a Magic Flint and Steel on it to spawn Herobrine."));
         super.appendTooltip(stack, world, tooltip, options);
     }
 

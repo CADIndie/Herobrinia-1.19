@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -30,9 +31,9 @@ public class MultiHandOfHerobrineAndNotch extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7The power of herobrine and notch is with you"));
-        tooltip.add(new net.minecraft.text.LiteralText("§dLeft click for the power of §4Herobrine"));
-        tooltip.add(new net.minecraft.text.LiteralText("§dRight click for the power of §6Notch"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7The power of §cHerobrine §7and §6Notch §7is with you."));
+        tooltip.add(new net.minecraft.text.LiteralText("§dLeft click for the power of §4Herobrine."));
+        tooltip.add(new net.minecraft.text.LiteralText("§dRight click for the power of §6Notch."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 
@@ -47,6 +48,7 @@ public class MultiHandOfHerobrineAndNotch extends Item {
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if(user.getEntityWorld().isClient()) return ActionResult.CONSUME;
+        user.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 10, 1);
         user.teleport(entity.getX(), entity.getY(), entity.getZ());
         return ActionResult.CONSUME;
     }

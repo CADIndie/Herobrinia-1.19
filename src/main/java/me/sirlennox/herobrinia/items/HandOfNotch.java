@@ -9,10 +9,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,7 +34,8 @@ public class HandOfNotch extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7The power of notch is with you"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7The power of notch is with you."));
+        tooltip.add(new LiteralText("§dRight click a block or an entity to teleport."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 
@@ -47,6 +50,7 @@ public class HandOfNotch extends Item {
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if(user.getEntityWorld().isClient()) return ActionResult.CONSUME;
+        user.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 10, 1);
         user.teleport(entity.getX(), entity.getY(), entity.getZ());
         return ActionResult.CONSUME;
     }
