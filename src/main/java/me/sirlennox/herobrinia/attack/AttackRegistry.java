@@ -26,7 +26,7 @@ public class AttackRegistry extends Registry<Attack> {
         register(new FallDamage());
         register(new TeleportIntoMe());
         register(new SpawnMonsters());
-        register(new EffectClear());
+    //    register(new EffectClear());
         register(new Stun());
         register(new Scare());
         register(new Fireball());
