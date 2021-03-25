@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " W ",
+    "WRW",
+    " W "
+  ],
+  "key": {
+    "W": {
+      "item": "herobrinia:herobrine_block"
+    },
+    "R": {
+      "item": "minecraft:wither_rose"
+    }
+  },
+  "result": {
+    "item": "herobrinia:herobrine_rose"
+  }
+}

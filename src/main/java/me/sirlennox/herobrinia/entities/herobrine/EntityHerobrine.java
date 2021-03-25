@@ -20,17 +20,26 @@ import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
+import net.minecraft.item.DyeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.scoreboard.Team;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.DyeColor;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -40,16 +49,17 @@ import java.util.ArrayList;
         value = EnvType.CLIENT,
         itf = SkinOverlayOwner.class
 )})
-public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner {
+public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner {
 
     public TimeUtil attackDelayUtil;
     private final ServerBossBar bossBar;
     public static double followRange = 80000;
     public TargetPredicate targetPredicate = (new TargetPredicate()).setBaseMaxDistance(followRange);
-    public PlayerEntity target;
+    public LivingEntity target;
 
-    public EntityHerobrine(EntityType<? extends PathAwareEntity> entityType, World world) {
+    public EntityHerobrine(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
+
 	    this.attackDelayUtil = new TimeUtil();
         this.bossBar = (ServerBossBar)(new ServerBossBar(this.getDisplayName(), BossBar.Color.RED, BossBar.Style.PROGRESS)).setDarkenSky(true);
 	    try {
@@ -64,6 +74,32 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, followRange).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513D * 1.5).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1);
     }
 
+    public static final Item TAME_ITEM = Main.HEROBRINE_ROSE;
+
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        if(this.isTamed()) return ActionResult.PASS;
+        ItemStack itemStack = player.getStackInHand(hand);
+        Item item = itemStack.getItem();
+        if (this.world.isClient) {
+            boolean bl = this.isOwner(player) || this.isTamed() || item == TAME_ITEM && !this.isTamed();
+            return bl ? ActionResult.CONSUME : ActionResult.PASS;
+        } else {
+            if (item == TAME_ITEM) {
+                if (!player.abilities.creativeMode) {
+                    itemStack.decrement(1);
+                }
+                this.setOwner(player);
+                this.navigation.stop();
+                this.setTarget(null);
+                this.world.sendEntityStatus(this, (byte)7);
+
+                return ActionResult.SUCCESS;
+            }
+
+            return super.interactMob(player, hand);
+        }
+    }
+
 
 
     @Override
@@ -71,8 +107,19 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
-        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, false));
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, true) {
+            @Override
+            public boolean shouldContinue() {
+                LivingEntity livingEntity = this.mob.getTarget();
+                if(livingEntity != null && EntityHerobrine.this.isTamed() && EntityHerobrine.this.getOwner() != null && EntityHerobrine.this.getOwner().equals(livingEntity)) return false;
+                return super.shouldContinue();
+            }
+        });
         this.targetSelector.add(2 , new FollowTargetGoal<>(this, PlayerEntity.class, false));
+        this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
+        this.targetSelector.add(2, new AttackWithOwnerGoal(this));
+        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
+        this.goalSelector.add(7, new AnimalMateGoal(this, 1.0D));
         super.initGoals();
     }
 
@@ -132,12 +179,11 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
 
 
         if(attacker instanceof LivingEntity && !(attacker instanceof EntityHerobrine)) entity = (LivingEntity) attacker;
-
-        if(attacker == null) return super.damage(source, amount);
+        if(attacker == null || attacker.equals(this.getOwner()) || attacker.equals(this)) return super.damage(source, amount);
 
         try {
             if(!this.world.isClient()) Utils.randomAttack(entity, this);
-        } catch (Throwable t) {}
+        } catch (Throwable ignored) {}
         return super.damage(source, amount);
     }
 
@@ -165,10 +211,12 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
         this.bossBar.setPercent(this.getHealth() / Math.max(this.getHealth(), this.getMaxHealth()));
         if(!this.isDead()) {
             try {
-                PlayerEntity nearest = this.getNearestPlayerEntity();
-                if (nearest != null) {
+                LivingEntity nearest = this.getNearestPlayerEntity();
+                if(this.isTamed()) nearest = getOwner() == null ? null : getOwner().getAttacking() == null ? getOwner().getAttacker() : getOwner().getAttacking();
+                if (nearest != null && !nearest.equals(this)) {
 
                     if (this.attackDelayUtil.hasReached(Main.herobrineAttackDelay)) {
+
                         this.attackDelayUtil.reset();
 
                         if (!this.world.isClient()) Utils.randomAttack(nearest, this);
@@ -307,5 +355,11 @@ public class EntityHerobrine extends PathAwareEntity implements SkinOverlayOwner
     @Override
     public boolean shouldRenderOverlay() {
         return true;
+    }
+
+    @Nullable
+    @Override
+    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+        return null;
     }
 }

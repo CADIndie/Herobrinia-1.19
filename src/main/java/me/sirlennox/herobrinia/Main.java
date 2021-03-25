@@ -13,6 +13,8 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.advancement.Advancement;
+import net.minecraft.advancement.AdvancementDisplay;
 import net.minecraft.block.*;
 import net.minecraft.client.item.ModelPredicateProvider;
 import net.minecraft.entity.EntityDimensions;
@@ -60,6 +62,7 @@ public class Main implements ModInitializer {
     public static final Item HAND_OF_HEROBRINE = new HandOfHerobrine();
     public static final Item HAND_OF_NOTCH = new HandOfNotch();
     public static final Item MULTI_HAND_OF_HEROBRINE_AND_NOTCH = new MultiHandOfHerobrineAndNotch();
+    public static final Item HEROBRINE_ROSE = new HerobrineRose();
     public static final Item MAGIC_FLINT_AND_STEEL = new MagicFlintAndSteel();
     public static final Item LIGHTNING_STICK = new LightningStick();
     public static final Item HEROBRINE_SWORD = new HerobrineSword();
@@ -80,8 +83,6 @@ public class Main implements ModInitializer {
 
     //Blocks
     public static final Block HEROBRINE_BLOCK = new HerobrineBlock();
-
-
     public static Identifier createIdentifier(String name) {
         return new Identifier(MOD_ID, name);
     }
@@ -124,12 +125,15 @@ public class Main implements ModInitializer {
         register(createIdentifier("herobrine_boots"), HEROBRINE_BOOTS);
         register(createIdentifier("herobrine_bow"), HEROBRINE_BOW);
         register(createIdentifier("herobrine_ingot"), HEROBRINE_INGOT);
+        register(createIdentifier("herobrine_rose"), HEROBRINE_ROSE);
 
         //Register blocks
         register(createIdentifier("herobrine_block"), HEROBRINE_BLOCK);
 
 
     }
+
+
 
 
 
