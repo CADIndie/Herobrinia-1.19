@@ -18,10 +18,14 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.entity.mob.GhastEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
@@ -44,6 +48,8 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.UUID;
 
 @EnvironmentInterfaces({@EnvironmentInterface(
         value = EnvType.CLIENT,
@@ -110,8 +116,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, true) {
             @Override
             public boolean shouldContinue() {
-                LivingEntity livingEntity = this.mob.getTarget();
-                if(livingEntity != null && EntityHerobrine.this.isTamed() && EntityHerobrine.this.getOwner() != null && EntityHerobrine.this.getOwner().equals(livingEntity)) return false;
+                if(!isAllowedToAttack(this.mob.getTarget())) return false;
                 return super.shouldContinue();
             }
         });
@@ -123,12 +128,45 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         super.initGoals();
     }
 
+    @Override
+    public boolean canAttackWithOwner(LivingEntity a, LivingEntity owner) {
+        return isAllowedToAttack(target, owner);
+    }
 
     @Override
     protected void onKilledBy(@Nullable LivingEntity killer) {
         super.onKilledBy(killer);
     }
 
+
+    private LivingEntity getOwnerAttackingEntity() {
+        return getOwnerAttackingEntity(getOwner());
+    }
+
+    private LivingEntity getOwnerAttackingEntity(LivingEntity owner) {
+        return !isTamed() ? null : owner == null ? null : owner.getAttacking();
+    }
+
+    private boolean isAllowedToAttack(LivingEntity e, LivingEntity owner) {
+        if(e == null) return false;
+        if(!isTamed()) return !e.equals(this);
+        if(owner == null) return false;
+        LivingEntity a = getOwnerAttackingEntity();
+        if(a == null || a.equals(this) || a.equals(owner)) return false;
+        if(a instanceof TameableEntity) {
+            TameableEntity t = (TameableEntity) a;
+            if(!t.isTamed() || t.getOwner() == null) {
+                return a.equals(e);
+            } else if(t.getOwner().equals(owner)) {
+                return false;
+            }
+        }
+        return a.equals(e);
+    }
+
+    private boolean isAllowedToAttack(LivingEntity e) {
+       return isAllowedToAttack(e, getOwner());
+    }
 
     @Override
     public void onDeath(DamageSource source) {
@@ -179,7 +217,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
 
         if(attacker instanceof LivingEntity && !(attacker instanceof EntityHerobrine)) entity = (LivingEntity) attacker;
-        if(attacker == null || attacker.equals(this.getOwner()) || attacker.equals(this)) return super.damage(source, amount);
+        if(!isAllowedToAttack(entity)) return super.damage(source, amount);
 
         try {
             if(!this.world.isClient()) Utils.randomAttack(entity, this);
@@ -212,8 +250,8 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         if(!this.isDead()) {
             try {
                 LivingEntity nearest = this.getNearestPlayerEntity();
-                if(this.isTamed()) nearest = getOwner() == null ? null : getOwner().getAttacking() == null ? getOwner().getAttacker() : getOwner().getAttacking();
-                if (nearest != null && !nearest.equals(this)) {
+                if(this.isTamed()) nearest = getOwnerAttackingEntity();
+                if (isAllowedToAttack(nearest)) {
 
                     if (this.attackDelayUtil.hasReached(Main.herobrineAttackDelay)) {
 

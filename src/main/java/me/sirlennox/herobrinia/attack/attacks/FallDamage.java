@@ -14,6 +14,8 @@ public class FallDamage extends Attack {
     public void attack(LivingEntity target, LivingEntity herobrine) {
         if(!target.isOnGround() && target.fallDistance > 3) {
             Utils.setBlockAtPos(target.world, target.getPos().add(0, -1, 0), Blocks.GLASS);
+        }else {
+            Utils.randomAttack(target, herobrine);
         }
     }
 }
