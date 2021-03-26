@@ -6,6 +6,7 @@ import com.google.gson.stream.JsonReader;
 import me.sirlennox.herobrinia.attack.Attack;
 import me.sirlennox.herobrinia.attack.AttackRegistry;
 import me.sirlennox.herobrinia.blocks.HerobrineBlock;
+import me.sirlennox.herobrinia.blocks.HerobriniaBlock;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
 import me.sirlennox.herobrinia.items.*;
 import me.sirlennox.herobrinia.items.herobrineequip.*;
@@ -84,7 +85,7 @@ public class Main implements ModInitializer {
     public static final Item HEROBRINE_BOOTS = new HerobrineBoots();
 
     //Blocks
-    public static final Block HEROBRINE_BLOCK = new HerobrineBlock();
+    public static final HerobriniaBlock HEROBRINE_BLOCK = new HerobrineBlock();
     public static AttackRegistry attackRegistry;
 
     public static Identifier createIdentifier(String name) {
@@ -191,12 +192,12 @@ public class Main implements ModInitializer {
 
 
 
-    public static void register(Identifier identifier, Block b) {
+    public static void register(Identifier identifier, HerobriniaBlock b) {
         Registry.register(Registry.BLOCK, identifier, b);
         Registry.register(Registry.ITEM, identifier, new BlockItem(b, new Item.Settings().group(HEROBRINIA_GROUP)) {
             @Override
             public Text getName() {
-                return b.getName();
+                return b.getItemName();
             }
 
             @Override

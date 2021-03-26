@@ -1,0 +1,15 @@
+package me.sirlennox.herobrinia.blocks;
+
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.text.MutableText;
+
+public abstract class HerobriniaBlock extends Block {
+
+
+    public HerobriniaBlock(AbstractBlock.Settings sounds) {
+        super(sounds);
+    }
+
+    public abstract MutableText getItemName();
+}

@@ -19,14 +19,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 
-public class HerobrineBlock extends Block {
+public class HerobrineBlock extends HerobriniaBlock {
+
     public HerobrineBlock() {
         super(AbstractBlock.Settings.of(Material.METAL, MaterialColor.IRON).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.METAL));
-    }
-
-    @Override
-    public MutableText getName() {
-        return new LiteralText("§cHerobrine Block");
     }
 
     @Override
@@ -40,5 +36,10 @@ public class HerobrineBlock extends Block {
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
         Utils.giveItem(player, new ItemStack(Main.HEROBRINE_BLOCK, 1));
         super.afterBreak(world, player, pos, state, blockEntity, stack);
+    }
+
+    @Override
+    public MutableText getItemName() {
+        return new LiteralText("§cHerobrine Block");
     }
 }

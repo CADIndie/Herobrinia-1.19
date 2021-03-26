@@ -95,12 +95,15 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
                     itemStack.decrement(1);
                 }
                 this.setOwner(player);
-
+                this.world.sendEntityStatus(this, (byte)7);
                 this.setTarget(null);
                 this.setAttacking(false);
-
+                this.setAttacking(null);
                 this.getNavigation().stop();
-                this.world.sendEntityStatus(this, (byte)7);
+                if(this.followTargetGoal != null) {
+                    this.followTargetGoal.setTargetEntity(null);
+                }
+
                 return ActionResult.SUCCESS;
             }
 
@@ -109,6 +112,10 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
     }
 
 
+
+
+
+    public FollowTargetGoal<PlayerEntity> followTargetGoal;
 
     @Override
     protected void initGoals() {
@@ -127,8 +134,15 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
                 if(!EntityHerobrine.this.isTamed() || target == null) return super.canStart();
                 return EntityHerobrine.this.isAllowedToAttack(target) && super.canStart();
             }
+
+            @Override
+            public void tick() {
+                if(!EntityHerobrine.this.isTamed() || EntityHerobrine.this.isAllowedToAttack(this.mob.getTarget())) {
+                    super.tick();
+                }
+            }
         }*/);
-        this.targetSelector.add(2 , new FollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, false) {
+        this.targetSelector.add(2 , this.followTargetGoal = new FollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, false) {
 
             @Override
             protected void findClosestTarget() {
@@ -214,8 +228,6 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
             itemEntity.setPickupDelay(40);
             getEntityWorld().spawnEntity(itemEntity);
         }
-
-
 
         super.onDeath(source);
     }
