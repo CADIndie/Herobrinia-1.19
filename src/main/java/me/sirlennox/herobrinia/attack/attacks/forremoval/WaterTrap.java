@@ -1,4 +1,4 @@
-package me.sirlennox.herobrinia.attack.attacks;
+package me.sirlennox.herobrinia.attack.attacks.forremoval;
 
 import me.sirlennox.herobrinia.attack.Attack;
 import me.sirlennox.herobrinia.utils.Utils;

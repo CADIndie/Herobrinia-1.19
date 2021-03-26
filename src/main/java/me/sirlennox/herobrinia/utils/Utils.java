@@ -1,23 +1,16 @@
 package me.sirlennox.herobrinia.utils;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.attack.Attack;
-import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-import java.util.UUID;
 
 public class Utils {
 

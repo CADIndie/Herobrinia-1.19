@@ -16,7 +16,7 @@ public class AttackRegistry extends Registry<Attack> {
         register(new Teleport());
         register(new Web());
 	    register(new Cut());
-	    register(new FallingBlocks());
+	    register(new Anvils());
         register(new Fall());
         register(new TNT());
         register(new Lightning());
@@ -34,8 +34,13 @@ public class AttackRegistry extends Registry<Attack> {
         register(new Burn());
         register(new DragonFireball());
         register(new Witherskull());
+        register(new SpawnNetherMonsters());
         //register(new Smash());
      //   register(new WaterTrap());
+    }
+
+    public Attack getByName(String name) {
+        return this.REGISTERED.stream().filter(r -> r.name.equals(name)).findFirst().orElse(null);
     }
 
 }

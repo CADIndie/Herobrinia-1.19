@@ -15,6 +15,7 @@ public class Client implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
         EntityRendererRegistry.INSTANCE.register(Main.HEROBRINE_ENTITY_TYPE, (dispatcher, context) -> new EntityHerobrineRenderer(dispatcher));
         //Register Model Predicates
         registerModelPredicate(Main.HEROBRINE_BOW, new Identifier("pull"), (itemStack, clientWorld, livingEntity) -> livingEntity == null ? 0.0F : livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / 20.0F);

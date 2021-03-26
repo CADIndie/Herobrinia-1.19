@@ -95,10 +95,12 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
                     itemStack.decrement(1);
                 }
                 this.setOwner(player);
-                this.navigation.stop();
-                this.setTarget(null);
-                this.world.sendEntityStatus(this, (byte)7);
 
+                this.setTarget(null);
+                this.setAttacking(false);
+
+                this.getNavigation().stop();
+                this.world.sendEntityStatus(this, (byte)7);
                 return ActionResult.SUCCESS;
             }
 
@@ -113,16 +115,31 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
-        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, true) {
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, false) /*{
             @Override
             public boolean shouldContinue() {
-                if(!isAllowedToAttack(this.mob.getTarget())) return false;
-                return super.shouldContinue();
+                if(!EntityHerobrine.this.isTamed() || target == null) return super.shouldContinue();
+                return EntityHerobrine.this.isAllowedToAttack(target)  && super.shouldContinue();
+            }
+
+            @Override
+            public boolean canStart() {
+                if(!EntityHerobrine.this.isTamed() || target == null) return super.canStart();
+                return EntityHerobrine.this.isAllowedToAttack(target) && super.canStart();
+            }
+        }*/);
+        this.targetSelector.add(2 , new FollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, false) {
+
+            @Override
+            protected void findClosestTarget() {
+                if(EntityHerobrine.this.isTamed()) {
+                    LivingEntity e = EntityHerobrine.this.getOwnerAttackingEntity();
+                    if(EntityHerobrine.this.isAllowedToAttack(e)) this.targetEntity = e;
+                }else {
+                    super.findClosestTarget();
+                }
             }
         });
-        this.targetSelector.add(2 , new FollowTargetGoal<>(this, PlayerEntity.class, false));
-        this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
-        this.targetSelector.add(2, new AttackWithOwnerGoal(this));
         this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
         this.goalSelector.add(7, new AnimalMateGoal(this, 1.0D));
         super.initGoals();
@@ -144,7 +161,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
     }
 
     private LivingEntity getOwnerAttackingEntity(LivingEntity owner) {
-        return !isTamed() ? null : owner == null ? null : owner.getAttacking();
+        return !isTamed() ? null : owner == null ? null : owner.getAttacker() == null ? owner.getAttacking() : owner.getAttacker();
     }
 
     private boolean isAllowedToAttack(LivingEntity e, LivingEntity owner) {
@@ -246,6 +263,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
     @Override
     public void tick() {
+        super.tick();
         this.bossBar.setPercent(this.getHealth() / Math.max(this.getHealth(), this.getMaxHealth()));
         if(!this.isDead()) {
             try {
@@ -295,7 +313,6 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
 
         }
-        super.tick();
     }
 
 

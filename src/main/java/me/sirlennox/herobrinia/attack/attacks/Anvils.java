@@ -5,9 +5,9 @@ import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 
-public class FallingBlocks extends Attack {
-    public FallingBlocks() {
-        super("FallingBlocks", "Falling blocks from the air");
+public class Anvils extends Attack {
+    public Anvils() {
+        super("Anvils", "Anvils are falling from the air");
     }
 
     @Override
