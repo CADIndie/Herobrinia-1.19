@@ -12,4 +12,13 @@ public abstract class HerobriniaBlock extends Block {
     }
 
     public abstract MutableText getItemName();
+
+    @Override
+    public MutableText getName() {
+        return this.getItemName();
+    }
+
+    public boolean isFireproof() {
+        return true;
+    }
 }

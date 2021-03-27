@@ -4,6 +4,7 @@ import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.utils.TimeUtil;
 import me.sirlennox.herobrinia.utils.Utils;
 import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvironmentInterface;
 import net.fabricmc.api.EnvironmentInterfaces;
 import net.fabricmc.fabric.api.server.PlayerStream;
@@ -18,10 +19,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.CreeperEntity;
-import net.minecraft.entity.mob.GhastEntity;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
@@ -80,35 +78,47 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, followRange).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513D * 1.5).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 1000).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1);
     }
 
+    @Environment(EnvType.CLIENT)
+    @Override
+    public int getTeamColorValue() {
+        return 0xFF0000;
+    }
+
     public static final Item TAME_ITEM = Main.HEROBRINE_ROSE;
+    public static final Item HEAL_ITEM = Main.HEROBRINE_INGOT;
+    public final float healAmount = getMaxHealth() / 10;
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
-        if(this.isTamed()) return ActionResult.PASS;
+        if(this.world.isClient) return ActionResult.PASS;
         ItemStack itemStack = player.getStackInHand(hand);
+        if(itemStack == null) return super.interactMob(player, hand);
         Item item = itemStack.getItem();
-        if (this.world.isClient) {
-            boolean bl = this.isOwner(player) || this.isTamed() || item == TAME_ITEM && !this.isTamed();
-            return bl ? ActionResult.CONSUME : ActionResult.PASS;
-        } else {
-            if (item == TAME_ITEM) {
-                if (!player.abilities.creativeMode) {
-                    itemStack.decrement(1);
-                }
-                this.setOwner(player);
-                this.world.sendEntityStatus(this, (byte)7);
-                this.setTarget(null);
-                this.setAttacking(false);
-                this.setAttacking(null);
-                this.getNavigation().stop();
-                if(this.followTargetGoal != null) {
-                    this.followTargetGoal.setTargetEntity(null);
-                }
-
-                return ActionResult.SUCCESS;
+        if(item == null) return super.interactMob(player, hand);
+        if (item == TAME_ITEM) {
+            if(this.isTamed()) return ActionResult.FAIL;
+            if (!player.abilities.creativeMode) {
+                itemStack.decrement(1);
             }
-
-            return super.interactMob(player, hand);
+            this.setOwner(player);
+            this.world.sendEntityStatus(this, (byte)7);
+            this.setTarget(null);
+            this.setAttacking(false);
+            this.setAttacking(null);
+            this.getNavigation().stop();
+            if(this.followTargetGoal != null) {
+                this.followTargetGoal.setTargetEntity(null);
+            }
+            return ActionResult.SUCCESS;
+        }else if(item == HEAL_ITEM) {
+            if(this.getHealth() == this.getMaxHealth()) return ActionResult.FAIL;
+            if (!player.abilities.creativeMode) itemStack.decrement(1);
+            float h = this.getHealth() + healAmount;
+            if(h > getMaxHealth()) h = this.getMaxHealth();
+            this.setHealth(h);
+            return ActionResult.SUCCESS;
         }
+
+        return super.interactMob(player, hand);
     }
 
 

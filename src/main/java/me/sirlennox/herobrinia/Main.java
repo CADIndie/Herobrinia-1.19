@@ -6,6 +6,7 @@ import com.google.gson.stream.JsonReader;
 import me.sirlennox.herobrinia.attack.Attack;
 import me.sirlennox.herobrinia.attack.AttackRegistry;
 import me.sirlennox.herobrinia.blocks.HerobrineBlock;
+import me.sirlennox.herobrinia.items.HerobrineRose;
 import me.sirlennox.herobrinia.blocks.HerobriniaBlock;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
 import me.sirlennox.herobrinia.items.*;
@@ -92,9 +93,12 @@ public class Main implements ModInitializer {
         return new Identifier(MOD_ID, name);
     }
 
+    public static Main instance;
+
     // public static final RegistryKey<Biome> HEROBRINIA_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier("herobrinia", "herobrinia"));
     @Override
     public void onInitialize() {
+        instance = this;
         log(Level.INFO, "Initializing");
         register();
 
@@ -106,19 +110,19 @@ public class Main implements ModInitializer {
 
     public void register() {
         //Init AttackRegistry
-        System.out.println("Loading attacks...");
+        log(Level.INFO, "Loading attacks...");
         Main.attackRegistry = new AttackRegistry();
         Main.attackRegistry.init();
 
-        System.out.println("Attacks found: ");
-        Main.attackRegistry.REGISTERED.forEach(r -> System.out.println("- " + r.name));
+        log(Level.INFO,"Attacks found: ");
+        Main.attackRegistry.REGISTERED.forEach(r -> log(Level.INFO, "- " + r.name));
 
         if(!DIR.exists()) {
-            System.out.println("Directory 'Herobrinia' not found, creating...");
+            log(Level.INFO,"Directory 'Herobrinia' not found, creating...");
             DIR.mkdir();
         }
         if(!CONFIG.exists()) {
-            System.out.println("Config 'Herobrinia/config.json' not found, creating...");
+            log(Level.INFO,"Config 'Herobrinia/config.json' not found, creating...");
             try {
                 CONFIG.createNewFile();
             } catch (IOException e) {
@@ -137,18 +141,18 @@ public class Main implements ModInitializer {
             try {
                 JsonElement je = new JsonParser().parse(new JsonReader(new FileReader(CONFIG)));
                 if(je instanceof JsonNull) {
-                    System.err.println("Failed parsing config! Try to fix it or delete it!");
+                    log(Level.ERROR, "Failed parsing config! Try to fix it or delete it!");
                 }else {
                     JsonObject obj = (JsonObject) je;
                     JsonArray array = obj.getAsJsonArray("disabledAttacks");
                     array.forEach(d -> {
                         Attack a = Main.attackRegistry.getByName(d.getAsString());
                         if (a == null) {
-                            System.out.println("Attack '" + d.getAsString() + "' not found.");
+                            log(Level.ERROR, "Could not disable Attack '" + d.getAsString() + "' (not found)");
                             return;
                         }
                         Main.attackRegistry.unregister(a);
-                        System.out.println("Disabled attack '" + a.name + "'");
+                        log(Level.INFO,"Disabled attack '" + a.name + "'");
                     });
                 }
             } catch (Throwable t) {
@@ -203,6 +207,11 @@ public class Main implements ModInitializer {
             @Override
             public Text getName(ItemStack stack) {
                 return this.getName();
+            }
+
+            @Override
+            public boolean isFireproof() {
+                return b.isFireproof();
             }
         });
     }
