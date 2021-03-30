@@ -1,13 +1,11 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:stick"
-    },
-    {
-      "item": "herobrinia:herobrine_ingot"
-    }
-  ],
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:stick"
+  },
+  "addition": {
+    "item": "herobrinia:herobrine_ingot"
+  },
   "result": {
     "item": "herobrinia:lightning_stick"
   }

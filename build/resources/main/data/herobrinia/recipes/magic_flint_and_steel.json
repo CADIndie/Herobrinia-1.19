@@ -1,13 +1,11 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:flint_and_steel"
-    },
-    {
-      "item": "herobrinia:herobrine_ingot"
-    }
-  ],
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:flint_and_steel"
+  },
+  "addition": {
+    "item": "herobrinia:herobrine_ingot"
+  },
   "result": {
     "item": "herobrinia:magic_flint_and_steel"
   }

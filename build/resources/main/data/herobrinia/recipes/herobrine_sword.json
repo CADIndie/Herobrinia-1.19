@@ -1,13 +1,11 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "herobrinia:herobrine_ingot"
-    },
-    {
-      "item": "minecraft:netherite_sword"
-    }
-  ],
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "addition": {
+    "item": "herobrinia:herobrine_ingot"
+  },
   "result": {
     "item": "herobrinia:herobrine_sword"
   }
