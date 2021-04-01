@@ -7,9 +7,10 @@ import net.minecraft.text.MutableText;
 public abstract class HerobriniaBlock extends Block {
 
 
-    public HerobriniaBlock(AbstractBlock.Settings sounds) {
-        super(sounds);
+    public HerobriniaBlock(AbstractBlock.Settings settings) {
+        super(settings);
     }
+
 
     public abstract MutableText getItemName();
 

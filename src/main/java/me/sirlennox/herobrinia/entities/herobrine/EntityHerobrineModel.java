@@ -1,6 +1,8 @@
 package me.sirlennox.herobrinia.entities.herobrine;
 
 import com.google.common.collect.Lists;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
@@ -10,6 +12,7 @@ import net.minecraft.util.Arm;
 import java.util.List;
 import java.util.Random;
 
+@Environment(EnvType.CLIENT)
 public class EntityHerobrineModel extends BipedEntityModel<EntityHerobrine> {
     private List<ModelPart> parts = Lists.newArrayList();
     public final ModelPart leftSleeve;

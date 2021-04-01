@@ -1,0 +1,153 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 3/31/21 8:19 PM
+Description: Ticking entity
+
+org.spongepowered.asm.mixin.injection.callback.CancellationException: The call getBarteredItem is not cancellable.
+	at org.spongepowered.asm.mixin.injection.callback.CallbackInfo.cancel(CallbackInfo.java:101)
+	at org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable.setReturnValue(CallbackInfoReturnable.java:106)
+	at net.minecraft.entity.mob.PiglinBrain.handler$zzp000$getBarteredItem(PiglinBrain.java:1016)
+	at net.minecraft.entity.mob.PiglinBrain.getBarteredItem(PiglinBrain.java:446)
+	at net.minecraft.entity.mob.PiglinBrain.consumeOffHandItem(PiglinBrain.java:378)
+	at net.minecraft.entity.ai.brain.task.RemoveOffHandItemTask.run(RemoveOffHandItemTask.java:24)
+	at net.minecraft.entity.ai.brain.task.RemoveOffHandItemTask.run(RemoveOffHandItemTask.java:10)
+	at net.minecraft.entity.ai.brain.task.Task.tryStarting(Task.java:49)
+	at net.minecraft.entity.ai.brain.Brain.startTasks(Brain.java:506)
+	at net.minecraft.entity.ai.brain.Brain.tick(Brain.java:465)
+	at net.minecraft.entity.mob.PiglinEntity.mobTick(PiglinEntity.java:324)
+	at net.minecraft.entity.mob.MobEntity.tickNewAi(MobEntity.java:744)
+	at net.minecraft.entity.LivingEntity.tickMovement(LivingEntity.java:2508)
+	at net.minecraft.entity.mob.MobEntity.tickMovement(MobEntity.java:542)
+	at net.minecraft.entity.mob.HostileEntity.tickMovement(HostileEntity.java:43)
+	at net.minecraft.entity.LivingEntity.tick(LivingEntity.java:2254)
+	at net.minecraft.entity.mob.MobEntity.tick(MobEntity.java:342)
+	at net.minecraft.server.world.ServerWorld.tickEntity(ServerWorld.java:621)
+	at net.minecraft.world.World.tickEntity(World.java:561)
+	at net.minecraft.server.world.ServerWorld.tick(ServerWorld.java:411)
+	at net.minecraft.server.MinecraftServer.tickWorlds(MinecraftServer.java:871)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:811)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:91)
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:670)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:257)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at org.spongepowered.asm.mixin.injection.callback.CallbackInfo.cancel(CallbackInfo.java:101)
+	at org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable.setReturnValue(CallbackInfoReturnable.java:106)
+	at net.minecraft.entity.mob.PiglinBrain.handler$zzp000$getBarteredItem(PiglinBrain.java:1016)
+	at net.minecraft.entity.mob.PiglinBrain.getBarteredItem(PiglinBrain.java:446)
+	at net.minecraft.entity.mob.PiglinBrain.consumeOffHandItem(PiglinBrain.java:378)
+	at net.minecraft.entity.ai.brain.task.RemoveOffHandItemTask.run(RemoveOffHandItemTask.java:24)
+	at net.minecraft.entity.ai.brain.task.RemoveOffHandItemTask.run(RemoveOffHandItemTask.java:10)
+	at net.minecraft.entity.ai.brain.task.Task.tryStarting(Task.java:49)
+	at net.minecraft.entity.ai.brain.Brain.startTasks(Brain.java:506)
+	at net.minecraft.entity.ai.brain.Brain.tick(Brain.java:465)
+	at net.minecraft.entity.mob.PiglinEntity.mobTick(PiglinEntity.java:324)
+	at net.minecraft.entity.mob.MobEntity.tickNewAi(MobEntity.java:744)
+	at net.minecraft.entity.LivingEntity.tickMovement(LivingEntity.java:2508)
+	at net.minecraft.entity.mob.MobEntity.tickMovement(MobEntity.java:542)
+	at net.minecraft.entity.mob.HostileEntity.tickMovement(HostileEntity.java:43)
+	at net.minecraft.entity.LivingEntity.tick(LivingEntity.java:2254)
+	at net.minecraft.entity.mob.MobEntity.tick(MobEntity.java:342)
+	at net.minecraft.server.world.ServerWorld.tickEntity(ServerWorld.java:621)
+
+-- Entity being ticked --
+Details:
+	Entity Type: herobrinia:ally_piglin (me.sirlennox.herobrinia.entities.herobrine_piglin.EntityHerobrinePiglin)
+	Entity ID: 330
+	Entity Name: entity.herobrinia.ally_piglin
+	Entity's Exact location: -3.87, 48.00, -14.38
+	Entity's Block location: World: (-4,48,-15), Chunk: (at 12,3,1 in -1,-1; contains blocks -16,0,-16 to -1,255,-1), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Entity's Momentum: 0.00, -0.08, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.tickEntity(World.java:561)
+	at net.minecraft.server.world.ServerWorld.tick(ServerWorld.java:411)
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayerEntity['Player577'/242, l='ServerLevel[New World]', x=-2.07, y=47.56, z=-16.66]]
+	Chunk stats: ServerChunkCache: 841
+	Level dimension: minecraft:the_nether
+	Derived: true
+	Level spawn location: World: (80,64,-64), Chunk: (at 0,4,0 in 5,-4; contains blocks 80,0,-64 to 95,255,-49), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,0,-512 to 511,255,-1)
+	Level time: 4176 game time, 4176 day time
+	Level name: New World
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 113807 (now: false), thunder time: 52687 (now: false)
+	Known server brands: fabric
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.tickWorlds(MinecraftServer.java:871)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:811)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:91)
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:670)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:257)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.4
+	Minecraft Version ID: 1.16.4
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_282, Red Hat, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Red Hat, Inc.
+	Memory: 266783800 bytes (254 MB) / 1115160576 bytes (1063 MB) up to 1908932608 bytes (1820 MB)
+	CPUs: 2
+	JVM Flags: 0 total; 
+	Fabric Mods: 
+		fabric: Fabric API 0.25.1+build.416-1.16
+		fabric-api-base: Fabric API Base 0.2.0+9f0fb4b83a
+		fabric-biome-api-v1: Fabric Biome API (v1) 3.0.0+8367596d3a
+		fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.4+c6a8ea893a
+		fabric-command-api-v1: Fabric Command API (v1) 1.0.9+a4467d2a3a
+		fabric-commands-v0: Fabric Commands (v0) 0.2.0+52d308363a
+		fabric-containers-v0: Fabric Containers (v0) 0.1.8+045df74f3a
+		fabric-content-registries-v0: Fabric Content Registries (v0) 0.1.9+059ea8663a
+		fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.1.2+b7f9825d3a
+		fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.4.1+f8ac1db23a
+		fabric-events-lifecycle-v0: Fabric Events Lifecycle (v0) 0.2.0+16acbe5b3a
+		fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.3+a4467d2a3a
+		fabric-item-api-v1: Fabric Item API (v1) 1.2.0+f8ac1db23a
+		fabric-item-groups-v0: Fabric Item Groups (v0) 0.2.1+a4467d2a3a
+		fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.1+730711c63a
+		fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.0+3fa9f7c53a
+		fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 1.2.0+74cc3b203a
+		fabric-loot-tables-v1: Fabric Loot Tables (v1) 1.0.1+432ea1883a
+		fabric-mining-levels-v0: Fabric Mining Levels (v0) 0.1.2+b764ce993a
+		fabric-models-v0: Fabric Models (v0) 0.1.1+f8ac1db23a
+		fabric-networking-blockentity-v0: Fabric Networking Block Entity (v0) 0.2.5+b50ffc7b3a
+		fabric-networking-v0: Fabric Networking (v0) 0.1.10+e00ecb5f3a
+		fabric-object-builder-api-v1: Fabric Object Builder API (v1) 1.9.2+a89534ab3a
+		fabric-object-builders-v0: Fabric Object Builders (v0) 0.7.1+a4467d2a3a
+		fabric-particles-v1: fabric-particles-v1 0.2.2+fb0d9b0e3a
+		fabric-registry-sync-v0: Fabric Registry Sync (v0) 0.6.1+a4467d2a3a
+		fabric-renderer-api-v1: Fabric Renderer API (v1) 0.3.3+a4467d2a3a
+		fabric-renderer-indigo: Fabric Renderer - Indigo 0.4.3+a4467d2a3a
+		fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 2.2.0+f8ac1db23a
+		fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.1.4+f8ac1db23a
+		fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 0.1.12+f8ac1db23a
+		fabric-rendering-v0: Fabric Rendering (v0) 1.1.1+f8ac1db23a
+		fabric-rendering-v1: Fabric Rendering (v1) 1.3.1+f8ac1db23a
+		fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.3.1+facf3bbf3a
+		fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.1.0+872498413a
+		fabric-structure-api-v1: Fabric Structure API (v1) 1.1.0+f8ac1db23a
+		fabric-tag-extensions-v0: Fabric Tag Extensions (v0) 1.0.3+ac8e8c593a
+		fabric-textures-v0: Fabric Textures (v0) 1.0.5+a4467d2a3a
+		fabric-tool-attribute-api-v1: Fabric Tool Attribute API (v1) 1.2.4+2b4623793a
+		fabricloader: Fabric Loader 0.10.8
+		herobrinia: Herobrinia 4.1.0
+		minecraft: Minecraft 1.16.4
+	Player Count: 1 / 8; [ServerPlayerEntity['Player577'/242, l='ServerLevel[New World]', x=-2.07, y=47.56, z=-16.66]]
+	Data Packs: vanilla, fabric/fabric-tool-attribute-api-v1, fabric/herobrinia
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fabric'

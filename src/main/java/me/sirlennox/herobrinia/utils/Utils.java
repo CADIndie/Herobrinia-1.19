@@ -12,7 +12,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class Utils {
+
+    public static final Random RANDOM = new Random();
 
     public static boolean setBlockAtPos(World world, double x, double y, double z, Block block) {
         boolean b = world.canSetBlock(new BlockPos(x, y, z));

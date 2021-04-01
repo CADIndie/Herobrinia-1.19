@@ -1,5 +1,7 @@
 package me.sirlennox.herobrinia.entities.herobrine;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
@@ -7,13 +9,15 @@ import net.minecraft.util.Identifier;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
+
+@Environment(EnvType.CLIENT)
 public class EntityHerobrineRenderer extends MobEntityRenderer<EntityHerobrine, EntityHerobrineModel> {
 
     public HashMap<Float, Identifier> states = new HashMap<>();
 
     public EntityHerobrineRenderer(EntityRenderDispatcher entityRenderDispatcher) {
         super(entityRenderDispatcher, new EntityHerobrineModel(0.5f), 0.5f);
-        this.addFeature(new WitherArmor(this));
+        this.addFeature(new HerobrineWitherArmor(this));
         registerState(80f, 1);
         registerState(60f, 2);
         registerState(50f, 3);

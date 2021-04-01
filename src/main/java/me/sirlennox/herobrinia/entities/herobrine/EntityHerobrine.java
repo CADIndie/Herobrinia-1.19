@@ -174,12 +174,6 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         return isAllowedToAttack(target, owner);
     }
 
-    @Override
-    protected void onKilledBy(@Nullable LivingEntity killer) {
-        super.onKilledBy(killer);
-    }
-
-
     private LivingEntity getOwnerAttackingEntity() {
         return getOwnerAttackingEntity(getOwner());
     }
@@ -242,10 +236,12 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         super.onDeath(source);
     }
 
+
+
     @Override
     public boolean damage(DamageSource source, float amount) {
         if(source == DamageSource.FALL || source == DamageSource.ANVIL || source == DamageSource.CACTUS || source == DamageSource.FALLING_BLOCK || source == DamageSource.SWEET_BERRY_BUSH || source == DamageSource.IN_WALL) return false;
-        if(this.isDead()) return super.damage(source, amount);
+        if(this.isDead() || this.getHealth() - amount <= 0) return super.damage(source, amount);
         Entity attacker = source.getAttacker();
         LivingEntity entity = null;
 

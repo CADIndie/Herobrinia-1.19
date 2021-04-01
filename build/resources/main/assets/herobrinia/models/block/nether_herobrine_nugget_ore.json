@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "herobrinia:block/nether_herobrine_nugget_ore"
+  }
+}

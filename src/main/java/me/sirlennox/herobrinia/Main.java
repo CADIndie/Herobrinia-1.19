@@ -6,6 +6,8 @@ import com.google.gson.stream.JsonReader;
 import me.sirlennox.herobrinia.attack.Attack;
 import me.sirlennox.herobrinia.attack.AttackRegistry;
 import me.sirlennox.herobrinia.blocks.HerobrineBlock;
+import me.sirlennox.herobrinia.blocks.NetherHerobrineNuggetOre;
+import me.sirlennox.herobrinia.entities.herobrine_piglin.EntityHerobrinePiglin;
 import me.sirlennox.herobrinia.items.HerobrineRose;
 import me.sirlennox.herobrinia.blocks.HerobriniaBlock;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
@@ -15,6 +17,8 @@ import me.sirlennox.herobrinia.items.materials.HerobriniaArmorMaterial;
 import me.sirlennox.herobrinia.items.materials.HerobriniaToolMaterial;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.*;
@@ -24,8 +28,17 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.DepthAverageDecoratorConfig;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,6 +55,12 @@ public class Main implements ModInitializer {
             Registry.ENTITY_TYPE,
             new Identifier("herobrinia", "herobrine"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, EntityHerobrine::new).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
+    );
+
+    public static final EntityType<EntityHerobrinePiglin> HEROBRINE_PIGLIN_ENTITY_TYPE = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("herobrinia", "herobrine_piglin"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EntityHerobrinePiglin::new).fireImmune().trackRangeBlocks(10).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
     );
     public static Logger LOGGER = LogManager.getLogger();
 
@@ -78,6 +97,7 @@ public class Main implements ModInitializer {
     public static final Item HEROBRINE_SHEARS = new HerobrineShears();
     public static final Item HEROBRINE_HOE = new HerobrineHoe();
     public static final Item HEROBRINE_INGOT = new HerobrineIngot();
+    public static final Item HEROBRINE_NUGGET = new HerobrineNugget();
 
     //Armor
     public static final Item HEROBRINE_HELMET = new HerobrineHelmet();
@@ -87,6 +107,13 @@ public class Main implements ModInitializer {
 
     //Blocks
     public static final HerobriniaBlock HEROBRINE_BLOCK = new HerobrineBlock();
+    public static final HerobriniaBlock NEHTER_HEROBRINE_NUGGET_ORE = new NetherHerobrineNuggetOre();
+
+    //Ores
+    private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_SMALL = Feature.NO_SURFACE_ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 2)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(8, 16, 128))).spreadHorizontally();
+    private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_LARGE = Feature.NO_SURFACE_ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 3)).decorate(Decorator.DEPTH_AVERAGE.configure(new DepthAverageDecoratorConfig(16, 8))).spreadHorizontally();
+
+
     public static AttackRegistry attackRegistry;
 
     public static Identifier createIdentifier(String name) {
@@ -94,6 +121,7 @@ public class Main implements ModInitializer {
     }
 
     public static Main instance;
+
 
     // public static final RegistryKey<Biome> HEROBRINIA_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier("herobrinia", "herobrinia"));
     @Override
@@ -161,8 +189,12 @@ public class Main implements ModInitializer {
         }
 
         //Register Entities
+        log(Level.INFO, "Registering Entities...");
         FabricDefaultAttributeRegistry.register(HEROBRINE_ENTITY_TYPE, EntityHerobrine.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(HEROBRINE_PIGLIN_ENTITY_TYPE, EntityHerobrinePiglin.createMobAttributes());
 
+
+        log(Level.INFO, "Registering Items...");
 
         //Register items
         register(createIdentifier("herobrine_apple"), HEROBRINE_APPLE);
@@ -184,13 +216,33 @@ public class Main implements ModInitializer {
         register(createIdentifier("herobrine_boots"), HEROBRINE_BOOTS);
         register(createIdentifier("herobrine_bow"), HEROBRINE_BOW);
         register(createIdentifier("herobrine_ingot"), HEROBRINE_INGOT);
+        register(createIdentifier("herobrine_nugget"), HEROBRINE_NUGGET);
         register(createIdentifier("herobrine_rose"), HEROBRINE_ROSE);
 
+        log(Level.INFO, "Registering Blocks...");
         //Register blocks
         register(createIdentifier("herobrine_block"), HEROBRINE_BLOCK);
+        register(createIdentifier("nether_herobrine_nugget_ore"), NEHTER_HEROBRINE_NUGGET_ORE);
+
+        log(Level.INFO, "Initializing Ores...");
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_small"), ORE_HEROBRINE_NUGGET_NETHER_SMALL);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_large"), ORE_HEROBRINE_NUGGET_NETHER_LARGE);
+
+        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherSmall = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+                createIdentifier("ore_herobrine_nugget_nether_small"));
+        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherLarge = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+                createIdentifier("ore_herobrine_nugget_nether_large"));
 
 
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), GenerationStep.Feature.UNDERGROUND_ORES, oreHerobrineNuggetNetherSmall);
+
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), GenerationStep.Feature.UNDERGROUND_ORES, oreHerobrineNuggetNetherLarge);
+        BiomeModifications.addSpawn(BiomeSelectors.foundInTheNether(), SpawnGroup.CREATURE, HEROBRINE_PIGLIN_ENTITY_TYPE, 5, 1, 2);
     }
+/*
+    public void registerConfiguredFeature(String id, ConfiguredFeature<?, ?> configuredFeature) {
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, id, configuredFeature);
+    }*/
 
 
 

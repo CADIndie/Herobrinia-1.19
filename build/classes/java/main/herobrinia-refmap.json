@@ -1,11 +1,17 @@
 {
   "mappings": {
+    "me/sirlennox/herobrinia/mixins/PiglinBrainMixin": {
+      "getBarteredItem(Lnet/minecraft/entity/mob/PiglinEntity;)Ljava/util/List;": "Lnet/minecraft/class_4838;method_24776(Lnet/minecraft/class_4836;)Ljava/util/List;"
+    },
     "me/sirlennox/herobrinia/mixins/ModelPredicateProviderRegistryMixin": {
       "register": "method_27879(Lnet/minecraft/class_1792;Lnet/minecraft/class_2960;Lnet/minecraft/class_1800;)V"
     }
   },
   "data": {
     "named:intermediary": {
+      "me/sirlennox/herobrinia/mixins/PiglinBrainMixin": {
+        "getBarteredItem(Lnet/minecraft/entity/mob/PiglinEntity;)Ljava/util/List;": "Lnet/minecraft/class_4838;method_24776(Lnet/minecraft/class_4836;)Ljava/util/List;"
+      },
       "me/sirlennox/herobrinia/mixins/ModelPredicateProviderRegistryMixin": {
         "register": "method_27879(Lnet/minecraft/class_1792;Lnet/minecraft/class_2960;Lnet/minecraft/class_1800;)V"
       }
