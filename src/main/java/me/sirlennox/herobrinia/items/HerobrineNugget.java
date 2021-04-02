@@ -21,4 +21,9 @@ public class HerobrineNugget extends Item {
     public Text getName() {
         return new LiteralText("§cHerobrine Nugget");
     }
+
+    @Override
+    public boolean isFireproof() {
+        return true;
+    }
 }
