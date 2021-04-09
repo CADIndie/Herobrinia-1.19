@@ -1,0 +1,36 @@
+{
+  "display": {
+    "description": {
+      "text": "Tame Herobrine",
+      "color": "white"
+    },
+    "title": {
+      "text": "Say \"Hi\" to my new friend",
+      "color": "dark_purple"
+    },
+    "icon": {
+      "item": "herobrinia:herobrine_rose"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tame_animalherobrine": {
+      "trigger": "minecraft:tame_animal",
+      "conditions": {
+        "entity": {
+          "type": "herobrinia:herobrine"
+        }
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "tame_animalherobrine"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/what_a_beautiful_rose"
+}

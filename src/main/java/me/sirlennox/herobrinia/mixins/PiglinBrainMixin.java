@@ -1,7 +1,7 @@
 package me.sirlennox.herobrinia.mixins;
 
 import me.sirlennox.herobrinia.Main;
-import me.sirlennox.herobrinia.entities.herobrine_piglin.EntityHerobrinePiglin;
+import me.sirlennox.herobrinia.entities.herobrinepiglin.EntityHerobrinePiglin;
 import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.mob.PiglinEntity;
@@ -40,6 +40,10 @@ public class PiglinBrainMixin {
             }else if(r <= 10) {
                 i = Main.HEROBRINE_NUGGET;
                 if(r <= 5) count = 3;
+            }
+            if(r <= 5) {
+                i = Main.HEROBRINE_NUGGET;
+                if(r <= 2) count = 3;
             }
             if(i != null) list = Collections.singletonList(new ItemStack(i, count));
         }

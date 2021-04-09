@@ -31,12 +31,12 @@ public class HerobrineBlock extends HerobriniaBlock {
         tooltip.add(new LiteralText("§dRight click with a Magic Flint and Steel on it to spawn Herobrine."));
         super.appendTooltip(stack, world, tooltip, options);
     }
-
+/*
     @Override
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
         Utils.giveItem(player, new ItemStack(Main.HEROBRINE_BLOCK, 1));
         super.afterBreak(world, player, pos, state, blockEntity, stack);
-    }
+    }*/
 
     @Override
     public MutableText getItemName() {

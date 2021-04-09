@@ -7,7 +7,7 @@ import me.sirlennox.herobrinia.attack.Attack;
 import me.sirlennox.herobrinia.attack.AttackRegistry;
 import me.sirlennox.herobrinia.blocks.HerobrineBlock;
 import me.sirlennox.herobrinia.blocks.NetherHerobrineNuggetOre;
-import me.sirlennox.herobrinia.entities.herobrine_piglin.EntityHerobrinePiglin;
+import me.sirlennox.herobrinia.entities.herobrinepiglin.EntityHerobrinePiglin;
 import me.sirlennox.herobrinia.items.HerobrineRose;
 import me.sirlennox.herobrinia.blocks.HerobriniaBlock;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
@@ -26,6 +26,7 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -218,7 +219,28 @@ public class Main implements ModInitializer {
         register(createIdentifier("herobrine_ingot"), HEROBRINE_INGOT);
         register(createIdentifier("herobrine_nugget"), HEROBRINE_NUGGET);
         register(createIdentifier("herobrine_rose"), HEROBRINE_ROSE);
+        register(createIdentifier("herobrine_spawn_egg"), new SpawnEggItem(HEROBRINE_ENTITY_TYPE, 10051392, 0xFFFFFF, new Item.Settings().group(HEROBRINIA_GROUP)) {
+            @Override
+            public Text getName() {
+                return new LiteralText("Herobrine Spawn Egg");
+            }
 
+            @Override
+            public Text getName(ItemStack stack) {
+                return this.getName();
+            }
+        });
+        register(createIdentifier("herobrine_piglin_spawn_egg"), new SpawnEggItem(HEROBRINE_PIGLIN_ENTITY_TYPE, 0xA52A2A, 0xFFFFFF, new Item.Settings().group(HEROBRINIA_GROUP)) {
+            @Override
+            public Text getName() {
+                return new LiteralText("Herobrine Piglin Spawn Egg");
+            }
+
+            @Override
+            public Text getName(ItemStack stack) {
+                return this.getName();
+            }
+        });
         log(Level.INFO, "Registering Blocks...");
         //Register blocks
         register(createIdentifier("herobrine_block"), HEROBRINE_BLOCK);

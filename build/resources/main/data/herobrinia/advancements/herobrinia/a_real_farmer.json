@@ -1,0 +1,34 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a Herobrine Hoe",
+      "color": "white"
+    },
+    "title": {
+      "text": "A REAL Farmer",
+      "color": "green"
+    },
+    "icon": {
+      "item": "herobrinia:herobrine_hoe"
+    }
+  },
+  "criteria": {
+    "inv_changed-herobrinia:herobrine_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:herobrine_hoe"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "inv_changed-herobrinia:herobrine_hoe"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/a_powerful_item"
+}

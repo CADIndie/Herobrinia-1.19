@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a Hand of Notch",
+      "color": "white"
+    },
+    "title": {
+      "text": "I found Notch's Hand",
+      "color": "dark_purple"
+    },
+    "icon": {
+      "item": "herobrinia:hand_of_notch"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "inv_changed-herobrinia:herobrine_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:hand_of_notch"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "inv_changed-herobrinia:herobrine_ingot"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/a_bloody_hand"
+}

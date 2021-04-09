@@ -1,0 +1,34 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a Herobrine Ingot",
+      "color": "white"
+    },
+    "title": {
+      "text": "A powerful item",
+      "color": "green"
+    },
+    "icon": {
+      "item": "herobrinia:herobrine_ingot"
+    }
+  },
+  "criteria": {
+    "inv_changed-herobrinia:herobrine_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:herobrine_ingot"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "inv_changed-herobrinia:herobrine_ingot"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/the_begin"
+}

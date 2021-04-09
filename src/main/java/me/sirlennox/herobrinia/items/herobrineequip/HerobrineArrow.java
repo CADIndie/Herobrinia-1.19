@@ -24,7 +24,7 @@ public class HerobrineArrow extends ArrowItem {
         ArrowEntity arrowEntity = new ArrowEntity(world, shooter);
         arrowEntity.initFromStack(stack);
         arrowEntity.setCritical(true);
-        arrowEntity.setDamage(20);
+        arrowEntity.setDamage(arrowEntity.getDamage() + 20);
         arrowEntity.setPunch(3);
         arrowEntity.setFireTicks(1000);
         arrowEntity.setPierceLevel((byte) 3);
@@ -39,7 +39,7 @@ public class HerobrineArrow extends ArrowItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7The arrows for the Herobrine Bow"));
+        tooltip.add(new net.minecraft.text.LiteralText("§7The munition for the Herobrine Bow"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

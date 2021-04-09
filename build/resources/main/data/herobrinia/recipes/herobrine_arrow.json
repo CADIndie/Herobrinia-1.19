@@ -4,10 +4,10 @@
     "item": "minecraft:arrow"
   },
   "addition": {
-    "item": "herobrinia:herobrine_ingot"
+    "item": "herobrinia:herobrine_nugget"
   },
   "result": {
     "item": "herobrinia:herobrine_arrow",
-    "count": 2
+    "count": 1
   }
 }

@@ -1,0 +1,34 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a Herobrine Nugget",
+      "color": "white"
+    },
+    "title": {
+      "text": "The Begin",
+      "color": "green"
+    },
+    "icon": {
+      "item": "herobrinia:herobrine_nugget"
+    }
+  },
+  "criteria": {
+    "inv_changed-herobrinia:herobrine_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:herobrine_nugget"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "inv_changed-herobrinia:herobrine_nugget"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/root"
+}

@@ -1,0 +1,45 @@
+{
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2021-04-09 12:47:23 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_a_mob": {
+    "criteria": {
+      "minecraft:zombified_piglin": "2021-04-09 12:47:23 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/a_bloody_hand": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_ingot": "2021-04-09 12:47:03 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_all_mobs": {
+    "criteria": {
+      "minecraft:zombified_piglin": "2021-04-09 12:47:23 +0200"
+    },
+    "done": false
+  },
+  "herobrinia:herobrinia/getting_ready_for_combat": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_hoe": "2021-04-09 12:46:54 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/shoot_arrow": {
+    "criteria": {
+      "shot_arrow": "2021-04-09 12:47:21 +0200"
+    },
+    "done": true
+  },
+  "minecraft:nether/explore_nether": {
+    "criteria": {
+      "minecraft:nether_wastes": "2021-04-09 12:46:45 +0200"
+    },
+    "done": false
+  },
+  "DataVersion": 2584
+}

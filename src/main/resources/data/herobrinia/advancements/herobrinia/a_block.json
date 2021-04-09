@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a Herobrine Block",
+      "color": "white"
+    },
+    "title": {
+      "text": "A... BLOCK?!",
+      "color": "dark_purple"
+    },
+    "icon": {
+      "item": "herobrinia:herobrine_block"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "inv_changed-herobrinia:herobrine_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:herobrine_block"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "inv_changed-herobrinia:herobrine_ingot"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/a_powerful_item"
+}

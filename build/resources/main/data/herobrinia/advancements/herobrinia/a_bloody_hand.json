@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a Hand of Herobrine",
+      "color": "white"
+    },
+    "title": {
+      "text": "A bloody hand",
+      "color": "dark_purple"
+    },
+    "icon": {
+      "item": "herobrinia:hand_of_herobrine"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "inv_changed-herobrinia:herobrine_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:hand_of_herobrine"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "inv_changed-herobrinia:herobrine_ingot"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/kill_herobrine"
+}

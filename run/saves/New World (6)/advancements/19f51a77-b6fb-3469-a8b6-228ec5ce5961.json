@@ -1,0 +1,117 @@
+{
+  "herobrinia:herobrinia/the_begin": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_nugget": "2021-04-09 12:55:16 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/cover_me_with_herobrine": {
+    "criteria": {
+      "herobrine_armor": "2021-04-09 12:55:41 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2021-04-09 12:57:35 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/a_powerful_item": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_ingot": "2021-04-09 12:55:21 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/a_bloody_hand": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_ingot": "2021-04-09 12:56:34 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/what_a_beautiful_rose": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_ingot": "2021-04-09 12:56:02 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/getting_ready_for_combat": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_hoe": "2021-04-09 12:55:34 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/find_hand_of_notch": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_ingot": "2021-04-09 12:57:01 +0200"
+    },
+    "done": true
+  },
+  "minecraft:story/root": {
+    "criteria": {
+      "crafting_table": "2021-04-09 12:56:45 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/tame_herobrine": {
+    "criteria": {
+      "tame_animalherobrine": "2021-04-09 12:56:11 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/combined": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_ingot": "2021-04-09 12:57:08 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/mojang_banner_pattern": {
+    "criteria": {
+      "has_enchanted_golden_apple": "2021-04-09 12:56:51 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2021-04-09 12:56:34 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/a_block": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_ingot": "2021-04-09 12:55:34 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/shoot_arrow": {
+    "criteria": {
+      "shot_arrow": "2021-04-09 12:56:29 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/kill_herobrine": {
+    "criteria": {
+      "p_k_e-pig": "2021-04-09 12:56:34 +0200"
+    },
+    "done": true
+  },
+  "minecraft:nether/explore_nether": {
+    "criteria": {
+      "minecraft:nether_wastes": "2021-04-09 12:53:04 +0200"
+    },
+    "done": false
+  },
+  "minecraft:husbandry/tame_an_animal": {
+    "criteria": {
+      "tamed_animal": "2021-04-09 12:56:11 +0200"
+    },
+    "done": true
+  },
+  "herobrinia:herobrinia/a_real_farmer": {
+    "criteria": {
+      "inv_changed-herobrinia:herobrine_hoe": "2021-04-09 12:55:26 +0200"
+    },
+    "done": true
+  },
+  "DataVersion": 2584
+}

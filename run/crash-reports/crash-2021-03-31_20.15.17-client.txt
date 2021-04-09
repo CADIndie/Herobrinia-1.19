@@ -44,7 +44,7 @@ Stacktrace:
 
 -- Entity being rendered --
 Details:
-	Entity Type: herobrinia:ally_piglin (me.sirlennox.herobrinia.entities.herobrine_piglin.EntityHerobrinePiglin)
+	Entity Type: herobrinia:ally_piglin (me.sirlennox.herobrinia.entities.herobrinepiglin.EntityHerobrinePiglin)
 	Entity ID: 4
 	Entity Name: entity.herobrinia.ally_piglin
 	Entity's Exact location: -21.06, 36.85, -47.69

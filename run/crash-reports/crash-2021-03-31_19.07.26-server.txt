@@ -19,7 +19,7 @@ org.spongepowered.asm.mixin.transformer.throwables.MixinTransformerError: An une
 	at net.minecraft.entity.mob.HostileEntity.<init>(HostileEntity.java:30)
 	at net.minecraft.entity.mob.AbstractPiglinEntity.<init>(AbstractPiglinEntity.java:31)
 	at net.minecraft.entity.mob.PiglinEntity.<init>(PiglinEntity.java:135)
-	at me.sirlennox.herobrinia.entities.herobrine_piglin.EntityHerobrinePiglin.<init>(EntityAllyPiglin.java:11)
+	at me.sirlennox.herobrinia.entities.herobrinepiglin.EntityHerobrinePiglin.<init>(EntityAllyPiglin.java:11)
 	at net.minecraft.entity.EntityType.create(EntityType.java:463)
 	at net.minecraft.entity.EntityType.method_17846(EntityType.java:472)
 	at java.util.Optional.map(Optional.java:215)

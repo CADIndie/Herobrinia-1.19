@@ -24,9 +24,9 @@ public class NetherHerobrineNuggetOre extends HerobriniaBlock {
         return new LiteralText("§cHerobrine Nugget Ore");
     }
 
-    @Override
+ /*   @Override
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
         Utils.giveItem(player, new ItemStack(Main.HEROBRINE_NUGGET, 1));
         super.afterBreak(world, player, pos, state, blockEntity, stack);
-    }
+    }*/
 }

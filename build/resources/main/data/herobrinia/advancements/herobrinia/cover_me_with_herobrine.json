@@ -1,0 +1,47 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a full set of herobrine armor",
+      "color": "white"
+    },
+    "title": {
+      "text": "Cover me with... HEROBRINE?!",
+      "color": "dark_purple"
+    },
+    "icon": {
+      "item": "herobrinia:herobrine_chestplate"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "herobrine_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:herobrine_helmet"
+          },
+          {
+            "item": "herobrinia:herobrine_chestplate"
+          },
+          {
+            "item": "herobrinia:herobrine_leggings"
+          },
+          {
+            "item": "herobrinia:herobrine_boots"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "herobrine_armor"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/getting_ready_for_combat"
+}

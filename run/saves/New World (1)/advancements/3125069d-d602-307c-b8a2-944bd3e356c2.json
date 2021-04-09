@@ -1,0 +1,9 @@
+{
+  "minecraft:nether/explore_nether": {
+    "criteria": {
+      "minecraft:soul_sand_valley": "2021-04-05 16:49:47 +0200"
+    },
+    "done": false
+  },
+  "DataVersion": 2584
+}

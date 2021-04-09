@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a Multi Hand of Herobrine and Notch",
+      "color": "white"
+    },
+    "title": {
+      "text": "Combined!",
+      "color": "dark_purple"
+    },
+    "icon": {
+      "item": "herobrinia:multi_hand_of_herobrine_and_notch"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "inv_changed-herobrinia:herobrine_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:multi_hand_of_herobrine_and_notch"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "inv_changed-herobrinia:herobrine_ingot"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/find_hand_of_notch"
+}

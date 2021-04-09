@@ -1,0 +1,34 @@
+{
+  "display": {
+    "description": {
+      "text": "Get a Herobrine Sword",
+      "color": "white"
+    },
+    "title": {
+      "text": "Getting ready for combat",
+      "color": "green"
+    },
+    "icon": {
+      "item": "herobrinia:herobrine_sword"
+    }
+  },
+  "criteria": {
+    "inv_changed-herobrinia:herobrine_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "herobrinia:herobrine_sword"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "inv_changed-herobrinia:herobrine_hoe"
+    ]
+  ],
+  "parent": "herobrinia:herobrinia/a_powerful_item"
+}

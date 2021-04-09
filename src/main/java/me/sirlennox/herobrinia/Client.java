@@ -1,6 +1,6 @@
 package me.sirlennox.herobrinia;
 
-import me.sirlennox.herobrinia.entities.herobrine_piglin.EntityHerobrinePiglinRenderer;
+import me.sirlennox.herobrinia.entities.herobrinepiglin.EntityHerobrinePiglinRenderer;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrineRenderer;
 import me.sirlennox.herobrinia.mixins.ModelPredicateProviderRegistryMixin;
 import net.fabricmc.api.ClientModInitializer;

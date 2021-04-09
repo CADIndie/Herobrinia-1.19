@@ -1,0 +1,27 @@
+{
+  "display": {
+    "description": {
+      "text": "The advancaments of the Herobrinia Mod",
+      "color": "white"
+    },
+    "title": {
+      "text": "Herobrinia",
+      "color": "red"
+    },
+    "icon": {
+      "item": "herobrinia:herobrine_block"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/nether.png"
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ]
+}
