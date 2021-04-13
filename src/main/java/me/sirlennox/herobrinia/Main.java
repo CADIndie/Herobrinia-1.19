@@ -6,32 +6,38 @@ import com.google.gson.stream.JsonReader;
 import me.sirlennox.herobrinia.attack.Attack;
 import me.sirlennox.herobrinia.attack.AttackRegistry;
 import me.sirlennox.herobrinia.blocks.HerobrineBlock;
-import me.sirlennox.herobrinia.blocks.NetherHerobrineNuggetOre;
-import me.sirlennox.herobrinia.entities.herobrinepiglin.EntityHerobrinePiglin;
-import me.sirlennox.herobrinia.items.HerobrineRose;
 import me.sirlennox.herobrinia.blocks.HerobriniaBlock;
+import me.sirlennox.herobrinia.blocks.NetherHerobrineNuggetOre;
+import me.sirlennox.herobrinia.effects.InvulnerableEffect;
+import me.sirlennox.herobrinia.effects.RandomTPEffect;
 import me.sirlennox.herobrinia.entities.herobrine.EntityHerobrine;
+import me.sirlennox.herobrinia.entities.herobrinepiglin.EntityHerobrinePiglin;
 import me.sirlennox.herobrinia.items.*;
 import me.sirlennox.herobrinia.items.herobrineequip.*;
 import me.sirlennox.herobrinia.items.materials.HerobriniaArmorMaterial;
 import me.sirlennox.herobrinia.items.materials.HerobriniaToolMaterial;
+import me.sirlennox.herobrinia.mixins.BrewingRecipeRegistryMixin;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.block.*;
+import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.*;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
+import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.Decorator;
@@ -99,6 +105,8 @@ public class Main implements ModInitializer {
     public static final Item HEROBRINE_HOE = new HerobrineHoe();
     public static final Item HEROBRINE_INGOT = new HerobrineIngot();
     public static final Item HEROBRINE_NUGGET = new HerobrineNugget();
+    public static final Item HEROBRINE_TOTEM = new HerobrineTotem();
+
 
     //Armor
     public static final Item HEROBRINE_HELMET = new HerobrineHelmet();
@@ -114,6 +122,10 @@ public class Main implements ModInitializer {
     private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_SMALL = Feature.NO_SURFACE_ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 2)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(8, 16, 128))).spreadHorizontally();
     private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_LARGE = Feature.NO_SURFACE_ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 3)).decorate(Decorator.DEPTH_AVERAGE.configure(new DepthAverageDecoratorConfig(16, 8))).spreadHorizontally();
 
+
+    //Effects
+    public static final StatusEffect INVULNERABLE_EFFECT = new InvulnerableEffect();
+    public static final StatusEffect RANDOMTP_EFFECT = new RandomTPEffect();
 
     public static AttackRegistry attackRegistry;
 
@@ -205,6 +217,7 @@ public class Main implements ModInitializer {
         register(createIdentifier("magic_flint_and_steel"), MAGIC_FLINT_AND_STEEL);
         register(createIdentifier("lightning_stick"), LIGHTNING_STICK);
         register(createIdentifier("herobrine_sword"), HEROBRINE_SWORD);
+        register(createIdentifier("herobrine_totem"), HEROBRINE_TOTEM);
         register(createIdentifier("herobrine_pickaxe"), HEROBRINE_PICKAXE);
         register(createIdentifier("herobrine_axe"), HEROBRINE_AXE);
         register(createIdentifier("herobrine_shovel"), HEROBRINE_SHOVEL);
@@ -256,6 +269,24 @@ public class Main implements ModInitializer {
                 createIdentifier("ore_herobrine_nugget_nether_large"));
 
 
+        //Register Effects
+        log(Level.INFO, "Initializing Effects...");
+
+        register(createIdentifier("invulnerable"), INVULNERABLE_EFFECT);
+        register(createIdentifier("randomtp"), RANDOMTP_EFFECT);
+
+        //Register Potions
+        log(Level.INFO, "Initializing Potions...");
+
+        Potion invulnerablePotion = registerPotion(createIdentifier("invulnerable"), INVULNERABLE_EFFECT, 30 * 20, 0);
+    //   registerPotion(createIdentifier("invulnerable_long"), INVULNERABLE_EFFECT, 60 * 20, 0);
+        Potion randomTpPotion = registerPotion(createIdentifier("randomtp"), RANDOMTP_EFFECT, 1, 0);
+
+        BrewingRecipeRegistryMixin.registerPotionRecipe(Potions.AWKWARD, Items.CHORUS_FRUIT, randomTpPotion);
+        BrewingRecipeRegistryMixin.registerPotionRecipe(Potions.AWKWARD, HEROBRINE_TOTEM, invulnerablePotion);
+        //Register Biome Modifications
+        log(Level.INFO, "Initializing Biome Modifications...");
+
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), GenerationStep.Feature.UNDERGROUND_ORES, oreHerobrineNuggetNetherSmall);
 
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), GenerationStep.Feature.UNDERGROUND_ORES, oreHerobrineNuggetNetherLarge);
@@ -269,6 +300,29 @@ public class Main implements ModInitializer {
 
 
 
+    public static void register(Identifier id, StatusEffect entry) {
+         Registry.register(Registry.STATUS_EFFECT, id, entry);
+    }
+
+    public static Potion registerPotion(Identifier id, StatusEffect entry, int duration, int amplifier) {
+        return registerPotion(id, new Potion(/*id.getPath(),*/ new StatusEffectInstance(entry, duration, amplifier)));
+    }
+
+    public static Potion registerPotion(Identifier id, StatusEffectInstance... effects) {
+        return registerPotion(id, new Potion(/*id.getPath(),*/ effects));
+    }
+
+    public static Potion registerPotion(Identifier id, StatusEffectInstance effect) {
+        return registerPotion(id, new StatusEffectInstance[] {effect});
+    }
+
+    public static Potion registerPotion(Identifier id, StatusEffect effect) {
+        return registerPotion(id, effect, 30 * 20, 0);
+    }
+
+    public static Potion registerPotion(Identifier id, Potion potion) {
+        return Registry.register(Registry.POTION, id, potion);
+    }
 
     public static void register(Identifier identifier, HerobriniaBlock b) {
         Registry.register(Registry.BLOCK, identifier, b);

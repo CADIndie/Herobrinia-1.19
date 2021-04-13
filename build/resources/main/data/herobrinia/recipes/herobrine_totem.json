@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:totem_of_undying"
+  },
+  "addition": {
+    "item": "herobrinia:herobrine_ingot"
+  },
+  "result": {
+    "item": "herobrinia:herobrine_totem"
+  }
+}

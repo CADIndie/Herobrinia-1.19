@@ -1,5 +1,14 @@
 {
   "mappings": {
+    "me/sirlennox/herobrinia/mixins/LivingEntityMixin": {
+      "tryUseTotem": "Lnet/minecraft/class_1309;method_6095(Lnet/minecraft/class_1282;)Z"
+    },
+    "me/sirlennox/herobrinia/mixins/ClientPlayNetworkHandlerMixin": {
+      "onEntityStatus": "Lnet/minecraft/class_634;method_11148(Lnet/minecraft/class_2663;)V"
+    },
+    "me/sirlennox/herobrinia/mixins/BrewingRecipeRegistryMixin": {
+      "registerPotionRecipe": "method_8074(Lnet/minecraft/class_1842;Lnet/minecraft/class_1792;Lnet/minecraft/class_1842;)V"
+    },
     "me/sirlennox/herobrinia/mixins/PiglinBrainMixin": {
       "getBarteredItem(Lnet/minecraft/entity/mob/PiglinEntity;)Ljava/util/List;": "Lnet/minecraft/class_4838;method_24776(Lnet/minecraft/class_4836;)Ljava/util/List;"
     },
@@ -9,6 +18,15 @@
   },
   "data": {
     "named:intermediary": {
+      "me/sirlennox/herobrinia/mixins/LivingEntityMixin": {
+        "tryUseTotem": "Lnet/minecraft/class_1309;method_6095(Lnet/minecraft/class_1282;)Z"
+      },
+      "me/sirlennox/herobrinia/mixins/ClientPlayNetworkHandlerMixin": {
+        "onEntityStatus": "Lnet/minecraft/class_634;method_11148(Lnet/minecraft/class_2663;)V"
+      },
+      "me/sirlennox/herobrinia/mixins/BrewingRecipeRegistryMixin": {
+        "registerPotionRecipe": "method_8074(Lnet/minecraft/class_1842;Lnet/minecraft/class_1792;Lnet/minecraft/class_1842;)V"
+      },
       "me/sirlennox/herobrinia/mixins/PiglinBrainMixin": {
         "getBarteredItem(Lnet/minecraft/entity/mob/PiglinEntity;)Ljava/util/List;": "Lnet/minecraft/class_4838;method_24776(Lnet/minecraft/class_4836;)Ljava/util/List;"
       },

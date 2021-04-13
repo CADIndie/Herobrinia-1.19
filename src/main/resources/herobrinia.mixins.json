@@ -2,10 +2,14 @@
   "required": true,
   "package": "me.sirlennox.herobrinia.mixins",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [],
+  "mixins": [
+    "PiglinBrainMixin",
+    "LivingEntityMixin",
+    "BrewingRecipeRegistryMixin"
+  ],
   "client": [
     "ModelPredicateProviderRegistryMixin",
-    "PiglinBrainMixin"
+    "ClientPlayNetworkHandlerMixin"
   ],
   "server": [],
   "injectors": {
