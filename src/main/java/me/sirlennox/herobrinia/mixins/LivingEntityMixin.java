@@ -16,9 +16,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class LivingEntityMixin {
 
     @Inject(method = "tryUseTotem", at = @At("RETURN"), cancellable = true)
-    private boolean tryUseTotem(DamageSource source, CallbackInfoReturnable<Boolean> info) {
+    private void tryUseTotem(DamageSource source, CallbackInfoReturnable<Boolean> info) {
+        if(info.getReturnValue()) return;
         LivingEntity instance = (LivingEntity) (Object) this;
-        if(info.getReturnValue()) return true;
+        ItemStack itemStack = findTotem(instance);
+        if (itemStack != null) {
+            applyTotem(instance);
+            if(source.isOutOfWorld()) {
+                instance.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20 * 10, 5));
+                instance.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 40 * 20, 0));
+                instance.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 10 * 20, 20));
+            }
+        }
+        info.setReturnValue(itemStack != null);
+    }
+
+    private ItemStack findTotem(LivingEntity instance) {
         ItemStack itemStack = null;
         Hand[] var4 = Hand.values();
         int var5 = var4.length;
@@ -32,30 +45,33 @@ public class LivingEntityMixin {
                 break;
             }
         }
-
-        if (itemStack != null) {
-            applyTotem(instance);
-            if(source.isOutOfWorld()) {
-                instance.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20 * 10, 5));
-                instance.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 900, 0));
-                if(instance.getY() < 0) {
-                    instance.teleport(instance.getX(), 0, instance.getZ());
-                    instance.setVelocity(0, 100, 0);
-                }
-            }
-        }
-        info.setReturnValue(itemStack != null);
-        return itemStack != null;
+        return itemStack;
     }
 
     private static void applyTotem(LivingEntity instance) {
-        instance.setHealth(1.0F);
+        instance.setHealth(instance.getMaxHealth());
         instance.clearStatusEffects();
-        instance.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 900, 3));
+        instance.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 900, 4));
         instance.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 100, 3));
         instance.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 800, 0));
-        instance.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20 * 10, 5));
+        instance.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 25 * 10, 5));
+        instance.addStatusEffect(new StatusEffectInstance(Main.INVULNERABLE_EFFECT, 15 * 20, 0));
         instance.world.sendEntityStatus(instance, (byte)127);
+    }
+
+    @Inject(method = "damage(Lnet/minecraft/entity/damage/DamageSource;F)Z", at = @At("RETURN"), cancellable = true)
+    public void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        if(!cir.getReturnValue() || !source.isOutOfWorld()) return;
+        LivingEntity instance = (LivingEntity) (Object) this;
+        if(instance.hasStatusEffect(Main.INVULNERABLE_EFFECT)) return;
+
+        ItemStack itemStack = findTotem(instance);
+        if (itemStack != null) {
+            applyTotem(instance);
+            instance.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20 * 10, 5));
+            instance.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 40 * 20, 0));
+            instance.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 10 * 20, 20));
+        }
     }
 
 

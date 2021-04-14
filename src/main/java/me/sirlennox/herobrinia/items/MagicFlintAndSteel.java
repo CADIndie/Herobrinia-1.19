@@ -30,7 +30,7 @@ public class MagicFlintAndSteel extends FlintAndSteelItem {
         if(context.getWorld().isClient()) return ActionResult.CONSUME;
         BlockState bs = context.getWorld().getBlockState(context.getBlockPos());
         if(bs != null && bs.getBlock() != null && bs.getBlock() instanceof HerobrineBlock) {
-            Utils.spawnLightning(context.getWorld(), context.getHitPos());
+            Utils.spawnLightning(context.getWorld(), context.getHitPos(), true);
            // Utils.setBlockAtPos(context.getWorld(), context.getHitPos(), Blocks.AIR);
          //   spawnEggItem.useOnBlock(context);
             Main.HEROBRINE_ENTITY_TYPE.spawnFromItemStack((ServerWorld) context.getWorld(), null, null, context.getBlockPos(), SpawnReason.EVENT, true, false);

@@ -5,6 +5,8 @@ import com.google.gson.JsonObject;
 import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

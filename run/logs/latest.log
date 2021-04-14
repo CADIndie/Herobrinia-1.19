@@ -1,52 +1,52 @@
-[18:38:59] [main/INFO] (FabricLoader) Loading for game Minecraft 1.16.4
-[18:39:00] [main/INFO] (Fabric|Loader) [FabricLoader] Loading 42 mods: minecraft@1.16.4, fabric-networking-blockentity-v0@0.2.5+b50ffc7b3a, fabric-renderer-api-v1@0.3.3+a4467d2a3a, fabric-screen-handler-api-v1@1.1.0+872498413a, fabric-keybindings-v0@0.2.0+3fa9f7c53a, fabric-command-api-v1@1.0.9+a4467d2a3a, fabricloader@0.10.8, fabric-tool-attribute-api-v1@1.2.4+2b4623793a, fabric-renderer-indigo@0.4.3+a4467d2a3a, fabric-structure-api-v1@1.1.0+f8ac1db23a, fabric-containers-v0@0.1.8+045df74f3a, fabric-object-builder-api-v1@1.9.2+a89534ab3a, fabric-crash-report-info-v1@0.1.2+b7f9825d3a, fabric-events-interaction-v0@0.4.1+f8ac1db23a, fabric-item-api-v1@1.2.0+f8ac1db23a, fabric-game-rule-api-v1@1.0.3+a4467d2a3a, fabric-api-base@0.2.0+9f0fb4b83a, fabric-rendering-v0@1.1.1+f8ac1db23a, fabric-rendering-v1@1.3.1+f8ac1db23a, fabric-key-binding-api-v1@1.0.1+730711c63a, fabric-rendering-data-attachment-v1@0.1.4+f8ac1db23a, fabric-resource-loader-v0@0.3.1+facf3bbf3a, fabric-textures-v0@1.0.5+a4467d2a3a, herobrinia@4.5.0, fabric-content-registries-v0@0.1.9+059ea8663a, fabric-tag-extensions-v0@1.0.3+ac8e8c593a, fabric-biome-api-v1@3.0.0+8367596d3a, fabric-rendering-fluids-v1@0.1.12+f8ac1db23a, fabric-commands-v0@0.2.0+52d308363a, fabric-registry-sync-v0@0.6.1+a4467d2a3a, fabric-blockrenderlayer-v1@1.1.4+c6a8ea893a, fabric-lifecycle-events-v1@1.2.0+74cc3b203a, fabric-mining-levels-v0@0.1.2+b764ce993a, fabric-renderer-registries-v1@2.2.0+f8ac1db23a, fabric-loot-tables-v1@1.0.1+432ea1883a, fabric-events-lifecycle-v0@0.2.0+16acbe5b3a, fabric@0.25.1+build.416-1.16, fabric-models-v0@0.1.1+f8ac1db23a, fabric-particles-v1@0.2.2+fb0d9b0e3a, fabric-item-groups-v0@0.2.1+a4467d2a3a, fabric-object-builders-v0@0.7.1+a4467d2a3a, fabric-networking-v0@0.1.10+e00ecb5f3a
-[18:39:00] [main/INFO] (mixin) SpongePowered MIXIN Subsystem Version=0.8.2 Source=file:/C:/Users/SirLennox/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.8.2+build.24/e5a741445d0f425bf3cce946c6cf8c7fb8376b2/sponge-mixin-0.8.2+build.24.jar Service=Knot/Fabric Env=CLIENT
-[18:39:01] [main/INFO] (Fabric|MixinBootstrap) Loaded Fabric development mappings for mixin remapper!
-[18:39:01] [main/INFO] (mixin) Remapping refMap fabric-networking-v0-refmap.json using remapper chain
-[18:39:01] [main/INFO] (mixin) Remapping refMap fabric-networking-blockentity-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-screen-handler-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-lifecycle-events-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-containers-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-renderer-indigo-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-rendering-data-attachment-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-structure-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-events-interaction-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-item-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-loot-tables-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-object-builder-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-renderer-registries-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-textures-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-registry-sync-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-models-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-blockrenderlayer-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-renderer-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-containers-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-rendering-fluids-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-biome-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-resource-loader-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-game-rule-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-particles-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-object-builders-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-tag-extensions-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-tool-attribute-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-rendering-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-item-groups-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-content-registries-v0-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-command-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-crash-report-info-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-key-binding-api-v1-refmap.json using remapper chain
-[18:39:02] [main/INFO] (mixin) Remapping refMap fabric-renderer-api-v1-refmap.json using remapper chain
-[18:39:02] [main/WARN] (mixin) @Mixin target net/minecraft/server/world/ThreadedAnvilChunkStorage$EntityTracker is public in fabric-networking-v0.mixins.json:MixinEntityTracker and should be specified in value
-[18:39:02] [main/WARN] (mixin) @Mixin target net/minecraft/client/render/block/BlockModelRenderer$AmbientOcclusionCalculator is public in fabric-renderer-indigo.mixins.json:MixinAmbientOcclusionCalculator and should be specified in value
-[18:39:02] [main/WARN] (mixin) @Mixin target net/minecraft/client/render/chunk/ChunkBuilder$BuiltChunk$RebuildTask is public in fabric-renderer-indigo.mixins.json:MixinChunkRebuildTask and should be specified in value
-[18:39:02] [main/WARN] (mixin) @Mixin target net/minecraft/village/TradeOffers$TypeAwareBuyForOneEmeraldFactory is public in fabric-object-builder-v1.mixins.json:TypeAwareTradeMixin and should be specified in value
-[18:39:03] [main/WARN] (mixin) @Mixin target net/minecraft/server/command/GameRuleCommand$1 is public in fabric-game-rule-api-v1.mixins.json:GameRuleCommandVisitorMixin and should be specified in value
-[18:39:03] [main/WARN] (mixin) @Mixin target net/minecraft/client/gui/screen/world/EditGameRulesScreen$RuleListWidget$1 is public in fabric-game-rule-api-v1.mixins.json:client.RuleListWidgetVisitorMixin and should be specified in value
-[18:39:03] [main/WARN] (mixin) @Mixin target net/minecraft/client/particle/ParticleManager$SimpleSpriteProvider is public in fabric-particles-v1.mixins.json:ParticleManagerAccessor$SimpleSpriteProviderAccessor and should be specified in value
-[18:39:03] [main/WARN] (mixin) @Mixin target net/minecraft/tag/Tag$1 is public in fabric-tag-extensions-v0.mixins.json:MixinTagImpl and should be specified in value
-[18:39:03] [main/WARN] (mixin) @Mixin target net/minecraft/tag/RequiredTagList$TagWrapper is public in fabric-tag-extensions-v0.mixins.json:MixinTagImpl and should be specified in value
-[18:39:16] [main/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[18:39:18] [main/ERROR] (Minecraft) Failed to verify authentication
+[09:55:17] [main/INFO] (FabricLoader) Loading for game Minecraft 1.16.4
+[09:55:19] [main/INFO] (Fabric|Loader) [FabricLoader] Loading 42 mods: minecraft@1.16.4, fabric-networking-blockentity-v0@0.2.5+b50ffc7b3a, fabric-renderer-api-v1@0.3.3+a4467d2a3a, fabric-screen-handler-api-v1@1.1.0+872498413a, fabric-keybindings-v0@0.2.0+3fa9f7c53a, fabric-command-api-v1@1.0.9+a4467d2a3a, fabricloader@0.10.8, fabric-tool-attribute-api-v1@1.2.4+2b4623793a, fabric-renderer-indigo@0.4.3+a4467d2a3a, fabric-structure-api-v1@1.1.0+f8ac1db23a, fabric-containers-v0@0.1.8+045df74f3a, fabric-object-builder-api-v1@1.9.2+a89534ab3a, fabric-crash-report-info-v1@0.1.2+b7f9825d3a, fabric-events-interaction-v0@0.4.1+f8ac1db23a, fabric-item-api-v1@1.2.0+f8ac1db23a, fabric-game-rule-api-v1@1.0.3+a4467d2a3a, fabric-api-base@0.2.0+9f0fb4b83a, fabric-rendering-v0@1.1.1+f8ac1db23a, fabric-rendering-v1@1.3.1+f8ac1db23a, fabric-key-binding-api-v1@1.0.1+730711c63a, fabric-rendering-data-attachment-v1@0.1.4+f8ac1db23a, fabric-resource-loader-v0@0.3.1+facf3bbf3a, fabric-textures-v0@1.0.5+a4467d2a3a, herobrinia@4.6.1, fabric-content-registries-v0@0.1.9+059ea8663a, fabric-tag-extensions-v0@1.0.3+ac8e8c593a, fabric-biome-api-v1@3.0.0+8367596d3a, fabric-rendering-fluids-v1@0.1.12+f8ac1db23a, fabric-commands-v0@0.2.0+52d308363a, fabric-registry-sync-v0@0.6.1+a4467d2a3a, fabric-blockrenderlayer-v1@1.1.4+c6a8ea893a, fabric-lifecycle-events-v1@1.2.0+74cc3b203a, fabric-mining-levels-v0@0.1.2+b764ce993a, fabric-renderer-registries-v1@2.2.0+f8ac1db23a, fabric-loot-tables-v1@1.0.1+432ea1883a, fabric-events-lifecycle-v0@0.2.0+16acbe5b3a, fabric@0.25.1+build.416-1.16, fabric-models-v0@0.1.1+f8ac1db23a, fabric-particles-v1@0.2.2+fb0d9b0e3a, fabric-item-groups-v0@0.2.1+a4467d2a3a, fabric-object-builders-v0@0.7.1+a4467d2a3a, fabric-networking-v0@0.1.10+e00ecb5f3a
+[09:55:19] [main/INFO] (mixin) SpongePowered MIXIN Subsystem Version=0.8.2 Source=file:/C:/Users/SirLennox/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.8.2+build.24/e5a741445d0f425bf3cce946c6cf8c7fb8376b2/sponge-mixin-0.8.2+build.24.jar Service=Knot/Fabric Env=CLIENT
+[09:55:20] [main/INFO] (Fabric|MixinBootstrap) Loaded Fabric development mappings for mixin remapper!
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-networking-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-networking-blockentity-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-screen-handler-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-lifecycle-events-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-containers-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-renderer-indigo-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-rendering-data-attachment-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-structure-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-events-interaction-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-item-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-loot-tables-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-object-builder-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-renderer-registries-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-textures-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-registry-sync-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-models-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-blockrenderlayer-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-renderer-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-containers-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-rendering-fluids-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-biome-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-resource-loader-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-game-rule-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-particles-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-object-builders-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-tag-extensions-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-tool-attribute-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-rendering-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-item-groups-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-content-registries-v0-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-command-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-crash-report-info-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-key-binding-api-v1-refmap.json using remapper chain
+[09:55:21] [main/INFO] (mixin) Remapping refMap fabric-renderer-api-v1-refmap.json using remapper chain
+[09:55:21] [main/WARN] (mixin) @Mixin target net/minecraft/server/world/ThreadedAnvilChunkStorage$EntityTracker is public in fabric-networking-v0.mixins.json:MixinEntityTracker and should be specified in value
+[09:55:22] [main/WARN] (mixin) @Mixin target net/minecraft/client/render/block/BlockModelRenderer$AmbientOcclusionCalculator is public in fabric-renderer-indigo.mixins.json:MixinAmbientOcclusionCalculator and should be specified in value
+[09:55:22] [main/WARN] (mixin) @Mixin target net/minecraft/client/render/chunk/ChunkBuilder$BuiltChunk$RebuildTask is public in fabric-renderer-indigo.mixins.json:MixinChunkRebuildTask and should be specified in value
+[09:55:22] [main/WARN] (mixin) @Mixin target net/minecraft/village/TradeOffers$TypeAwareBuyForOneEmeraldFactory is public in fabric-object-builder-v1.mixins.json:TypeAwareTradeMixin and should be specified in value
+[09:55:22] [main/WARN] (mixin) @Mixin target net/minecraft/server/command/GameRuleCommand$1 is public in fabric-game-rule-api-v1.mixins.json:GameRuleCommandVisitorMixin and should be specified in value
+[09:55:23] [main/WARN] (mixin) @Mixin target net/minecraft/client/gui/screen/world/EditGameRulesScreen$RuleListWidget$1 is public in fabric-game-rule-api-v1.mixins.json:client.RuleListWidgetVisitorMixin and should be specified in value
+[09:55:23] [main/WARN] (mixin) @Mixin target net/minecraft/client/particle/ParticleManager$SimpleSpriteProvider is public in fabric-particles-v1.mixins.json:ParticleManagerAccessor$SimpleSpriteProviderAccessor and should be specified in value
+[09:55:23] [main/WARN] (mixin) @Mixin target net/minecraft/tag/Tag$1 is public in fabric-tag-extensions-v0.mixins.json:MixinTagImpl and should be specified in value
+[09:55:23] [main/WARN] (mixin) @Mixin target net/minecraft/tag/RequiredTagList$TagWrapper is public in fabric-tag-extensions-v0.mixins.json:MixinTagImpl and should be specified in value
+[09:55:48] [main/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[09:55:55] [main/ERROR] (Minecraft) Failed to verify authentication
 com.mojang.authlib.exceptions.AuthenticationUnavailableException: null
 	at com.mojang.authlib.yggdrasil.YggdrasilSocialInteractionsService.checkPrivileges(YggdrasilSocialInteractionsService.java:97) ~[authlib-2.1.28.jar:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilSocialInteractionsService.<init>(YggdrasilSocialInteractionsService.java:40) ~[authlib-2.1.28.jar:?]
@@ -62,201 +62,498 @@ com.mojang.authlib.exceptions.AuthenticationUnavailableException: null
 	at net.fabricmc.loader.launch.knot.Knot.init(Knot.java:141) [fabric-loader-0.10.8@net.fabricmc.yarn.1_16_4.1.16.4+build.7-v2.jar:?]
 	at net.fabricmc.loader.launch.knot.KnotClient.main(KnotClient.java:27) [fabric-loader-0.10.8@net.fabricmc.yarn.1_16_4.1.16.4+build.7-v2.jar:?]
 	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
-[18:39:18] [main/INFO] (Minecraft) Setting user: Player551
-[18:39:18] [main/INFO] (Main) [Herobrinia] Initializing
-[18:39:18] [main/INFO] (Main) [Herobrinia] Loading attacks...
-[18:39:18] [main/INFO] (Main) [Herobrinia] Attacks found: 
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Hit
-[18:39:18] [main/INFO] (Main) [Herobrinia] - SpamHit
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Boost
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Lava
-[18:39:18] [main/INFO] (Main) [Herobrinia] - SpamHit
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Teleport
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Web
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Cut
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Anvils
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Fall
-[18:39:18] [main/INFO] (Main) [Herobrinia] - TNT
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Lightning
-[18:39:18] [main/INFO] (Main) [Herobrinia] - EveryEffect
-[18:39:18] [main/INFO] (Main) [Herobrinia] - ObsidianTrap
-[18:39:18] [main/INFO] (Main) [Herobrinia] - MLG
-[18:39:18] [main/INFO] (Main) [Herobrinia] - FallDamage
-[18:39:18] [main/INFO] (Main) [Herobrinia] - TeleportIntoMe
-[18:39:18] [main/INFO] (Main) [Herobrinia] - SpawnMonsters
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Stun
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Scare
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Fireball
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Freeze
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Burn
-[18:39:18] [main/INFO] (Main) [Herobrinia] - DragonFireball
-[18:39:18] [main/INFO] (Main) [Herobrinia] - Witherskull
-[18:39:18] [main/INFO] (Main) [Herobrinia] - SpawnNetherMonsters
-[18:39:18] [main/INFO] (Main) [Herobrinia] Disabled attack 'EveryEffect'
-[18:39:18] [main/INFO] (Main) [Herobrinia] Registering Entities...
-[18:39:18] [main/INFO] (Main) [Herobrinia] Registering Items...
-[18:39:18] [main/INFO] (Main) [Herobrinia] Registering Blocks...
-[18:39:18] [main/INFO] (Main) [Herobrinia] Initializing Ores...
-[18:39:18] [main/INFO] (Main) [Herobrinia] Initializing Effects...
-[18:39:18] [main/INFO] (Main) [Herobrinia] Initializing Potions...
-[18:39:18] [main/INFO] (Main) [Herobrinia] Initializing Biome Modifications...
-[18:39:19] [main/INFO] (Indigo) [Indigo] Registering Indigo renderer!
-[18:39:20] [main/INFO] (Minecraft) Backend library: LWJGL version 3.2.2 build 10
-[18:39:27] [main/INFO] (Minecraft) Narrator library for x64 successfully loaded
-[18:39:28] [main/INFO] (Minecraft) Reloading ResourceManager: Default, Fabric Networking Block Entity (v0), Fabric Renderer API (v1), Fabric Screen Handler API (v1), Fabric Key Bindings (v0), Fabric Command API (v1), Fabric Loader, Fabric Tool Attribute API (v1), Fabric Renderer - Indigo, Fabric Containers (v0), Fabric Object Builder API (v1), Fabric Crash Report Info (v1), Fabric Events Interaction (v0), Fabric Item API (v1), Fabric Game Rule API (v1), Fabric API Base, Fabric Rendering (v0), Fabric Rendering (v1), Fabric Key Binding API (v1), Fabric Rendering Data Attachment (v1), Fabric Resource Loader (v0), Fabric Textures (v0), Herobrinia, Fabric Content Registries (v0), Fabric Tag Extensions (v0), Fabric Biome API (v1), Fabric Rendering Fluids (v1), Fabric Registry Sync (v0), Fabric BlockRenderLayer Registration (v1), Fabric Lifecycle Events (v1), Fabric Mining Levels (v0), Fabric Renderer Registries (v1), Fabric Loot Tables (v1), Fabric Events Lifecycle (v0), Fabric API, Fabric Models (v0), Fabric Item Groups (v0), Fabric Object Builders (v0), Fabric Networking (v0)
-[18:39:32] [Realms Notification Availability checker #1/INFO] (Minecraft) Could not authorize you against Realms server: Invalid session id
-[18:40:05] [main/INFO] (Minecraft) OpenAL initialized.
-[18:40:05] [main/INFO] (Minecraft) Sound engine started
-[18:40:06] [main/INFO] (Minecraft) Created: 1024x1024x0 minecraft:textures/atlas/blocks.png-atlas
-[18:40:06] [main/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/signs.png-atlas
-[18:40:06] [main/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/banner_patterns.png-atlas
-[18:40:06] [main/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/shield_patterns.png-atlas
-[18:40:06] [main/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/chest.png-atlas
-[18:40:06] [main/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/beds.png-atlas
-[18:40:06] [main/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/shulker_boxes.png-atlas
-[18:40:08] [main/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[18:40:08] [main/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[18:40:08] [main/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[18:40:16] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[18:40:16] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[18:40:16] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
-[18:40:16] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[18:40:16] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[18:40:16] [main/INFO] (Minecraft) Reloading ResourceManager: Default, Fabric Tool Attribute API (v1), Herobrinia
-[18:40:22] [main/INFO] (Minecraft) Loaded 7 recipes
-[18:40:22] [main/INFO] (Minecraft) Loaded 940 advancements
-[18:40:22] [main/INFO] (BiomeModificationImpl) Applied 15 biome modifications to 5 of 79 new biomes in 73.04 ms
-[18:40:22] [main/WARN] (Minecraft) herobrinia:step missing from registry, but requested!
-[18:40:22] [main/WARN] (Minecraft) herobrinia:fly missing from registry, but requested!
-[18:40:22] [main/INFO] (FabricRegistrySync) [fabric-registry-sync] Loaded registry data [file 1/4]
-[18:40:26] [main/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[18:40:26] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.16.4
-[18:40:26] [Server thread/INFO] (Minecraft) Generating keypair
-[18:40:27] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
-[18:40:30] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:30] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:30] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:30] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:30] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:30] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:30] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:31] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:31] [main/INFO] (Minecraft) Preparing spawn area: 0%
-[18:40:32] [main/INFO] (Minecraft) Preparing spawn area: 9%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:39] [main/INFO] (Minecraft) Preparing spawn area: 79%
-[18:40:41] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:41] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:41] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:41] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:42] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:43] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:43] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:43] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:44] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:44] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:45] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:46] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:46] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:46] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:47] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:48] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:48] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:49] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:49] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:50] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:50] [main/INFO] (Minecraft) Preparing spawn area: 83%
-[18:40:51] [main/INFO] (Minecraft) Preparing spawn area: 86%
-[18:40:51] [main/INFO] (Minecraft) Preparing spawn area: 86%
-[18:40:51] [main/INFO] (Minecraft) Preparing spawn area: 89%
-[18:40:52] [main/INFO] (Minecraft) Preparing spawn area: 90%
-[18:40:52] [main/INFO] (Minecraft) Preparing spawn area: 94%
-[18:40:53] [main/INFO] (Minecraft) Preparing spawn area: 98%
-[18:40:54] [main/INFO] (Minecraft) Time elapsed: 26634 ms
-[18:40:54] [Server thread/INFO] (Minecraft) Changing view distance to 2, from 10
-[18:40:58] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 4382ms or 87 ticks behind
-[18:41:02] [Server thread/INFO] (Minecraft) Player551[local:E:b0211102] logged in with entity id 304 at (-28.80848052981026, 62.0, 2.518995885833063)
-[18:41:03] [Server thread/INFO] (Minecraft) Player551 joined the game
-[18:41:03] [Server thread/INFO] (Minecraft) Player551 has made the advancement [Getting ready for combat]
-[18:41:04] [main/INFO] (Minecraft) [CHAT] Player551 has made the advancement [Getting ready for combat]
-[18:41:04] [main/INFO] (Minecraft) Loaded 5 advancements
-[18:41:09] [Server thread/INFO] (Minecraft) Scanning for legacy world dragon fight...
-[18:41:09] [Server thread/INFO] (Minecraft) Found that the dragon has been killed in this world already.
-[18:41:18] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 4523ms or 90 ticks behind
-[18:42:12] [Server thread/INFO] (Minecraft) [Player551: Summoned new Pig]
-[18:42:12] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
-[18:43:10] [main/INFO] (Minecraft) Loaded 7 advancements
-[18:43:16] [main/INFO] (Minecraft) Loaded 8 advancements
-[18:44:00] [main/INFO] (Minecraft) Loaded 11 advancements
-[18:44:31] [Server thread/INFO] (Minecraft) Player551 has made the advancement [Local Brewery]
-[18:44:31] [main/INFO] (Minecraft) [CHAT] Player551 has made the advancement [Local Brewery]
-[18:44:31] [main/INFO] (Minecraft) Loaded 16 advancements
-[18:44:49] [main/INFO] (Minecraft) [CHAT] Saved screenshot as 2021-04-13_18.44.49.png
-[18:44:57] [main/INFO] (Minecraft) Loaded 18 advancements
-[18:45:30] [Server thread/INFO] (Minecraft) Player551 has reached the goal [You Need a Mint]
-[18:45:30] [main/INFO] (Minecraft) [CHAT] Player551 has reached the goal [You Need a Mint]
-[18:45:30] [main/INFO] (Minecraft) Loaded 21 advancements
-[18:46:05] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2190ms or 43 ticks behind
-[18:47:31] [main/INFO] (Minecraft) [CHAT] Saved screenshot as 2021-04-13_18.47.30.png
-[18:48:40] [Server thread/INFO] (Minecraft) Player551 has reached the goal [The Next Generation]
-[18:48:40] [main/INFO] (Minecraft) [CHAT] Player551 has reached the goal [The Next Generation]
-[18:48:40] [main/INFO] (Minecraft) Loaded 22 advancements
-[18:50:37] [Server thread/INFO] (Minecraft) [Player551: Set own game mode to Survival Mode]
-[18:50:37] [main/INFO] (Minecraft) [CHAT] Set own game mode to Survival Mode
-[18:51:49] [Server thread/INFO] (Minecraft) [Player551: Set own game mode to Creative Mode]
-[18:51:49] [main/INFO] (Minecraft) [CHAT] Set own game mode to Creative Mode
-[18:53:12] [main/INFO] (Minecraft) Loaded 23 advancements
-[18:53:14] [Server thread/INFO] (Minecraft) [Player551: Summoned new Pig]
-[18:53:14] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
-[18:53:15] [Server thread/INFO] (Minecraft) Player551 has made the advancement [Take Aim]
-[18:53:15] [main/INFO] (Minecraft) [CHAT] Player551 has made the advancement [Take Aim]
-[18:53:16] [main/INFO] (Minecraft) Loaded 28 advancements
-[18:53:19] [main/INFO] (Minecraft) Loaded 39 advancements
-[18:53:21] [Server thread/INFO] (Minecraft) [Player551: Summoned new Pig]
-[18:53:21] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
-[18:53:30] [Server thread/INFO] (Minecraft) [Player551: Summoned new Pig]
-[18:53:30] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
-[18:53:36] [Server thread/INFO] (Minecraft) [Player551: Summoned new Pig]
-[18:53:36] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
-[18:53:47] [Server thread/INFO] (Minecraft) [Player551: Summoned new Pig]
-[18:53:47] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
-[18:53:53] [Server thread/INFO] (Minecraft) [Player551: Summoned new Pig]
-[18:53:53] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
-[18:54:01] [Server thread/INFO] (Minecraft) [Player551: Summoned new Pig]
-[18:54:01] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
-[18:54:33] [main/INFO] (Minecraft) Loaded 41 advancements
-[18:54:42] [Server thread/INFO] (Minecraft) [Player551: Summoned new End Crystal]
-[18:54:42] [main/INFO] (Minecraft) [CHAT] Summoned new End Crystal
-[18:54:54] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[18:54:54] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[18:54:55] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[18:54:55] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[18:55:19] [main/INFO] (Minecraft) Stopping!
-[18:55:19] [Server thread/INFO] (Minecraft) Player551 lost connection: Disconnected
-[18:55:19] [Server thread/INFO] (Minecraft) Player551 left the game
-[18:55:19] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
-[18:55:19] [Server thread/INFO] (Minecraft) Stopping server
-[18:55:19] [Server thread/INFO] (Minecraft) Saving players
-[18:55:19] [Server thread/INFO] (Minecraft) Saving worlds
-[18:55:19] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[18:55:20] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World (2)): All chunks are saved
-[18:55:20] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[18:55:20] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[18:55:20] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[18:55:20] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[18:55:20] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World (2)): All chunks are saved
-[18:55:20] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[18:55:20] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:55:55] [main/INFO] (Minecraft) Setting user: Player499
+[09:55:55] [main/INFO] (Main) [Herobrinia] Initializing
+[09:55:55] [main/INFO] (Main) [Herobrinia] Loading attacks...
+[09:55:55] [main/INFO] (Main) [Herobrinia] Attacks found: 
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Hit
+[09:55:55] [main/INFO] (Main) [Herobrinia] - SpamHit
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Boost
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Lava
+[09:55:55] [main/INFO] (Main) [Herobrinia] - SpamHit
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Teleport
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Web
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Cut
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Anvils
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Fall
+[09:55:55] [main/INFO] (Main) [Herobrinia] - TNT
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Lightning
+[09:55:55] [main/INFO] (Main) [Herobrinia] - EveryEffect
+[09:55:55] [main/INFO] (Main) [Herobrinia] - ObsidianTrap
+[09:55:55] [main/INFO] (Main) [Herobrinia] - MLG
+[09:55:55] [main/INFO] (Main) [Herobrinia] - FallDamage
+[09:55:55] [main/INFO] (Main) [Herobrinia] - TeleportIntoMe
+[09:55:55] [main/INFO] (Main) [Herobrinia] - SpawnMonsters
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Stun
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Scare
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Fireball
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Freeze
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Burn
+[09:55:55] [main/INFO] (Main) [Herobrinia] - DragonFireball
+[09:55:55] [main/INFO] (Main) [Herobrinia] - Witherskull
+[09:55:55] [main/INFO] (Main) [Herobrinia] - SpawnNetherMonsters
+[09:55:55] [main/INFO] (Main) [Herobrinia] Disabled attack 'EveryEffect'
+[09:55:55] [main/INFO] (Main) [Herobrinia] Registering Entities...
+[09:55:55] [main/INFO] (Main) [Herobrinia] Registering Items...
+[09:55:55] [main/INFO] (Main) [Herobrinia] Registering Blocks...
+[09:55:55] [main/INFO] (Main) [Herobrinia] Initializing Ores...
+[09:55:55] [main/INFO] (Main) [Herobrinia] Initializing Effects...
+[09:55:55] [main/INFO] (Main) [Herobrinia] Initializing Potions...
+[09:55:55] [main/INFO] (Main) [Herobrinia] Initializing Biome Modifications...
+[09:55:56] [main/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[09:55:57] [main/INFO] (Minecraft) Backend library: LWJGL version 3.2.2 build 10
+[09:56:05] [main/INFO] (Minecraft) Narrator library for x64 successfully loaded
+[09:56:05] [main/INFO] (Minecraft) Reloading ResourceManager: Default, Fabric Networking Block Entity (v0), Fabric Renderer API (v1), Fabric Screen Handler API (v1), Fabric Key Bindings (v0), Fabric Command API (v1), Fabric Loader, Fabric Tool Attribute API (v1), Fabric Renderer - Indigo, Fabric Containers (v0), Fabric Object Builder API (v1), Fabric Crash Report Info (v1), Fabric Events Interaction (v0), Fabric Item API (v1), Fabric Game Rule API (v1), Fabric API Base, Fabric Rendering (v0), Fabric Rendering (v1), Fabric Key Binding API (v1), Fabric Rendering Data Attachment (v1), Fabric Resource Loader (v0), Fabric Textures (v0), Herobrinia, Fabric Content Registries (v0), Fabric Tag Extensions (v0), Fabric Biome API (v1), Fabric Rendering Fluids (v1), Fabric Registry Sync (v0), Fabric BlockRenderLayer Registration (v1), Fabric Lifecycle Events (v1), Fabric Mining Levels (v0), Fabric Renderer Registries (v1), Fabric Loot Tables (v1), Fabric Events Lifecycle (v0), Fabric API, Fabric Models (v0), Fabric Item Groups (v0), Fabric Object Builders (v0), Fabric Networking (v0)
+[09:56:06] [Realms Notification Availability checker #1/INFO] (Minecraft) Could not authorize you against Realms server: Invalid session id
+[09:56:53] [main/INFO] (Minecraft) OpenAL initialized.
+[09:56:53] [main/INFO] (Minecraft) Sound engine started
+[09:56:54] [main/INFO] (Minecraft) Created: 1024x1024x0 minecraft:textures/atlas/blocks.png-atlas
+[09:56:54] [main/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/signs.png-atlas
+[09:56:54] [main/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/banner_patterns.png-atlas
+[09:56:54] [main/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/shield_patterns.png-atlas
+[09:56:54] [main/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/chest.png-atlas
+[09:56:54] [main/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/beds.png-atlas
+[09:56:54] [main/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/shulker_boxes.png-atlas
+[09:56:57] [main/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[09:56:57] [main/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[09:56:57] [main/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[09:57:08] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:57:08] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:57:08] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:57:08] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:57:08] [main/WARN] (Minecraft) Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:57:08] [main/INFO] (Minecraft) Reloading ResourceManager: Default, Fabric Tool Attribute API (v1), Herobrinia
+[09:57:14] [main/INFO] (Minecraft) Loaded 7 recipes
+[09:57:16] [main/INFO] (Minecraft) Loaded 940 advancements
+[09:57:16] [main/INFO] (BiomeModificationImpl) Applied 15 biome modifications to 5 of 79 new biomes in 72.44 ms
+[09:57:16] [main/WARN] (Minecraft) herobrinia:step missing from registry, but requested!
+[09:57:16] [main/WARN] (Minecraft) herobrinia:fly missing from registry, but requested!
+[09:57:16] [main/INFO] (FabricRegistrySync) [fabric-registry-sync] Loaded registry data [file 1/4]
+[09:57:20] [main/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[09:57:20] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.16.4
+[09:57:20] [Server thread/INFO] (Minecraft) Generating keypair
+[09:57:22] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:26] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:28] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:28] [main/INFO] (Minecraft) Preparing spawn area: 0%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:42] [main/INFO] (Minecraft) Preparing spawn area: 48%
+[09:57:43] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:43] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:44] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:44] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:45] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:46] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:46] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:47] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:47] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:48] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:48] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:48] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:48] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:50] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:50] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:51] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:51] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:51] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:51] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:52] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:52] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:54] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:54] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:55] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:55] [main/INFO] (Minecraft) Preparing spawn area: 83%
+[09:57:55] [main/INFO] (Minecraft) Preparing spawn area: 85%
+[09:57:56] [main/INFO] (Minecraft) Preparing spawn area: 86%
+[09:57:56] [main/INFO] (Minecraft) Preparing spawn area: 86%
+[09:57:57] [main/INFO] (Minecraft) Preparing spawn area: 86%
+[09:57:57] [main/INFO] (Minecraft) Preparing spawn area: 93%
+[09:57:57] [main/INFO] (Minecraft) Preparing spawn area: 93%
+[09:57:59] [main/INFO] (Minecraft) Time elapsed: 36991 ms
+[09:58:00] [Server thread/INFO] (Minecraft) Changing view distance to 4, from 10
+[09:58:02] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2009ms or 40 ticks behind
+[09:58:11] [Server thread/INFO] (Minecraft) Player499[local:E:d1c41c67] logged in with entity id 251 at (241.36815830259422, 68.0, -175.20673402721295)
+[09:58:11] [Server thread/INFO] (Minecraft) Player499 joined the game
+[09:58:12] [Server thread/INFO] (Minecraft) Player499 has made the advancement [Stone Age]
+[09:58:15] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[09:58:15] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[09:58:15] [main/INFO] (Minecraft) [CHAT] Player499 has made the advancement [Stone Age]
+[09:58:15] [main/INFO] (Minecraft) Loaded 19 advancements
+[09:58:18] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[09:58:18] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[09:58:23] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 6231ms or 124 ticks behind
+[09:58:28] [Server thread/INFO] (Minecraft) <Player499> (clear
+[09:58:29] [main/INFO] (Minecraft) [CHAT] <Player499> (clear
+[09:58:32] [Server thread/INFO] (Minecraft) [Player499: Removed 447 items from player Player499]
+[09:58:32] [main/INFO] (Minecraft) [CHAT] Removed 447 items from player Player499
+[09:58:36] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Creative Mode]
+[09:58:36] [main/INFO] (Minecraft) [CHAT] Set own game mode to Creative Mode
+[09:58:37] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[09:58:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[09:58:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[09:58:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[09:58:43] [Server thread/INFO] (Minecraft) Changing view distance to 2, from 4
+[09:59:00] [Server thread/INFO] (Minecraft) Player499 has completed the challenge [A... BLOCK?!]
+[09:59:00] [main/INFO] (Minecraft) [CHAT] Player499 has completed the challenge [A... BLOCK?!]
+[09:59:00] [main/INFO] (Minecraft) Loaded 27 advancements
+[09:59:11] [Server thread/INFO] (Minecraft) Player499 has completed the challenge [What a beautiful rose]
+[09:59:12] [main/INFO] (Minecraft) [CHAT] Player499 has completed the challenge [What a beautiful rose]
+[09:59:12] [main/INFO] (Minecraft) Loaded 27 advancements
+[09:59:12] [Server thread/INFO] (Minecraft) Player499 has completed the challenge [Say "Hi" to my new friend]
+[09:59:12] [Server thread/INFO] (Minecraft) Player499 has made the advancement [Best Friends Forever]
+[09:59:12] [main/INFO] (Minecraft) [CHAT] Player499 has completed the challenge [Say "Hi" to my new friend]
+[09:59:12] [main/INFO] (Minecraft) [CHAT] Player499 has made the advancement [Best Friends Forever]
+[09:59:12] [main/INFO] (Minecraft) Loaded 30 advancements
+[09:59:41] [Server thread/INFO] (Minecraft) Player499 has made the advancement [Take Aim]
+[09:59:41] [main/INFO] (Minecraft) [CHAT] Player499 has made the advancement [Take Aim]
+[09:59:41] [main/INFO] (Minecraft) Loaded 35 advancements
+[09:59:54] [Server thread/INFO] (Minecraft) Player499 has completed the challenge [He is... DEAD?!]
+[09:59:54] [Server thread/INFO] (Minecraft) Player499 has completed the challenge [A bloody hand]
+[09:59:54] [main/INFO] (Minecraft) [CHAT] §cHerobrine was shot by Player499
+[09:59:54] [main/INFO] (Minecraft) [CHAT] Player499 has completed the challenge [He is... DEAD?!]
+[09:59:54] [main/INFO] (Minecraft) [CHAT] Player499 has completed the challenge [A bloody hand]
+[09:59:54] [main/INFO] (Minecraft) Loaded 48 advancements
+[10:00:10] [Server thread/INFO] (Minecraft) [Player499: Summoned new §cHerobrine]
+[10:00:10] [main/INFO] (Minecraft) [CHAT] Summoned new §cHerobrine
+[10:00:24] [Server thread/INFO] (Minecraft) [Player499: Killed §cHerobrine]
+[10:00:24] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:00:24] [main/INFO] (Minecraft) [CHAT] Killed §cHerobrine
+[10:00:40] [Server thread/INFO] (Minecraft) Player499 has made the advancement [The End?]
+[10:00:41] [main/INFO] (Minecraft) [CHAT] Player499 has made the advancement [The End?]
+[10:00:41] [main/INFO] (Minecraft) Loaded 59 advancements
+[10:00:42] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2363ms or 47 ticks behind
+[10:00:46] [Server thread/INFO] (Minecraft) Scanning for legacy world dragon fight...
+[10:00:46] [Server thread/INFO] (Minecraft) Found that the dragon has been killed in this world already.
+[10:01:04] [Server thread/INFO] (Minecraft) [Player499: Applied enchantment Power V to Player499's item]
+[10:01:04] [main/INFO] (Minecraft) [CHAT] Applied enchantment Power V to Player499's item
+[10:01:13] [Server thread/INFO] (Minecraft) [Player499: Summoned new §cHerobrine]
+[10:01:13] [main/INFO] (Minecraft) [CHAT] Summoned new §cHerobrine
+[10:01:43] [Server thread/INFO] (Minecraft) Player499 has made the advancement [A powerful item]
+[10:01:43] [main/INFO] (Minecraft) [CHAT] Player499 has made the advancement [A powerful item]
+[10:01:43] [main/INFO] (Minecraft) Loaded 62 advancements
+[10:01:50] [main/INFO] (Minecraft) [CHAT] [Debug]: Hitboxes: shown
+[10:02:58] [Server thread/INFO] (Minecraft) Player499 has completed the challenge [Great View From Up Here]
+[10:02:58] [main/INFO] (Minecraft) [CHAT] Player499 has completed the challenge [Great View From Up Here]
+[10:02:58] [main/INFO] (Minecraft) Loaded 64 advancements
+[10:03:21] [main/INFO] (Minecraft) Loaded 67 advancements
+[10:03:33] [Server thread/INFO] (Minecraft) [Player499: Summoned new Wither]
+[10:03:33] [main/INFO] (Minecraft) [CHAT] Summoned new Wither
+[10:04:24] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2062ms or 41 ticks behind
+[10:04:38] [Server thread/INFO] (Minecraft) Player499 has made the advancement [Ice Bucket Challenge]
+[10:04:38] [main/INFO] (Minecraft) [CHAT] Player499 has made the advancement [Ice Bucket Challenge]
+[10:04:38] [main/INFO] (Minecraft) Loaded 70 advancements
+[10:05:02] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2073ms or 41 ticks behind
+[10:05:33] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7183, l='ServerLevel[New World]', x=43.50, y=51.00, z=32.50]
+[10:05:33] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7184, l='ServerLevel[New World]', x=43.50, y=51.00, z=33.50]
+[10:05:33] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7187, l='ServerLevel[New World]', x=44.43, y=51.00, z=34.45]
+[10:05:33] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7188, l='ServerLevel[New World]', x=45.50, y=51.00, z=32.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7754, l='ServerLevel[New World]', x=42.50, y=50.47, z=31.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7756, l='ServerLevel[New World]', x=42.50, y=50.47, z=33.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7757, l='ServerLevel[New World]', x=42.50, y=50.47, z=34.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7764, l='ServerLevel[New World]', x=43.50, y=50.47, z=31.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7771, l='ServerLevel[New World]', x=44.50, y=50.47, z=31.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7772, l='ServerLevel[New World]', x=44.47, y=50.46, z=35.54]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7778, l='ServerLevel[New World]', x=45.50, y=50.47, z=31.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7784, l='ServerLevel[New World]', x=46.50, y=50.47, z=31.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7786, l='ServerLevel[New World]', x=46.50, y=50.47, z=33.50]
+[10:05:52] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/7787, l='ServerLevel[New World]', x=46.50, y=50.47, z=34.50]
+[10:06:09] [Server thread/INFO] (Minecraft) [Player499: Killed Wither]
+[10:06:09] [main/INFO] (Minecraft) [CHAT] Killed Wither
+[10:06:16] [Server thread/INFO] (Minecraft) [Player499: Summoned new Creeper]
+[10:06:16] [main/INFO] (Minecraft) [CHAT] Summoned new Creeper
+[10:06:32] [main/INFO] (Minecraft) Loaded 71 advancements
+[10:06:33] [main/INFO] (Minecraft) Loaded 72 advancements
+[10:06:34] [Server thread/INFO] (Minecraft) [Player499: Summoned new Creeper]
+[10:06:34] [main/INFO] (Minecraft) [CHAT] Summoned new Creeper
+[10:06:40] [Server thread/INFO] (Minecraft) [Player499: Summoned new Creeper]
+[10:06:40] [main/INFO] (Minecraft) [CHAT] Summoned new Creeper
+[10:06:52] [main/INFO] (Minecraft) Loaded 73 advancements
+[10:06:52] [main/INFO] (Minecraft) Loaded 74 advancements
+[10:06:58] [main/INFO] (Minecraft) Loaded 80 advancements
+[10:07:42] [main/INFO] (Minecraft) Loaded 82 advancements
+[10:07:42] [main/INFO] (Minecraft) Loaded 90 advancements
+[10:07:59] [main/INFO] (Minecraft) Loaded 91 advancements
+[10:07:59] [main/INFO] (Minecraft) Loaded 93 advancements
+[10:08:16] [Server thread/INFO] (Minecraft) [Player499: Summoned new Ender Dragon]
+[10:08:16] [main/INFO] (Minecraft) [CHAT] Summoned new Ender Dragon
+[10:08:52] [Server thread/INFO] (Minecraft) Player499 has made the advancement [Monster Hunter]
+[10:08:52] [main/INFO] (Minecraft) [CHAT] Player499 has made the advancement [Monster Hunter]
+[10:08:52] [main/INFO] (Minecraft) Loaded 103 advancements
+[10:09:36] [Server thread/INFO] (Minecraft) [Player499: Applied enchantment Power V to Player499's item]
+[10:09:36] [main/INFO] (Minecraft) [CHAT] Applied enchantment Power V to Player499's item
+[10:09:54] [Server thread/INFO] (Minecraft) Player499 has made the advancement [Free the End]
+[10:09:54] [main/INFO] (Minecraft) [CHAT] Player499 has made the advancement [Free the End]
+[10:09:54] [main/INFO] (Minecraft) Loaded 103 advancements
+[10:10:32] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[10:10:32] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[10:10:32] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[10:10:32] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[10:10:33] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[10:10:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[10:10:34] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[10:10:34] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[10:10:43] [Server thread/INFO] (Minecraft) [Player499: Summoned new Pig]
+[10:10:43] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
+[10:10:48] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Raw Porkchop'/9332, l='ServerLevel[New World]', x=235.59, y=67.00, z=-176.40]
+[10:10:48] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ExperienceOrbEntity['Experience Orb'/9333, l='ServerLevel[New World]', x=235.59, y=67.00, z=-176.40]
+[10:11:04] [main/INFO] (Minecraft) [CHAT] §cHerobrine was shot by Player499
+[10:12:19] [Server thread/INFO] (Minecraft) [Player499: Summoned new §cHerobrine]
+[10:12:19] [main/INFO] (Minecraft) [CHAT] Summoned new §cHerobrine
+[10:12:22] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2139ms or 42 ticks behind
+[10:12:29] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Spectator Mode]
+[10:12:30] [main/INFO] (Minecraft) [CHAT] Set own game mode to Spectator Mode
+[10:12:34] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/16875, l='ServerLevel[New World]', x=242.12, y=72.00, z=-175.01]
+[10:12:34] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/16880, l='ServerLevel[New World]', x=245.47, y=72.00, z=-177.01]
+[10:12:35] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/17285, l='ServerLevel[New World]', x=245.45, y=73.31, z=-177.32]
+[10:12:35] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/17287, l='ServerLevel[New World]', x=246.60, y=73.31, z=-177.32]
+[10:12:35] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/17294, l='ServerLevel[New World]', x=240.38, y=73.31, z=-173.76]
+[10:12:35] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/17674, l='ServerLevel[New World]', x=243.85, y=69.00, z=-163.21]
+[10:12:36] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/17688, l='ServerLevel[New World]', x=241.40, y=68.50, z=-164.12]
+[10:12:36] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/17689, l='ServerLevel[New World]', x=241.92, y=68.50, z=-163.62]
+[10:12:36] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/17691, l='ServerLevel[New World]', x=242.91, y=68.50, z=-163.06]
+[10:12:36] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/17693, l='ServerLevel[New World]', x=250.24, y=68.25, z=-164.30]
+[10:12:36] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/17694, l='ServerLevel[New World]', x=249.60, y=68.31, z=-163.74]
+[10:12:38] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/19811, l='ServerLevel[New World]', x=240.94, y=69.00, z=-163.76]
+[10:12:38] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/19813, l='ServerLevel[New World]', x=242.12, y=69.75, z=-162.66]
+[10:12:38] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/19815, l='ServerLevel[New World]', x=249.97, y=69.00, z=-162.88]
+[10:12:38] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/19827, l='ServerLevel[New World]', x=240.39, y=68.00, z=-164.38]
+[10:12:42] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/20547, l='ServerLevel[New World]', x=237.50, y=48.00, z=-170.50]
+[10:12:42] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/20548, l='ServerLevel[New World]', x=237.50, y=48.00, z=-169.50]
+[10:12:42] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/20549, l='ServerLevel[New World]', x=238.50, y=48.00, z=-171.50]
+[10:12:42] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/20560, l='ServerLevel[New World]', x=238.50, y=48.00, z=-169.50]
+[10:12:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/20956, l='ServerLevel[New World]', x=254.51, y=48.00, z=-172.71]
+[10:12:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/20957, l='ServerLevel[New World]', x=254.51, y=48.00, z=-170.78]
+[10:12:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/20959, l='ServerLevel[New World]', x=254.51, y=48.00, z=-172.05]
+[10:12:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/20960, l='ServerLevel[New World]', x=254.51, y=48.00, z=-170.63]
+[10:12:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/21208, l='ServerLevel[New World]', x=254.51, y=46.75, z=-164.49]
+[10:12:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/21210, l='ServerLevel[New World]', x=254.51, y=47.00, z=-176.92]
+[10:12:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/21215, l='ServerLevel[New World]', x=254.51, y=47.00, z=-169.15]
+[10:12:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/21235, l='ServerLevel[New World]', x=242.42, y=52.00, z=-183.46]
+[10:12:44] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/21477, l='ServerLevel[New World]', x=251.97, y=48.00, z=-175.94]
+[10:12:44] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/21480, l='ServerLevel[New World]', x=254.51, y=50.00, z=-170.80]
+[10:12:44] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/21487, l='ServerLevel[New World]', x=253.32, y=48.00, z=-166.04]
+[10:12:44] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/21852, l='ServerLevel[New World]', x=254.51, y=48.75, z=-164.49]
+[10:12:48] [main/INFO] (Minecraft) Loaded 103 advancements
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23759, l='ServerLevel[New World]', x=257.48, y=28.47, z=-174.71]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23760, l='ServerLevel[New World]', x=257.37, y=28.50, z=-172.75]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23763, l='ServerLevel[New World]', x=257.68, y=26.62, z=-175.60]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23768, l='ServerLevel[New World]', x=260.53, y=28.51, z=-171.52]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23770, l='ServerLevel[New World]', x=257.59, y=25.49, z=-173.41]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Flint'/23771, l='ServerLevel[New World]', x=257.64, y=28.60, z=-168.65]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Gravel'/23773, l='ServerLevel[New World]', x=257.63, y=26.27, z=-169.53]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23774, l='ServerLevel[New World]', x=257.49, y=25.38, z=-176.68]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Diorite'/23775, l='ServerLevel[New World]', x=257.31, y=28.35, z=-178.56]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23776, l='ServerLevel[New World]', x=259.63, y=25.29, z=-174.62]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Gravel'/23777, l='ServerLevel[New World]', x=259.74, y=27.50, z=-169.30]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23778, l='ServerLevel[New World]', x=260.28, y=26.53, z=-171.74]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23779, l='ServerLevel[New World]', x=260.53, y=26.70, z=-176.55]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23785, l='ServerLevel[New World]', x=260.26, y=26.36, z=-170.38]
+[10:12:57] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cobblestone'/23791, l='ServerLevel[New World]', x=257.61, y=26.43, z=-178.31]
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [Server thread/INFO] (Minecraft) [Player499: Killed 34 entities]
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] §cHerobrine fell out of the world
+[10:13:01] [main/INFO] (Minecraft) [CHAT] Killed 34 entities
+[10:13:03] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 26455ms or 529 ticks behind
+[10:13:06] [main/INFO] (Minecraft) Loaded 103 advancements
+[10:13:06] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Creative Mode]
+[10:13:06] [main/INFO] (Minecraft) [CHAT] Set own game mode to Creative Mode
+[10:14:04] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2380ms or 47 ticks behind
+[10:14:35] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2395ms or 47 ticks behind
+[10:14:45] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Spectator Mode]
+[10:14:45] [main/INFO] (Minecraft) [CHAT] Set own game mode to Spectator Mode
+[10:14:46] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Creative Mode]
+[10:14:46] [main/INFO] (Minecraft) [CHAT] Set own game mode to Creative Mode
+[10:14:49] [main/INFO] (Minecraft) [CHAT] Set own game mode to Survival Mode
+[10:14:49] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Survival Mode]
+[10:14:53] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Creative Mode]
+[10:14:53] [main/INFO] (Minecraft) [CHAT] Set own game mode to Creative Mode
+[10:15:17] [Server thread/INFO] (Minecraft) [Player499: Summoned new Cave Spider]
+[10:15:17] [main/INFO] (Minecraft) [CHAT] Summoned new Cave Spider
+[10:15:19] [main/INFO] (Minecraft) Loaded 103 advancements
+[10:15:28] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2077ms or 41 ticks behind
+[10:15:34] [main/INFO] (Minecraft) Loaded 103 advancements
+[10:15:36] [main/INFO] (Minecraft) [CHAT] §cHerobrine was slain by §cHerobrine
+[10:15:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31562, l='ServerLevel[New World]', x=304.91, y=54.00, z=-206.39]
+[10:15:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31581, l='ServerLevel[New World]', x=303.50, y=54.31, z=-220.95]
+[10:15:43] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31613, l='ServerLevel[New World]', x=306.00, y=54.00, z=-204.49]
+[10:15:44] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31621, l='ServerLevel[New World]', x=299.90, y=55.00, z=-206.21]
+[10:15:44] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31659, l='ServerLevel[New World]', x=297.95, y=54.50, z=-207.91]
+[10:15:44] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31673, l='ServerLevel[New World]', x=300.50, y=52.63, z=-221.50]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Cooked Porkchop'/31782, l='ServerLevel[New World]', x=301.73, y=62.00, z=-213.18]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Ghast Tear'/31783, l='ServerLevel[New World]', x=299.66, y=62.03, z=-216.81]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Gunpowder'/31784, l='ServerLevel[New World]', x=299.66, y=62.03, z=-216.81]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Gunpowder'/31785, l='ServerLevel[New World]', x=299.01, y=62.08, z=-212.75]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Coal'/31786, l='ServerLevel[New World]', x=303.39, y=61.75, z=-212.07]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Arrow'/31787, l='ServerLevel[New World]', x=304.43, y=61.68, z=-212.84]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Stick'/31788, l='ServerLevel[New World]', x=304.34, y=61.68, z=-214.06]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31790, l='ServerLevel[New World]', x=302.73, y=62.72, z=-213.31]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31791, l='ServerLevel[New World]', x=304.62, y=62.58, z=-214.49]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31792, l='ServerLevel[New World]', x=303.55, y=63.66, z=-215.52]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31793, l='ServerLevel[New World]', x=300.73, y=63.52, z=-215.32]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31794, l='ServerLevel[New World]', x=300.33, y=62.27, z=-213.57]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31795, l='ServerLevel[New World]', x=304.32, y=63.37, z=-211.63]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31796, l='ServerLevel[New World]', x=299.32, y=62.43, z=-214.58]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31797, l='ServerLevel[New World]', x=299.73, y=63.38, z=-213.59]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31798, l='ServerLevel[New World]', x=304.70, y=62.73, z=-210.51]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31799, l='ServerLevel[New World]', x=305.42, y=62.71, z=-210.61]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31800, l='ServerLevel[New World]', x=300.61, y=63.56, z=-209.69]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31801, l='ServerLevel[New World]', x=305.50, y=63.71, z=-209.34]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31802, l='ServerLevel[New World]', x=297.65, y=62.69, z=-215.72]
+[10:15:49] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['String'/31805, l='ServerLevel[New World]', x=297.68, y=62.41, z=-214.43]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31855, l='ServerLevel[New World]', x=296.20, y=58.00, z=-214.56]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31856, l='ServerLevel[New World]', x=296.18, y=58.00, z=-213.40]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31880, l='ServerLevel[New World]', x=300.92, y=56.50, z=-209.12]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31881, l='ServerLevel[New World]', x=301.20, y=56.75, z=-208.51]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31882, l='ServerLevel[New World]', x=302.30, y=57.00, z=-209.09]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31883, l='ServerLevel[New World]', x=302.40, y=56.63, z=-208.34]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31884, l='ServerLevel[New World]', x=303.64, y=56.75, z=-219.58]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31885, l='ServerLevel[New World]', x=303.71, y=57.00, z=-209.08]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31886, l='ServerLevel[New World]', x=303.65, y=56.63, z=-208.34]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31889, l='ServerLevel[New World]', x=301.57, y=56.31, z=-208.72]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31949, l='ServerLevel[New World]', x=302.44, y=55.75, z=-218.58]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31951, l='ServerLevel[New World]', x=301.13, y=55.00, z=-218.59]
+[10:15:50] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31953, l='ServerLevel[New World]', x=302.43, y=55.25, z=-218.68]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31969, l='ServerLevel[New World]', x=299.43, y=52.31, z=-216.25]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31970, l='ServerLevel[New World]', x=299.41, y=52.31, z=-211.78]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31972, l='ServerLevel[New World]', x=300.93, y=52.31, z=-210.33]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31973, l='ServerLevel[New World]', x=302.40, y=52.31, z=-217.81]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31974, l='ServerLevel[New World]', x=303.89, y=52.31, z=-217.75]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/31975, l='ServerLevel[New World]', x=303.91, y=52.31, z=-210.25]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32016, l='ServerLevel[New World]', x=299.13, y=52.63, z=-211.70]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32017, l='ServerLevel[New World]', x=299.91, y=52.31, z=-214.92]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32018, l='ServerLevel[New World]', x=299.89, y=52.31, z=-213.03]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32019, l='ServerLevel[New World]', x=300.26, y=52.50, z=-211.30]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32020, l='ServerLevel[New World]', x=300.67, y=52.63, z=-210.13]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32021, l='ServerLevel[New World]', x=304.40, y=52.00, z=-215.12]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32023, l='ServerLevel[New World]', x=305.74, y=52.25, z=-211.31]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32025, l='ServerLevel[New World]', x=298.86, y=52.63, z=-214.75]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32026, l='ServerLevel[New World]', x=298.85, y=52.63, z=-212.89]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32028, l='ServerLevel[New World]', x=304.45, y=52.00, z=-212.19]
+[10:15:51] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/32032, l='ServerLevel[New World]', x=304.13, y=52.75, z=-211.26]
+[10:15:57] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 14149ms or 282 ticks behind
+[10:16:12] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Spectator Mode]
+[10:16:12] [main/INFO] (Minecraft) [CHAT] Set own game mode to Spectator Mode
+[10:16:16] [main/INFO] (Minecraft) [CHAT] [Debug]: Hitboxes: hidden
+[10:16:17] [main/WARN] (Minecraft) Unable to play empty soundEvent: minecraft:entity.salmon.ambient
+[10:16:21] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Creative Mode]
+[10:16:21] [main/INFO] (Minecraft) [CHAT] Set own game mode to Creative Mode
+[10:16:32] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 8059ms or 161 ticks behind
+[10:16:59] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2112ms or 42 ticks behind
+[10:17:26] [Server thread/INFO] (Minecraft) [Player499: Set own game mode to Survival Mode]
+[10:17:26] [main/INFO] (Minecraft) [CHAT] Set own game mode to Survival Mode
+[10:17:27] [main/INFO] (Minecraft) Loaded 109 advancements
+[10:17:50] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[10:17:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[10:17:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[10:17:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[10:18:04] [Server thread/INFO] (Minecraft) [Player499: Summoned new Pig]
+[10:18:04] [main/INFO] (Minecraft) [CHAT] Summoned new Pig
+[10:18:09] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36510, l='ServerLevel[New World]', x=270.67, y=75.31, z=-199.13]
+[10:18:09] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36518, l='ServerLevel[New World]', x=275.90, y=75.00, z=-204.30]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36623, l='ServerLevel[New World]', x=276.29, y=72.00, z=-205.55]
+[10:18:10] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2638ms or 52 ticks behind
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36636, l='ServerLevel[New World]', x=275.53, y=71.00, z=-208.03]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36676, l='ServerLevel[New World]', x=276.53, y=73.00, z=-208.55]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36679, l='ServerLevel[New World]', x=276.90, y=73.00, z=-208.09]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36680, l='ServerLevel[New World]', x=277.42, y=73.31, z=-206.69]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36681, l='ServerLevel[New World]', x=277.55, y=73.31, z=-205.56]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Air'/36690, l='ServerLevel[New World]', x=275.70, y=71.25, z=-208.53]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36699, l='ServerLevel[New World]', x=276.68, y=72.00, z=-209.21]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36707, l='ServerLevel[New World]', x=262.91, y=68.75, z=-205.53]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36710, l='ServerLevel[New World]', x=263.13, y=71.25, z=-201.30]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36712, l='ServerLevel[New World]', x=263.99, y=71.31, z=-200.04]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36716, l='ServerLevel[New World]', x=262.50, y=70.75, z=-201.50]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36718, l='ServerLevel[New World]', x=261.99, y=70.31, z=-202.74]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36721, l='ServerLevel[New World]', x=263.30, y=67.50, z=-207.58]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36725, l='ServerLevel[New World]', x=262.12, y=70.00, z=-204.47]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36728, l='ServerLevel[New World]', x=261.87, y=69.75, z=-204.32]
+[10:18:10] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36729, l='ServerLevel[New World]', x=261.43, y=69.50, z=-204.13]
+[10:18:11] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36743, l='ServerLevel[New World]', x=261.50, y=68.63, z=-207.50]
+[10:18:11] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36744, l='ServerLevel[New World]', x=261.50, y=68.63, z=-205.50]
+[10:18:11] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36746, l='ServerLevel[New World]', x=261.74, y=68.31, z=-206.88]
+[10:18:11] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36878, l='ServerLevel[New World]', x=265.50, y=64.31, z=-212.50]
+[10:18:11] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36883, l='ServerLevel[New World]', x=268.30, y=60.25, z=-212.40]
+[10:18:11] [Server thread/WARN] (Minecraft) Fetching packet for removed entity ItemEntity['Anvil'/36889, l='ServerLevel[New World]', x=271.71, y=60.00, z=-212.35]
+[10:19:09] [main/INFO] (Minecraft) Stopping!
+[10:19:09] [Server thread/INFO] (Minecraft) Player499 lost connection: Disconnected
+[10:19:09] [Server thread/INFO] (Minecraft) Player499 left the game
+[10:19:09] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[10:19:09] [Server thread/INFO] (Minecraft) Stopping server
+[10:19:09] [Server thread/INFO] (Minecraft) Saving players
+[10:19:09] [Server thread/INFO] (Minecraft) Saving worlds
+[10:19:09] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[10:19:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World (2)): All chunks are saved
+[10:19:10] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[10:19:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:19:10] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[10:19:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:19:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World (2)): All chunks are saved
+[10:19:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:19:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved

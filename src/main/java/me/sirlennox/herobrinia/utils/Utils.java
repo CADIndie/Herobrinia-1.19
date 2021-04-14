@@ -77,11 +77,18 @@ public class Utils {
         setBlocks(world, pos1.x, pos2.x, pos1.y, pos2.y, pos1.z, pos2.z, block);
     }
 
-    public static void spawnLightning(World world, Vec3d pos) {
+    public static void spawnLightning(World world, Vec3d pos, boolean cosmetic) {
         LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
         lightning.setPos(pos.x, pos.y, pos.z);
+        lightning.setCosmetic(cosmetic);
         world.spawnEntity(lightning);
     }
+
+    public static void spawnLightning(World world, Vec3d pos) {
+        spawnLightning(world, pos, false);
+    }
+
+
 
     public static void randomAttack(LivingEntity e, LivingEntity herobrine) {
         if(e == null) return;

@@ -1,6 +1,7 @@
 {
   "mappings": {
     "me/sirlennox/herobrinia/mixins/LivingEntityMixin": {
+      "damage(Lnet/minecraft/entity/damage/DamageSource;F)Z": "Lnet/minecraft/class_1309;method_5643(Lnet/minecraft/class_1282;F)Z",
       "tryUseTotem": "Lnet/minecraft/class_1309;method_6095(Lnet/minecraft/class_1282;)Z"
     },
     "me/sirlennox/herobrinia/mixins/ClientPlayNetworkHandlerMixin": {
@@ -19,6 +20,7 @@
   "data": {
     "named:intermediary": {
       "me/sirlennox/herobrinia/mixins/LivingEntityMixin": {
+        "damage(Lnet/minecraft/entity/damage/DamageSource;F)Z": "Lnet/minecraft/class_1309;method_5643(Lnet/minecraft/class_1282;F)Z",
         "tryUseTotem": "Lnet/minecraft/class_1309;method_6095(Lnet/minecraft/class_1282;)Z"
       },
       "me/sirlennox/herobrinia/mixins/ClientPlayNetworkHandlerMixin": {

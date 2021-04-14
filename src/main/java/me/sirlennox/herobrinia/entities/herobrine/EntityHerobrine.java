@@ -213,7 +213,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         if(killer instanceof ProjectileEntity) killer = ((ProjectileEntity) killer).getOwner();
         if(killer instanceof ThrownEntity) killer = ((ThrownEntity) killer).getOwner();
 
-        Utils.spawnLightning(this.world, this.getPos());
+        Utils.spawnLightning(this.world, this.getPos(), true);
         Utils.setBlocks(this.world, this.getPos(), this.getPos().add(1, 0, 1), Blocks.NETHERITE_BLOCK);
         Utils.setBlockAtPos(this.world, this.getPos().x, this.getPos().y - 1, this.getPos().z, Main.HEROBRINE_BLOCK);
         Utils.setBlockAtPos(this.world, this.getPos().x + 1, this.getPos().y - 1, this.getPos().z, Blocks.NETHERITE_BLOCK);
