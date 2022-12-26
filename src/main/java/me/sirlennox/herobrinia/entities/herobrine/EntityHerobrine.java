@@ -7,7 +7,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvironmentInterface;
 import net.fabricmc.api.EnvironmentInterfaces;
-import net.fabricmc.fabric.api.server.PlayerStream;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.*;
@@ -20,7 +19,7 @@ import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.*;
-import net.minecraft.entity.passive.HorseBaseEntity;
+import net.minecraft.entity.passive.HorseEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.WolfEntity;
@@ -37,7 +36,7 @@ import net.minecraft.scoreboard.Team;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.LiteralTextContent;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
@@ -96,7 +95,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         if(item == null) return super.interactMob(player, hand);
         if (item == TAME_ITEM) {
             if(this.isTamed()) return ActionResult.FAIL;
-            if (!player.abilities.creativeMode) {
+            if (!player.getAbilities().creativeMode) {
                 itemStack.decrement(1);
             }
             this.setOwner(player);
@@ -111,7 +110,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
             return ActionResult.SUCCESS;
         }else if(item == HEAL_ITEM) {
             if(this.getHealth() == this.getMaxHealth()) return ActionResult.FAIL;
-            if (!player.abilities.creativeMode) itemStack.decrement(1);
+            if (!player.getAbilities().creativeMode) itemStack.decrement(1);
             float h = this.getHealth() + healAmount;
             if(h > getMaxHealth()) h = this.getMaxHealth();
             this.setHealth(h);
@@ -240,7 +239,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
     @Override
     public boolean damage(DamageSource source, float amount) {
-        if(source == DamageSource.FALL || source == DamageSource.ANVIL || source == DamageSource.CACTUS || source == DamageSource.FALLING_BLOCK || source == DamageSource.SWEET_BERRY_BUSH || source == DamageSource.IN_WALL) return false;
+        if(source == DamageSource.FALL || source == DamageSource.anvil() || source == DamageSource.CACTUS || source == DamageSource.fallingBlock() || source == DamageSource.SWEET_BERRY_BUSH || source == DamageSource.IN_WALL) return false;
         if(this.isDead() || this.getHealth() - amount <= 0) return super.damage(source, amount);
         Entity attacker = source.getAttacker();
         LivingEntity entity = null;
@@ -333,12 +332,10 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         }
     }
 
-
     @Override
     public boolean isImmuneToExplosion() {
         return false;
     }
-
 
     @Override
     public boolean canBreatheInWater() {
@@ -350,9 +347,6 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         return true;
     }
 
-
-
-
     @Override
     public boolean isFireImmune() {
         return true;
@@ -360,7 +354,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
     @Override
     public Text getName() {
-        return new LiteralText(this.getEntityName());
+        return new TextComponent(this.getEntityName());
     }
 
     @Override

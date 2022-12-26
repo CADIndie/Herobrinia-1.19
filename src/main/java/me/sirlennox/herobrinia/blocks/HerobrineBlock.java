@@ -4,11 +4,12 @@ import me.sirlennox.herobrinia.Main;
 import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.text.LiteralTextContent;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.LiteralTextContent;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -22,7 +23,7 @@ import java.util.List;
 public class HerobrineBlock extends HerobriniaBlock {
 
     public HerobrineBlock() {
-        super(AbstractBlock.Settings.of(Material.METAL, MaterialColor.IRON).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.METAL));
+        super(AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.METAL));
     }
 
     @Override

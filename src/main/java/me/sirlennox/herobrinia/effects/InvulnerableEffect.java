@@ -3,8 +3,7 @@ package me.sirlennox.herobrinia.effects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectType;
-import net.minecraft.text.LiteralText;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.text.Text;
 
 import java.awt.*;
@@ -12,7 +11,7 @@ import java.awt.*;
 public class InvulnerableEffect extends StatusEffect {
 
     public InvulnerableEffect() {
-        super(StatusEffectType.BENEFICIAL, Color.YELLOW.getRGB());
+        super(StatusEffectCategory.BENEFICIAL, Color.YELLOW.getRGB());
     }
 
     @Override

@@ -3,7 +3,7 @@ package me.sirlennox.herobrinia.attack.attacks;
 import me.sirlennox.herobrinia.attack.Attack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 public class EveryEffect extends Attack {
     public EveryEffect() {

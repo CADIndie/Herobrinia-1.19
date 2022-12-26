@@ -1,0 +1,2 @@
+v1	named	intermediary
+FIELD	me/sirlennox/herobrinia/mixins/ClientPlayNetworkHandlerMixin	Lnet/minecraft/client/MinecraftClient;	client	field_3690

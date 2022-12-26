@@ -6,7 +6,7 @@ import me.sirlennox.herobrinia.mixins.ModelPredicateProviderRegistryMixin;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.item.ModelPredicateProvider;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -17,8 +17,8 @@ public class Client implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        EntityRendererRegistry.INSTANCE.register(Main.HEROBRINE_ENTITY_TYPE, (dispatcher, context) -> new EntityHerobrineRenderer(dispatcher));
-        EntityRendererRegistry.INSTANCE.register(Main.HEROBRINE_PIGLIN_ENTITY_TYPE, (dispatcher, context) -> new EntityHerobrinePiglinRenderer(dispatcher));
+        EntityRendererRegistry.register(Main.HEROBRINE_ENTITY_TYPE, (dispatcher, context) -> new EntityHerobrineRenderer(dispatcher));
+        EntityRendererRegistry.register(Main.HEROBRINE_PIGLIN_ENTITY_TYPE, (dispatcher, context) -> new EntityHerobrinePiglinRenderer(dispatcher));
         //Register Model Predicates
         registerModelPredicate(Main.HEROBRINE_BOW, new Identifier("pull"), (itemStack, clientWorld, livingEntity) -> livingEntity == null ? 0.0F : livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / 20.0F);
         registerModelPredicate(Main.HEROBRINE_BOW, new Identifier("pulling"), (itemStack, clientWorld, livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);

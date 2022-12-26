@@ -4,7 +4,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
@@ -18,7 +19,7 @@ import java.awt.*;
 
 public class RandomTPEffect extends StatusEffect {
     public RandomTPEffect() {
-        super(StatusEffectType.NEUTRAL, Color.MAGENTA.getRGB());
+        super(StatusEffectCategory.NEUTRAL, Color.MAGENTA.getRGB());
     }
 
 
@@ -38,7 +39,7 @@ public class RandomTPEffect extends StatusEffect {
 
             for(int i = 0; i < 16; ++i) {
                 double g = user.getX() + (user.getRandom().nextDouble() - 0.5D) * 16.0D;
-                double h = MathHelper.clamp(user.getY() + (double)(user.getRandom().nextInt(16) - 8), 0.0D, world.getDimensionHeight() - 1);
+                double h = MathHelper.clamp(user.getY() + (double)(user.getRandom().nextInt(16) - 8), 0.0D, world.getDimension().height() - 1);
                 double j = user.getZ() + (user.getRandom().nextDouble() - 0.5D) * 16.0D;
                 if (user.hasVehicle()) {
                     user.stopRiding();
