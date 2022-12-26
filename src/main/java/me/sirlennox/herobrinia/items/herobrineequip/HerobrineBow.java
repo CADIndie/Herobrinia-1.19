@@ -31,7 +31,7 @@ public class HerobrineBow extends BowItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7The strongest bow, the world has ever seen."));
+        tooltip.add(net.minecraft.text.Text.literal("§7The strongest bow, the world has ever seen."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 
@@ -102,7 +102,7 @@ public class HerobrineBow extends BowItem {
 
     @Override
     public Text getName() {
-        return new net.minecraft.text.LiteralText("§cHerobrine Bow");
+        return net.minecraft.text.Text.literal("§cHerobrine Bow");
     }
 
     @Override

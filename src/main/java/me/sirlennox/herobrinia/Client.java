@@ -20,8 +20,8 @@ public class Client implements ClientModInitializer {
         EntityRendererRegistry.register(Main.HEROBRINE_ENTITY_TYPE, (dispatcher, context) -> new EntityHerobrineRenderer(dispatcher));
         EntityRendererRegistry.register(Main.HEROBRINE_PIGLIN_ENTITY_TYPE, (dispatcher, context) -> new EntityHerobrinePiglinRenderer(dispatcher));
         //Register Model Predicates
-        registerModelPredicate(Main.HEROBRINE_BOW, new Identifier("pull"), (itemStack, clientWorld, livingEntity) -> livingEntity == null ? 0.0F : livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / 20.0F);
-        registerModelPredicate(Main.HEROBRINE_BOW, new Identifier("pulling"), (itemStack, clientWorld, livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
+        registerModelPredicate(Main.HEROBRINE_BOW, new Identifier("pull"), (itemStack, clientWorld, livingEntity, pull) -> livingEntity == null ? 0.0F : livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / 20.0F);
+        registerModelPredicate(Main.HEROBRINE_BOW, new Identifier("pulling"), (itemStack, clientWorld, livingEntity, pulling) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
     public static void registerModelPredicate(Item item, Identifier id, ModelPredicateProvider provider) {

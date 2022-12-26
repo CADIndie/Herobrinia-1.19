@@ -1,8 +1,9 @@
 package me.sirlennox.herobrinia.items;
 
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.impl.item.group.ItemGroupExtensions;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.impl.item.ItemExtensions;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -41,8 +42,8 @@ public class BetterFabricItemGroupBuilder {
     }
 
     public ItemGroup build() {
-        ((ItemGroupExtensions)ItemGroup.BUILDING_BLOCKS).fabric_expandArray();
-        return new ItemGroup(ItemGroup.GROUPS.length - 1, this.name) {
+        ((ItemExtensions)ItemGroups.BUILDING_BLOCKS).fabric_expandArray();
+        return new ItemGroup(ItemGroups.length - 1, this.name) {
             public ItemStack createIcon() {
                 return BetterFabricItemGroupBuilder.this.stackSupplier.get();
             }
@@ -54,7 +55,7 @@ public class BetterFabricItemGroupBuilder {
 
             @Override
             public Text getTranslationKey() {
-                return new net.minecraft.text.LiteralText(this.getName());
+                return net.minecraft.text.Text.literal(this.getName());
             }
 
             public void appendStacks(DefaultedList<ItemStack> stacks) {

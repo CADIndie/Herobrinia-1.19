@@ -4,7 +4,6 @@ import me.sirlennox.herobrinia.Main;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShovelItem;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -23,7 +22,7 @@ public class HerobrineShovel extends ShovelItem {
 
     @Override
     public Text getName() {
-        return new LiteralText("§cHerobrine Shovel");
+        return Text.literal("§cHerobrine Shovel");
     }
 
     @Override
@@ -33,7 +32,7 @@ public class HerobrineShovel extends ShovelItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new LiteralText("§7Dig faster than the minecraft world refreshes!"));
+        tooltip.add(Text.literal("§7Dig faster than the minecraft world refreshes!"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

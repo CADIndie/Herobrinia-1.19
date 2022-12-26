@@ -16,7 +16,7 @@ public class InvulnerableEffect extends StatusEffect {
 
     @Override
     public Text getName() {
-        return new LiteralText("Invulnerable");
+        return Text.literal("Invulnerable");
     }
 
     @Override

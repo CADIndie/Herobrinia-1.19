@@ -17,12 +17,12 @@ public class HerobrinePickaxe extends PickaxeItem {
 
     @Override
     public Text getName() {
-        return new net.minecraft.text.LiteralText("§cHerobrine Pickaxe");
+        return net.minecraft.text.Text.literal("§cHerobrine Pickaxe");
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7This pickaxe mines through every block."));
+        tooltip.add(net.minecraft.text.Text.literal("§7This pickaxe mines through every block."));
 
         super.appendTooltip(stack, world, tooltip, context);
     }

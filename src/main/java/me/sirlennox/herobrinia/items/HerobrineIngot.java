@@ -5,7 +5,6 @@ import me.sirlennox.herobrinia.utils.Utils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -20,14 +19,14 @@ public class HerobrineIngot extends Item {
 
     @Override
     public Text getName() {
-        return new net.minecraft.text.LiteralText("§cHerobrine Ingot");
+        return net.minecraft.text.Text.literal("§cHerobrine Ingot");
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7This is the begin of every herobrine fighter."));
-        tooltip.add(new LiteralText("§bUsed to craft many items of the Herobrinia Mod."));
-        tooltip.add(new LiteralText("§dRight click §cHerobrine §dto heal him."));
+        tooltip.add(net.minecraft.text.Text.literal("§7This is the begin of every herobrine fighter."));
+        tooltip.add(Text.literal("§bUsed to craft many items of the Herobrinia Mod."));
+        tooltip.add(Text.literal("§dRight click §cHerobrine §dto heal him."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

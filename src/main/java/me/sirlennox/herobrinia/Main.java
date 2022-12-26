@@ -33,7 +33,7 @@ import net.minecraft.item.*;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
 import net.minecraft.recipe.BrewingRecipeRegistry;
-import net.minecraft.text.LiteralTextContent;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
@@ -56,13 +56,13 @@ import java.util.Random;
 public class Main implements ModInitializer {
 
     public static final EntityType<EntityHerobrine> HEROBRINE_ENTITY_TYPE = Registry.register(
-            Registry.ENTITY_TYPE,
+            Registries.ENTITY_TYPE,
             new Identifier("herobrinia", "herobrine"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, EntityHerobrine::new).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
     );
 
     public static final EntityType<EntityHerobrinePiglin> HEROBRINE_PIGLIN_ENTITY_TYPE = Registry.register(
-            Registry.ENTITY_TYPE,
+            Registries.ENTITY_TYPE,
             new Identifier("herobrinia", "herobrine_piglin"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EntityHerobrinePiglin::new).fireImmune().trackRangeBlocks(10).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
     );
@@ -232,7 +232,7 @@ public class Main implements ModInitializer {
         register(createIdentifier("herobrine_spawn_egg"), new SpawnEggItem(HEROBRINE_ENTITY_TYPE, 10051392, 0xFFFFFF, new Item.Settings().group(HEROBRINIA_GROUP)) {
             @Override
             public Text getName() {
-                return new LiteralText("Herobrine Spawn Egg");
+                return Text.literal("Herobrine Spawn Egg");
             }
 
             @Override
@@ -243,7 +243,7 @@ public class Main implements ModInitializer {
         register(createIdentifier("herobrine_piglin_spawn_egg"), new SpawnEggItem(HEROBRINE_PIGLIN_ENTITY_TYPE, 0xA52A2A, 0xFFFFFF, new Item.Settings().group(HEROBRINIA_GROUP)) {
             @Override
             public Text getName() {
-                return new LiteralText("Herobrine Piglin Spawn Egg");
+                return Text.literal("Herobrine Piglin Spawn Egg");
             }
 
             @Override
@@ -257,12 +257,12 @@ public class Main implements ModInitializer {
         register(createIdentifier("nether_herobrine_nugget_ore"), NEHTER_HEROBRINE_NUGGET_ORE);
 
         log(Level.INFO, "Initializing Ores...");
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_small"), ORE_HEROBRINE_NUGGET_NETHER_SMALL);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_large"), ORE_HEROBRINE_NUGGET_NETHER_LARGE);
+        Registry.register(RegistryKey.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_small"), ORE_HEROBRINE_NUGGET_NETHER_SMALL);
+        Registry.register(RegistryKey.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_large"), ORE_HEROBRINE_NUGGET_NETHER_LARGE);
 
-        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherSmall = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherSmall = RegistryKey.of(RegistryKey.CONFIGURED_FEATURE_WORLDGEN,
                 createIdentifier("ore_herobrine_nugget_nether_small"));
-        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherLarge = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherLarge = RegistryKey.of(RegistryKey.CONFIGURED_FEATURE,
                 createIdentifier("ore_herobrine_nugget_nether_large"));
 
 
@@ -298,7 +298,7 @@ public class Main implements ModInitializer {
 
 
     public static void register(Identifier id, StatusEffect entry) {
-         Registry.register(Registry.STATUS_EFFECT, id, entry);
+         Registry.register(Registries.STATUS_EFFECT, id, entry);
     }
 
     public static Potion registerPotion(Identifier id, StatusEffect entry, int duration, int amplifier) {
@@ -318,12 +318,12 @@ public class Main implements ModInitializer {
     }
 
     public static Potion registerPotion(Identifier id, Potion potion) {
-        return Registry.register(Registry.POTION, id, potion);
+        return Registry.register(Registries.POTION, id, potion);
     }
 
     public static void register(Identifier identifier, HerobriniaBlock b) {
-        Registry.register(Registry.BLOCK, identifier, b);
-        Registry.register(Registry.ITEM, identifier, new BlockItem(b, new Item.Settings().group(HEROBRINIA_GROUP)) {
+        Registry.register(Registries.BLOCK, identifier, b);
+        Registry.register(Registries.ITEM, identifier, new BlockItem(b, new Item.Settings().group(HEROBRINIA_GROUP)) {
             @Override
             public Text getName() {
                 return b.getItemName();
@@ -342,7 +342,7 @@ public class Main implements ModInitializer {
     }
 
     public static void register(Identifier identifier, Item i) {
-        Registry.register(Registry.ITEM, identifier, i);
+        Registry.register(Registries.ITEM, identifier, i);
     }
 
 

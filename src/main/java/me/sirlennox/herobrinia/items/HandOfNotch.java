@@ -10,7 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -29,13 +28,13 @@ public class HandOfNotch extends Item {
 
     @Override
     public Text getName() {
-        return new LiteralText("§a§k+++ §r§6§lHand of Notch §r§a§k+++");
+        return Text.literal("§a§k+++ §r§6§lHand of Notch §r§a§k+++");
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7The power of notch is with you."));
-        tooltip.add(new LiteralText("§dRight click a block or an entity to teleport."));
+        tooltip.add(net.minecraft.text.Text.literal("§7The power of notch is with you."));
+        tooltip.add(Text.literal("§dRight click a block or an entity to teleport."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

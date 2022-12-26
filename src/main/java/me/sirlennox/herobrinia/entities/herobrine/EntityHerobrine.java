@@ -7,7 +7,9 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvironmentInterface;
 import net.fabricmc.api.EnvironmentInterfaces;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.TargetPredicate;
@@ -36,7 +38,6 @@ import net.minecraft.scoreboard.Team;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.LiteralTextContent;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
@@ -124,7 +125,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
 
 
-    public FollowTargetGoal<PlayerEntity> followTargetGoal;
+    public DisableableFollowTargetGoal<PlayerEntity> followTargetGoal;
 
     @Override
     protected void initGoals() {
@@ -151,7 +152,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
                 }
             }
         }*/);
-        this.targetSelector.add(2 , this.followTargetGoal = new FollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, false) {
+        this.targetSelector.add(2 , this.followTargetGoal = new DisableableFollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, false) {
 
             @Override
             protected void findClosestTarget() {
@@ -354,7 +355,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
     @Override
     public Text getName() {
-        return new TextComponent(this.getEntityName());
+        return Text.literal(this.getEntityName());
     }
 
     @Override
@@ -364,7 +365,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
     @Override
     public Text getDisplayName() {
-        return Team.modifyText(this.getScoreboardTeam(), this.getName()).styled((style) -> style.withHoverEvent(this.getHoverEvent()).withInsertion(this.getUuidAsString()));
+        return Team.decorateName(this.getScoreboardTeam(), this.getName()).styled((style) -> style.withHoverEvent(this.getHoverEvent()).withInsertion(this.getUuidAsString()));
     }
 
     @Override
@@ -384,7 +385,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
     public ArrayList<ServerPlayerEntity> getPlayers() {
         ArrayList<ServerPlayerEntity> array = new ArrayList<>();
         if(this.getServer() != null) {
-            for (Object o : PlayerStream.all(this.getServer()).toArray()) {
+            for (Object o : PlayerLookup.all(this.getServer()).toArray()) {
                 if (o instanceof PlayerEntity) {
                     if (!((PlayerEntity) o).isSpectator() && !((PlayerEntity) o).isDead()) {
                         array.add((ServerPlayerEntity) o);

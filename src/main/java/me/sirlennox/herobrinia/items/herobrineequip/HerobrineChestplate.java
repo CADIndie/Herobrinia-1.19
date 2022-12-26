@@ -24,7 +24,7 @@ public class HerobrineChestplate extends ArmorItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7This chestplate will protect you every time."));
+        tooltip.add(net.minecraft.text.Text.literal("§7This chestplate will protect you every time."));
         super.appendTooltip(stack, world, tooltip, context);
     }
 
@@ -35,6 +35,6 @@ public class HerobrineChestplate extends ArmorItem {
 
     @Override
     public Text getName() {
-        return new net.minecraft.text.LiteralText("§cHerobrine Chestplate");
+        return net.minecraft.text.Text.literal("§cHerobrine Chestplate");
     }
 }

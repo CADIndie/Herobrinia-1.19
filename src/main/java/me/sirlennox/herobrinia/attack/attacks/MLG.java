@@ -24,7 +24,7 @@ public class MLG extends Attack {
         if(target instanceof PlayerEntity) {
             Set<Item> items = new java.util.HashSet<>(Collections.emptySet());
             items.add(Items.WATER_BUCKET);
-            if(!((PlayerEntity) target).inventory.containsAny(items)) {
+            if(!((PlayerEntity) target).getInventory().containsAny(items)) {
                 Utils.giveItem((PlayerEntity) target, new ItemStack(Items.WATER_BUCKET, 1));
             }
         }

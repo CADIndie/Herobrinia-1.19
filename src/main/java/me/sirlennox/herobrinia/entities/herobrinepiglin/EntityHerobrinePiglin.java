@@ -6,7 +6,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.AbstractPiglinEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PiglinEntity;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
@@ -33,7 +32,7 @@ public class EntityHerobrinePiglin extends PiglinEntity {
 
     @Override
     protected Text getDefaultName() {
-        return new LiteralText(getEntityName());
+        return Text.literal(getEntityName());
     }
 
     @Override

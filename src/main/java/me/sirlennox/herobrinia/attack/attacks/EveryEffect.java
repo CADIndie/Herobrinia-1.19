@@ -3,7 +3,7 @@ package me.sirlennox.herobrinia.attack.attacks;
 import me.sirlennox.herobrinia.attack.Attack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
 
 public class EveryEffect extends Attack {
     public EveryEffect() {
@@ -12,6 +12,6 @@ public class EveryEffect extends Attack {
 
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
-        Registry.STATUS_EFFECT.getEntries().forEach(e -> target.addStatusEffect(new StatusEffectInstance(e.getValue(), 20 * 20, 6)));
+        Registries.STATUS_EFFECT.getIndexedEntries().forEach(e -> target.addStatusEffect(new StatusEffectInstance(e.value(), 20 * 20, 6)));
     }
 }

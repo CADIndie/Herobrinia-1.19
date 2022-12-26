@@ -39,7 +39,7 @@ public class HerobrineArrow extends ArrowItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new net.minecraft.text.LiteralText("§7The munition for the Herobrine Bow"));
+        tooltip.add(net.minecraft.text.Text.literal("§7The munition for the Herobrine Bow"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 
@@ -50,6 +50,6 @@ public class HerobrineArrow extends ArrowItem {
 
     @Override
     public Text getName() {
-        return new net.minecraft.text.LiteralText("§cHerobrine Arrow");
+        return net.minecraft.text.Text.literal("§cHerobrine Arrow");
     }
 }

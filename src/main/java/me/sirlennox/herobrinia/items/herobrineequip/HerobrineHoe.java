@@ -4,7 +4,6 @@ import me.sirlennox.herobrinia.Main;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -19,7 +18,7 @@ public class HerobrineHoe extends HoeItem {
 
     @Override
     public Text getName() {
-        return new LiteralText("§cHerobrine Hoe");
+        return Text.literal("§cHerobrine Hoe");
     }
 
     @Override
@@ -29,7 +28,7 @@ public class HerobrineHoe extends HoeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new LiteralText("§7The farmers tool!"));
+        tooltip.add(Text.literal("§7The farmers tool!"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

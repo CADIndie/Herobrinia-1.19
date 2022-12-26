@@ -11,7 +11,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShearsItem;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -37,7 +36,7 @@ public class HerobrineShears extends ShearsItem {
 
     @Override
     public Text getName() {
-        return new LiteralText("§cHerobrine Shears");
+        return Text.literal("§cHerobrine Shears");
     }
 
     @Override
@@ -63,7 +62,7 @@ public class HerobrineShears extends ShearsItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new LiteralText("§7More wool!"));
+        tooltip.add(Text.literal("§7More wool!"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }
