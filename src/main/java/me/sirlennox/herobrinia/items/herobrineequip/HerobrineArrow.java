@@ -6,6 +6,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -16,7 +17,7 @@ import java.util.List;
 public class HerobrineArrow extends ArrowItem {
 
     public HerobrineArrow() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP));
+        super(new Item.Settings());
     }
 
     @Override

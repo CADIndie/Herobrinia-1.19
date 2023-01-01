@@ -8,7 +8,7 @@ import net.minecraft.text.Text;
 public class HerobrineNugget extends Item {
 
     public HerobrineNugget() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP));
+        super(new Item.Settings());
     }
 
     @Override

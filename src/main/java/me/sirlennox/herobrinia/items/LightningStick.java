@@ -21,8 +21,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class LightningStick extends Item {
-    public LightningStick() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP));
+
+    public LightningStick(Settings settings) {
+        super(settings);
     }
 
     @Override

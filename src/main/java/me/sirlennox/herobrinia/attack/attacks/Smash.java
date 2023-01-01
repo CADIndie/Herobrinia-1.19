@@ -14,7 +14,6 @@ public class Smash extends Attack {
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
         FallingBlockEntity fallingBlockEntity = new FallingBlockEntity(target.world, target.getPos().x, target.getPos().y + 10, target.getPos().z, Blocks.BEDROCK.getDefaultState());
-        fallingBlockEntity.setHurtEntities(true);
         fallingBlockEntity.timeFalling = 100000;
         target.world.spawnEntity(fallingBlockEntity);
     }

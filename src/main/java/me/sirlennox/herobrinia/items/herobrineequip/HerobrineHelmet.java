@@ -4,6 +4,7 @@ import me.sirlennox.herobrinia.Main;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -14,7 +15,7 @@ import java.util.List;
 public class HerobrineHelmet extends ArmorItem {
 
     public HerobrineHelmet() {
-        super(Main.HEROBRINIA_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Settings().group(Main.HEROBRINIA_GROUP));
+        super(Main.HEROBRINIA_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings());
     }
 
     @Override

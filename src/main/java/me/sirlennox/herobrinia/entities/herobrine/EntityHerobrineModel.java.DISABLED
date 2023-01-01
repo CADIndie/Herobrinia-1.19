@@ -53,11 +53,11 @@ public class EntityHerobrineModel extends BipedEntityModel<EntityHerobrine> {
     }
     public void setAngles(EntityHerobrine livingEntity, float f, float g, float h, float i, float j) {
         super.setAngles(livingEntity, f, g, h, i, j);
-        this.leftPantLeg.copyPositionAndRotation(this.leftLeg);
-        this.rightPantLeg.copyPositionAndRotation(this.rightLeg);
-        this.leftSleeve.copyPositionAndRotation(this.leftArm);
-        this.rightSleeve.copyPositionAndRotation(this.rightArm);
-        this.jacket.copyPositionAndRotation(this.torso);
+        this.leftPantLeg.copyTransform(this.leftLeg);
+        this.rightPantLeg.copyTransform(this.rightLeg);
+        this.leftSleeve.copyTransform(this.leftArm);
+        this.rightSleeve.copyTransform(this.rightArm);
+        this.jacket.copyTransform(this.body);
 
     }
 
@@ -87,18 +87,5 @@ public class EntityHerobrineModel extends BipedEntityModel<EntityHerobrine> {
 
         this.parts.add(modelPart);
     }
-
-/*    @Override
-    public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
-        matrices.translate(0, 1.125, 0);
-
-        leftArm.render(matrices, vertices, light, overlay);
-        leftLeg.render(matrices, vertices, light, overlay);
-        leftPantLeg.render(matrices, vertices, light, overlay);
-        leftSleeve.render(matrices, vertices, light, overlay);
-        rightPantLeg.render(matrices, vertices, light, overlay);
-        rightSleeve.render(matrices, vertices, light, overlay);
-
-    }*/
 
 }

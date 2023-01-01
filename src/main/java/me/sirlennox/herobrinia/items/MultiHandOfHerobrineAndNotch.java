@@ -20,7 +20,7 @@ import java.util.List;
 public class MultiHandOfHerobrineAndNotch extends Item {
 
     public MultiHandOfHerobrineAndNotch() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP).maxCount(1));
+        super(new Item.Settings().maxCount(1));
     }
 
     @Override

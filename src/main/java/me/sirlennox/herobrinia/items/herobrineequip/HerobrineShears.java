@@ -8,6 +8,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShearsItem;
@@ -23,7 +24,7 @@ import java.util.Random;
 public class HerobrineShears extends ShearsItem {
 
     public HerobrineShears() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP).maxDamage(2380));
+        super(new Item.Settings().maxDamage(2380));
     }
 
     @Override

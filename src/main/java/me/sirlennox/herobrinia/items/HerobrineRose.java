@@ -13,7 +13,7 @@ import java.util.List;
 
 public class HerobrineRose extends Item {
     public HerobrineRose() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP));
+        super(new Item.Settings());
     }
 
     @Override

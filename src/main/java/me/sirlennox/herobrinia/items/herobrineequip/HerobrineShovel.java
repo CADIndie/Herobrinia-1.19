@@ -2,6 +2,7 @@ package me.sirlennox.herobrinia.items.herobrineequip;
 
 import me.sirlennox.herobrinia.Main;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.text.Text;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class HerobrineShovel extends ShovelItem {
     public HerobrineShovel() {
-        super(Main.HEROBRINIA_TOOL_MATERIAL, 10, -2.8F, new Settings().group(Main.HEROBRINIA_GROUP));
+        super(Main.HEROBRINIA_TOOL_MATERIAL, 10, -2.8F, new Item.Settings());
     }
 
     @Override

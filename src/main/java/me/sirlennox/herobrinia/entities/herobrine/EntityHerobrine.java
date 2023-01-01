@@ -29,6 +29,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
+import net.minecraft.entity.raid.RaiderEntity;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -132,27 +133,9 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
-        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, false) /*{
-            @Override
-            public boolean shouldContinue() {
-                if(!EntityHerobrine.this.isTamed() || target == null) return super.shouldContinue();
-                return EntityHerobrine.this.isAllowedToAttack(target)  && super.shouldContinue();
-            }
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, false));
 
-            @Override
-            public boolean canStart() {
-                if(!EntityHerobrine.this.isTamed() || target == null) return super.canStart();
-                return EntityHerobrine.this.isAllowedToAttack(target) && super.canStart();
-            }
-
-            @Override
-            public void tick() {
-                if(!EntityHerobrine.this.isTamed() || EntityHerobrine.this.isAllowedToAttack(this.mob.getTarget())) {
-                    super.tick();
-                }
-            }
-        }*/);
-        this.targetSelector.add(2 , this.followTargetGoal = new DisableableFollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, false) {
+        this.targetSelector.add(2 , this.followTargetGoal = new DisableableFollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, 2, true, false) {
 
             @Override
             protected void findClosestTarget() {
@@ -240,7 +223,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
 
     @Override
     public boolean damage(DamageSource source, float amount) {
-        if(source == DamageSource.FALL || source == DamageSource.anvil() || source == DamageSource.CACTUS || source == DamageSource.fallingBlock() || source == DamageSource.SWEET_BERRY_BUSH || source == DamageSource.IN_WALL) return false;
+        if(source == DamageSource.FALL || source == DamageSource.anvil(getAttacker()) || source == DamageSource.CACTUS || source == DamageSource.fallingBlock(getAttacker()) || source == DamageSource.SWEET_BERRY_BUSH || source == DamageSource.IN_WALL) return false;
         if(this.isDead() || this.getHealth() - amount <= 0) return super.damage(source, amount);
         Entity attacker = source.getAttacker();
         LivingEntity entity = null;
@@ -296,33 +279,6 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
                         if (!this.world.isClient()) Utils.randomAttack(nearest, this);
                         target = nearest;
                     }
-
-                  /*  if (nearest.distanceTo(this) > followRange - 5) {
-                        double x = nearest.getPos().x + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
-                        double y = nearest.getPos().y;
-                        double z = nearest.getPos().z + (Main.rndm.nextBoolean() ? Main.rndm.nextInt(3) : -Main.rndm.nextInt(3));
-                        //                BlockPos bp = new BlockPos(x, y, z);
-                        if (!nearest.getEntityWorld().equals(this.getEntityWorld()))
-                            this.setWorld(nearest.getEntityWorld());
-          *//*                 BlockState bs1 = this.getEntityWorld().getBlockState(bp);
-                            BlockState bs2 = this.getEntityWorld().getBlockState(bp.up(1));
-                            if(bs1 != null && bs2 != null && (!bs1.isOpaque() || !bs2.isOpaque())) {
-                                x = nearest.getX();
-                                y = nearest.getY();
-                                z = nearest.getZ();
-                            }
-
-
-                            bp = new BlockPos(x, y, z);
-                            bs1 = this.getEntityWorld().getBlockState(bp);
-                            bs2 = this.getEntityWorld().getBlockState(bp.up(1));
-*//*
-                        //if((bs1 == null || bs1.isOpaque()) || (bs2 == null || bs2.isOpaque())) {
-                        this.teleport(x, y, z);
-                        //}
-
-
-                    }*/
                 }
 
             } catch (Exception e) {
@@ -374,13 +330,9 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
     }
 
     @Override
-    public boolean handleFallDamage(float fallDistance, float damageMultiplier) {
+    public boolean handleFallDamage(float fallDistance, float damageMultiplier, DamageSource damageSource) {
         return false;
     }
-
-
-
-
 
     public ArrayList<ServerPlayerEntity> getPlayers() {
         ArrayList<ServerPlayerEntity> array = new ArrayList<>();

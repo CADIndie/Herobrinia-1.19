@@ -1,5 +1,6 @@
 package me.sirlennox.herobrinia.mixins;
 
+import net.minecraft.client.item.ClampedModelPredicateProvider;
 import net.minecraft.client.item.ModelPredicateProvider;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.Item;
@@ -12,5 +13,5 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface ModelPredicateProviderRegistryMixin {
 
     @Invoker(value = "register")
-    static void register(Item item, Identifier id, ModelPredicateProvider provider) {}
+    static void register(Item item, Identifier id, ClampedModelPredicateProvider provider) {}
 }

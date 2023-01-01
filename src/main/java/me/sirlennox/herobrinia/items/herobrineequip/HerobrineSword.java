@@ -2,6 +2,7 @@ package me.sirlennox.herobrinia.items.herobrineequip;
 
 import me.sirlennox.herobrinia.Main;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.text.Text;
@@ -13,7 +14,7 @@ import java.util.List;
 public class HerobrineSword extends SwordItem {
 
     public HerobrineSword() {
-        super(Main.HEROBRINIA_TOOL_MATERIAL, 20, -1.5F, new Settings().group(Main.HEROBRINIA_GROUP));
+        super(Main.HEROBRINIA_TOOL_MATERIAL, 20, -1.5F, new Item.Settings());
     }
 
 

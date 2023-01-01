@@ -14,7 +14,7 @@ import java.util.List;
 public class HerobrineTotem extends Item {
 
     public HerobrineTotem() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP));
+        super(new Item.Settings());
     }
 
     @Override

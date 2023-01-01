@@ -21,7 +21,7 @@ public class MagicFlintAndSteel extends FlintAndSteelItem {
     //public SpawnEggItem spawnEggItem;
 
     public MagicFlintAndSteel() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP).maxCount(1));
+        super(new Item.Settings().maxCount(1));
        // this.spawnEggItem = new SpawnEggItem(Main.HEROBRINE_ENTITY_TYPE, 0xFFFFFF, 0x000000,  new Item.Settings().group(Main.HEROBRINIA_GROUP));
     }
 

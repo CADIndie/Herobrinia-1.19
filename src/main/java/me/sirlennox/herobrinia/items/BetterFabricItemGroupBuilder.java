@@ -1,6 +1,5 @@
 package me.sirlennox.herobrinia.items;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.impl.item.ItemExtensions;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;

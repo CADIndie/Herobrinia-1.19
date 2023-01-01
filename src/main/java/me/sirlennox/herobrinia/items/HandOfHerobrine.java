@@ -21,7 +21,7 @@ import java.util.List;
 public class HandOfHerobrine extends Item {
 
     public HandOfHerobrine() {
-        super(new Settings().group(Main.HEROBRINIA_GROUP).maxCount(1));
+        super(new Item.Settings().maxCount(1));
     }
 
     @Override

@@ -13,8 +13,7 @@ public class Fireball extends Attack {
 
     @Override
     public void attack(LivingEntity target, LivingEntity herobrine) {
-        FireballEntity fireball = new FireballEntity(target.world, herobrine, 0, -1, 0);
-        fireball.explosionPower = 4;
+        FireballEntity fireball = new FireballEntity(target.world, herobrine,0, -1, 0, 4);
         fireball.updatePosition(target.getPos().x, target.getPos().y + 20, target.getPos().z);
         target.world.spawnEntity(fireball);
     }

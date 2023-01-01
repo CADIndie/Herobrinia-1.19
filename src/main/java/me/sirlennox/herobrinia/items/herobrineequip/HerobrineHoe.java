@@ -3,6 +3,7 @@ package me.sirlennox.herobrinia.items.herobrineequip;
 import me.sirlennox.herobrinia.Main;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.HoeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class HerobrineHoe extends HoeItem {
     public HerobrineHoe() {
-        super(Main.HEROBRINIA_TOOL_MATERIAL, 12, -3.0F, new Settings().group(Main.HEROBRINIA_GROUP));
+        super(Main.HEROBRINIA_TOOL_MATERIAL, 12, -3.0F, new Item.Settings());
     }
 
 

@@ -33,12 +33,10 @@ import net.minecraft.item.*;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
 import net.minecraft.recipe.BrewingRecipeRegistry;
-import net.minecraft.registry.Registries;
+import net.minecraft.registry.*;
+import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.BuiltinRegistries;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
@@ -91,7 +89,7 @@ public class Main implements ModInitializer {
     public static final Item MULTI_HAND_OF_HEROBRINE_AND_NOTCH = new MultiHandOfHerobrineAndNotch();
     public static final Item HEROBRINE_ROSE = new HerobrineRose();
     public static final Item MAGIC_FLINT_AND_STEEL = new MagicFlintAndSteel();
-    public static final Item LIGHTNING_STICK = new LightningStick();
+    public static final Item LIGHTNING_STICK = new LightningStick(new Item.Settings());
     public static final Item HEROBRINE_SWORD = new HerobrineSword();
     public static final Item HEROBRINE_BOW = new HerobrineBow();
     public static final Item HEROBRINE_ARROW = new HerobrineArrow();
@@ -116,8 +114,8 @@ public class Main implements ModInitializer {
     public static final HerobriniaBlock NEHTER_HEROBRINE_NUGGET_ORE = new NetherHerobrineNuggetOre();
 
     //Ores
-    private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_SMALL = Feature.NO_SURFACE_ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 2)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(8, 16, 128))).spreadHorizontally();
-    private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_LARGE = Feature.NO_SURFACE_ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 3)).decorate(Decorator.DEPTH_AVERAGE.configure(new DepthAverageDecoratorConfig(16, 8))).spreadHorizontally();
+    private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_SMALL = Feature.ORE.generate(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 2)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(8, 16, 128))).spreadHorizontally();
+    private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_LARGE = Feature.ORE.generate(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 3)).decorate(Decorator.DEPTH_AVERAGE.configure(new DepthAverageDecoratorConfig(16, 8))).spreadHorizontally();
 
 
     //Effects
@@ -229,7 +227,7 @@ public class Main implements ModInitializer {
         register(createIdentifier("herobrine_ingot"), HEROBRINE_INGOT);
         register(createIdentifier("herobrine_nugget"), HEROBRINE_NUGGET);
         register(createIdentifier("herobrine_rose"), HEROBRINE_ROSE);
-        register(createIdentifier("herobrine_spawn_egg"), new SpawnEggItem(HEROBRINE_ENTITY_TYPE, 10051392, 0xFFFFFF, new Item.Settings().group(HEROBRINIA_GROUP)) {
+        register(createIdentifier("herobrine_spawn_egg"), new SpawnEggItem(HEROBRINE_ENTITY_TYPE, 10051392, 0xFFFFFF, new Item.Settings()) {
             @Override
             public Text getName() {
                 return Text.literal("Herobrine Spawn Egg");
@@ -240,7 +238,7 @@ public class Main implements ModInitializer {
                 return this.getName();
             }
         });
-        register(createIdentifier("herobrine_piglin_spawn_egg"), new SpawnEggItem(HEROBRINE_PIGLIN_ENTITY_TYPE, 0xA52A2A, 0xFFFFFF, new Item.Settings().group(HEROBRINIA_GROUP)) {
+        register(createIdentifier("herobrine_piglin_spawn_egg"), new SpawnEggItem(HEROBRINE_PIGLIN_ENTITY_TYPE, 0xA52A2A, 0xFFFFFF, new Item.Settings()) {
             @Override
             public Text getName() {
                 return Text.literal("Herobrine Piglin Spawn Egg");
@@ -257,12 +255,12 @@ public class Main implements ModInitializer {
         register(createIdentifier("nether_herobrine_nugget_ore"), NEHTER_HEROBRINE_NUGGET_ORE);
 
         log(Level.INFO, "Initializing Ores...");
-        Registry.register(RegistryKey.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_small"), ORE_HEROBRINE_NUGGET_NETHER_SMALL);
-        Registry.register(RegistryKey.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_large"), ORE_HEROBRINE_NUGGET_NETHER_LARGE);
+        Registry.register(Registries.FEATURE,  createIdentifier("ore_herobrine_nugget_nether_small"), ORE_HEROBRINE_NUGGET_NETHER_SMALL);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_large"), ORE_HEROBRINE_NUGGET_NETHER_LARGE);
 
-        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherSmall = RegistryKey.of(RegistryKey.CONFIGURED_FEATURE_WORLDGEN,
+        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherSmall = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
                 createIdentifier("ore_herobrine_nugget_nether_small"));
-        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherLarge = RegistryKey.of(RegistryKey.CONFIGURED_FEATURE,
+        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherLarge = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
                 createIdentifier("ore_herobrine_nugget_nether_large"));
 
 
@@ -323,7 +321,7 @@ public class Main implements ModInitializer {
 
     public static void register(Identifier identifier, HerobriniaBlock b) {
         Registry.register(Registries.BLOCK, identifier, b);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(b, new Item.Settings().group(HEROBRINIA_GROUP)) {
+        Registry.register(Registries.ITEM, identifier, new BlockItem(b, new Item.Settings()) {
             @Override
             public Text getName() {
                 return b.getItemName();
