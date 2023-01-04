@@ -7,7 +7,15 @@ import net.minecraft.entity.LivingEntity;
 
 /* Not working */
 public class Smash extends Attack {
-    public Smash() {
+    public Smash(String name, String desc) {
+        super(name, desc);
+    }
+
+    @Override
+    public void attack(LivingEntity target, LivingEntity herobrine) {
+
+    }
+/*    public Smash() {
         super("Smash", "Smashes a player");
     }
 
@@ -16,5 +24,5 @@ public class Smash extends Attack {
         FallingBlockEntity fallingBlockEntity = new FallingBlockEntity(target.world, target.getPos().x, target.getPos().y + 10, target.getPos().z, Blocks.BEDROCK.getDefaultState());
         fallingBlockEntity.timeFalling = 100000;
         target.world.spawnEntity(fallingBlockEntity);
-    }
+    }*/
 }

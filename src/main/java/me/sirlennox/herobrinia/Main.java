@@ -41,6 +41,7 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.PlacedFeature;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -255,12 +256,12 @@ public class Main implements ModInitializer {
         register(createIdentifier("nether_herobrine_nugget_ore"), NEHTER_HEROBRINE_NUGGET_ORE);
 
         log(Level.INFO, "Initializing Ores...");
-        Registry.register(Registries.FEATURE,  createIdentifier("ore_herobrine_nugget_nether_small"), ORE_HEROBRINE_NUGGET_NETHER_SMALL);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_large"), ORE_HEROBRINE_NUGGET_NETHER_LARGE);
+        Registry.register(RegistryKeys.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_small"), ORE_HEROBRINE_NUGGET_NETHER_SMALL);
+        Registry.register(RegistryKeys.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_large"), ORE_HEROBRINE_NUGGET_NETHER_LARGE);
 
-        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherSmall = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
+        RegistryKey<PlacedFeature> oreHerobrineNuggetNetherSmall = RegistryKey.of(RegistryKeys.PLACED_FEATURE,
                 createIdentifier("ore_herobrine_nugget_nether_small"));
-        RegistryKey<ConfiguredFeature<?, ?>> oreHerobrineNuggetNetherLarge = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
+        RegistryKey<PlacedFeature> oreHerobrineNuggetNetherLarge = RegistryKey.of(RegistryKeys.PLACED_FEATURE,
                 createIdentifier("ore_herobrine_nugget_nether_large"));
 
 

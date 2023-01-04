@@ -40,30 +40,9 @@ public class BetterFabricItemGroupBuilder {
         return this;
     }
 
-    public ItemGroup build() {
+/*    public ItemGroup build() {
         ((ItemExtensions)ItemGroups.BUILDING_BLOCKS).fabric_expandArray();
-        return new ItemGroup(ItemGroups.length - 1, this.name) {
-            public ItemStack createIcon() {
-                return BetterFabricItemGroupBuilder.this.stackSupplier.get();
-            }
-
-            @Override
-            public String getName() {
-                return BetterFabricItemGroupBuilder.this.name;
-            }
-
-            @Override
-            public Text getTranslationKey() {
-                return net.minecraft.text.Text.literal(this.getName());
-            }
-
-            public void appendStacks(DefaultedList<ItemStack> stacks) {
-                if (BetterFabricItemGroupBuilder.this.stacksForDisplay != null) {
-                    BetterFabricItemGroupBuilder.this.stacksForDisplay.accept(stacks);
-                } else {
-                    super.appendStacks(stacks);
-                }
-            }
+        return new ItemGroup(ItemGroups.BUILDING_BLOCKS.getRow(), - 1, this.name) {
         };
-    }
+    }*/
 }

@@ -51,7 +51,8 @@ public class HerobrineBow extends BowItem {
                     if (!world.isClient) {
                         ArrowItem arrowItem = (ArrowItem) (itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Main.HEROBRINE_ARROW);
                         PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, itemStack, playerEntity);
-                        persistentProjectileEntity.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, f * 3.0F, 1.0F);
+                        persistentProjectileEntity.getPitch(playerEntity.getPitch());
+                        persistentProjectileEntity.getYaw(playerEntity.getYaw());
                         if (f == 1.0F) {
                             persistentProjectileEntity.setCritical(true);
                         }

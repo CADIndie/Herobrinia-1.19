@@ -49,6 +49,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 @EnvironmentInterfaces({@EnvironmentInterface(
         value = EnvType.CLIENT,
@@ -59,8 +60,9 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
     public TimeUtil attackDelayUtil;
     private final ServerBossBar bossBar;
     public static double followRange = 80000;
-    public TargetPredicate targetPredicate = (new TargetPredicate()).setBaseMaxDistance(followRange);
+    public TargetPredicate targetPredicate = (new TargetPredicate(true)).setBaseMaxDistance(followRange);
     public LivingEntity target;
+    public RaiderEntity entity;
 
     public EntityHerobrine(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
@@ -135,7 +137,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
         this.goalSelector.add(8, new LookAroundGoal(this));
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.5D, false));
 
-        this.targetSelector.add(2 , this.followTargetGoal = new DisableableFollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, 2, true, false) {
+        this.targetSelector.add(2 , this.followTargetGoal = new DisableableFollowTargetGoal<PlayerEntity>(entity, PlayerEntity.class, 2, true, false, (Predicate<LivingEntity>) this.targetPredicate) {
 
             @Override
             protected void findClosestTarget() {
