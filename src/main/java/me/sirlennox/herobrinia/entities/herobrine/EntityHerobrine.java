@@ -60,7 +60,7 @@ public class EntityHerobrine extends TameableEntity implements SkinOverlayOwner 
     public TimeUtil attackDelayUtil;
     private final ServerBossBar bossBar;
     public static double followRange = 80000;
-    public TargetPredicate targetPredicate = (new TargetPredicate(true)).setBaseMaxDistance(followRange);
+    public TargetPredicate targetPredicate = (TargetPredicate.DEFAULT).setBaseMaxDistance(followRange);
     public LivingEntity target;
     public RaiderEntity entity;
 

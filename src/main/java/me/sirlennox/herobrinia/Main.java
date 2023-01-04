@@ -20,6 +20,7 @@ import me.sirlennox.herobrinia.mixins.BrewingRecipeRegistryMixin;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.Blocks;
@@ -35,13 +36,18 @@ import net.minecraft.potion.Potions;
 import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.registry.*;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.placementmodifier.RandomOffsetPlacementModifier;
+import net.minecraft.world.gen.stateprovider.PredicatedStateProvider;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -73,9 +79,8 @@ public class Main implements ModInitializer {
     public static long herobrineAttackDelay = 10000L;
 
 
-    public static final ItemGroup HEROBRINIA_GROUP = BetterFabricItemGroupBuilder.create(
-            new Identifier("herobrinia", "herobrinia"), "§cHerobrinia")
-            .icon(() -> new ItemStack(Blocks.NETHERITE_BLOCK))
+    public static final ItemGroup HEROBRINIA_GROUP = FabricItemGroup.builder(
+            new Identifier("herobrinia", "herobrinia")).displayName(Text.literal("§cHerobrinia")).icon(() -> new ItemStack(Blocks.NETHERITE_BLOCK))
             .build();
 
 
@@ -113,11 +118,6 @@ public class Main implements ModInitializer {
     //Blocks
     public static final HerobriniaBlock HEROBRINE_BLOCK = new HerobrineBlock();
     public static final HerobriniaBlock NEHTER_HEROBRINE_NUGGET_ORE = new NetherHerobrineNuggetOre();
-
-    //Ores
-    private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_SMALL = Feature.ORE.generate(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 2)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(8, 16, 128))).spreadHorizontally();
-    private static final ConfiguredFeature<?, ?> ORE_HEROBRINE_NUGGET_NETHER_LARGE = Feature.ORE.generate(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER, NEHTER_HEROBRINE_NUGGET_ORE.getDefaultState(), 3)).decorate(Decorator.DEPTH_AVERAGE.configure(new DepthAverageDecoratorConfig(16, 8))).spreadHorizontally();
-
 
     //Effects
     public static final StatusEffect INVULNERABLE_EFFECT = new InvulnerableEffect();
@@ -256,8 +256,6 @@ public class Main implements ModInitializer {
         register(createIdentifier("nether_herobrine_nugget_ore"), NEHTER_HEROBRINE_NUGGET_ORE);
 
         log(Level.INFO, "Initializing Ores...");
-        Registry.register(RegistryKeys.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_small"), ORE_HEROBRINE_NUGGET_NETHER_SMALL);
-        Registry.register(RegistryKeys.CONFIGURED_FEATURE,  createIdentifier("ore_herobrine_nugget_nether_large"), ORE_HEROBRINE_NUGGET_NETHER_LARGE);
 
         RegistryKey<PlacedFeature> oreHerobrineNuggetNetherSmall = RegistryKey.of(RegistryKeys.PLACED_FEATURE,
                 createIdentifier("ore_herobrine_nugget_nether_small"));
